@@ -98,7 +98,7 @@ Example:
 
 Bibtex file with all references mentioned in `POSEIDON.yml`, `README.txt` and `CHANGELOG.txt`
 
-### Naming
+## Naming Poseidon v.2 `package`s
 
 The naming of packages should follow a simple scheme:
 
@@ -140,7 +140,7 @@ Identifiers can be somewhat informal as long as the project is ongoing, they jus
 
 External projects can be integrated similarly by using their publication name, or by temporary internal identifiers such as `Iron_Age_Boston_Share`.
 
-### DAG internal procedures
+## DAG internal procedures
 
 Individual contributors would create packages in dedicated poseidon folders in their user project directories, e.g. `/project1/user/xyz/poseidon/2018_Lamnidis_Fennoscandia`. That way, subfolders belong to individual maintainers and be writable only by them. 
 
