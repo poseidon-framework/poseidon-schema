@@ -1,25 +1,49 @@
 # Poseidon v.2: DAG Genotype Data Organisation
 
-Poseidon v.2 is an intermediate solution for the genotype data organisation within the department of archaeogenetics at the Max Planck Institute for the Science of Human History (MPI-SHH). Please check the internal documentation for more details.
+Poseidon v.2 is a solution for genotype data organisation established within the Department of Archaeogenetics at the Max Planck Institute for the Science of Human History (MPI-SHH) in Jena. 
 
-Content of this file:
+## The Poseidon v.2 `package`
 
-1. The Poseidon v.2 `package`
-2. The `.janno` file
-3. The `poseidon2` command line software
+All ancient and modern data are distributed into so-called packages, which are directories containing a dedicated set of files. Packages correspond to published sets of genomes, or in case of unpublished projects, ongoing (and growing) sets of samples currently analysed.
 
-## 1. The Poseidon v.2 `package`
+### Structure
 
-All ancient and modern data are distributed into so-called packages, which are folders containing a dedicated set of files. Packages correspond to published sets of genomes, or in case of unpublished projects, ongoing (and growing) sets of samples currently analysed.
+Every package should have the following files: 
 
-Individual contributors would create packages in dedicated poseidon folders in their user project directories, e.g. `/project1/user/xyz/poseidon/2018_Lamnidis_Fennoscandia`. That way, subfolders belong to individual maintainers and be writable only by them. 
+- The `POSEIDON.yml` file
+- The `README.txt` file
+- The `CHANGELOG.txt` file
+- The `LITERATURE.bib` file
+- one or data-subfolders with date name: YYYY_MM_DD, each with
+  - The `X.janno` file
+  - The `X.bed`, `X.bim`, `X.fam` files
 
-The poseidon admins would then link these packages into the official `/projects1/poseidon` repo, located on the HPC storage unit of the MPI-SHH, where we distinguish ancient and modern genotype data:
+Example:
 
 ```
-/projects1/poseidon/ancient/…  
-/projects1/poseidon/modern/…
+Switzerland_LNBA_Roswita/README.txt
+Switzerland_LNBA_Roswita/CHANGELOG.txt
+Switzerland_LNBA_Roswita/2019_03_20/
+Switzerland_LNBA_Roswita/2019_05_15/  
+...  
+Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.eigenstrat.geno
+Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.eigenstrat.snp
+Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.eigenstrat.ind
+Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.plink.bed
+Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.plink.bim
+Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.plink.fam
+Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.janno
 ```
+
+## 2. 
+
+The .janno file is a tab-separated text file with a header line that holds a clearly defined set of metainformation (columns) for each sample (rows) in a package. 
+
+The variables (columns), variable types and possible content of the janno file are documented in a google doc (ask the admins).
+
+A .janno file must have all of these columns in exactly this order with exactly these column names. If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) can be filled with the NULL value n/a. Ideally, a .janno file should have the least number of n/a-values possible.
+
+The order of the samples (rows) in the .janno file must be equal to the order in the files that hold the core genetic data.
 
 ### Naming
 
@@ -63,48 +87,13 @@ Identifiers can be somewhat informal as long as the project is ongoing, they jus
 
 External projects can be integrated similarly by using their publication name, or by temporary internal identifiers such as `Iron_Age_Boston_Share`.
 
-### Substructure
+### DAG internal procedures
 
-Every package should have the following files: 
+Individual contributors would create packages in dedicated poseidon folders in their user project directories, e.g. `/project1/user/xyz/poseidon/2018_Lamnidis_Fennoscandia`. That way, subfolders belong to individual maintainers and be writable only by them. 
 
-- README.txt
-- CHANGELOG.txt#
-- data-subfolders with date name: YYYY_MM_DD
-
-Each of the data-subfolders must hold all the following files:
-
-- X.janno (see below)
-- X.bed
-- X.bim
-- X.fam
-
-Example:
+The poseidon admins would then link these packages into the official `/projects1/poseidon` repo, located on the HPC storage unit of the MPI-SHH, where we distinguish ancient and modern genotype data:
 
 ```
-Switzerland_LNBA_Roswita/README.txt
-Switzerland_LNBA_Roswita/CHANGELOG.txt
-Switzerland_LNBA_Roswita/2019_03_20/
-Switzerland_LNBA_Roswita/2019_05_15/  
-...  
-Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.eigenstrat.geno
-Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.eigenstrat.snp
-Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.eigenstrat.ind
-Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.plink.bed
-Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.plink.bim
-Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.plink.fam
-Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.janno
+/projects1/poseidon/ancient/…  
+/projects1/poseidon/modern/…
 ```
-
-## 2. The `.janno` file
-
-The .janno file is a tab-separated text file with a header line that holds a clearly defined set of metainformation (columns) for each sample (rows) in a package. 
-
-The variables (columns), variable types and possible content of the janno file are documented in a google doc (ask the admins).
-
-A .janno file must have all of these columns in exactly this order with exactly these column names. If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) can be filled with the NULL value n/a. Ideally, a .janno file should have the least number of n/a-values possible.
-
-The order of the samples (rows) in the .janno file must be equal to the order in the files that hold the core genetic data.
-
-## 3. The `.poseidon.yml` file
-
-## 4. The `.bib` file
