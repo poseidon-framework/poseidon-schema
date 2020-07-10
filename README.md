@@ -11,9 +11,8 @@ All ancient and modern data are distributed into so-called packages, which are d
 Every package should have the following files: 
 
 - The `POSEIDON.yml` file
-- one or multiple data-subfolders with date name: YYYY_MM_DD, each with
-  - The `X.janno` file
-  - The `X.bed`, `X.bim`, `X.fam` files
+- The `X.janno` file
+- The `X.bed`, `X.bim`, `X.fam` files
 
 It also can contain the following files:
 
@@ -25,16 +24,13 @@ Example:
 
 ```
 Switzerland_LNBA_Roswita/POSEIDON.yml
+Switzerland_LNBA_Roswita/Switzerland_LNBA.janno
+Switzerland_LNBA_Roswita/Switzerland_LNBA.plink.bed
+Switzerland_LNBA_Roswita/Switzerland_LNBA.plink.bim
+Switzerland_LNBA_Roswita/Switzerland_LNBA.plink.fam
 Switzerland_LNBA_Roswita/README.txt
 Switzerland_LNBA_Roswita/CHANGELOG.txt
 Switzerland_LNBA_Roswita/LITERATURE.bib
-Switzerland_LNBA_Roswita/2019_03_20/
-Switzerland_LNBA_Roswita/2019_05_15/  
-...
-Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.janno
-Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.plink.bed
-Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.plink.bim
-Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.plink.fam
 ```
 
 ###  The `POSEIDON.yml` file [mandatory]
@@ -52,6 +48,12 @@ contributor:
   email: stephan.schiffels@institute.org
 lastModified: 2020-02-28
 bibFile: sources.bib
+genotypeData:	
+  format: PLINK	
+  genoFile: Schiffels_2016.bed	
+  snpFile: Schiffels_2016.bim	
+  indFile: Schiffels_2016.fam	
+jannoFile : Schiffels_2016.janno
 ```
 
 ### The `README.txt` file [optional]
@@ -62,22 +64,19 @@ Example:
 
 ```
 This package contains a rather interesting set of samples. 
-@Gassenhauer_2011 even claimed that they are the most important for this particular area and time period.
+@Uebertruplf_2021 even claimed that they are the most important for this particular area and time period.
 ```
 
 ### The `CHANGELOG.txt` file [optional]
 
-Documentation of important differences between the data-subfolders.
+Documentation of important changes in the history of a package.
 
 Example:
 
 ```
-2019_05_15
-- The authors of @Gassenhauer_2019 made some previously restricted samples for their publication available now and we added them.
-- The 2019_03_20 version also had a spelling mistake in the site name "Hosenacker"->"Rosenacker"
-
-2019_03_20
-- Initial, published version of this data as reported by @Gassenhauer_2019.
+- 2021_10_01: Fixed a spelling mistake in the site name "Hosenacker"->"Rosenacker". 
+- 2021_05_05: The authors of @Gassenhauer_2021 made some previously restricted samples for their publication available later and we added them.
+- 2021_03_08: Creation of the package.
 ```
 
 ### The `LITERATURE.bib` file [optional]
