@@ -11,12 +11,15 @@ All ancient and modern data are distributed into so-called packages, which are d
 Every package should have the following files: 
 
 - The `POSEIDON.yml` file
+- one or multiple data-subfolders with date name: YYYY_MM_DD, each with
+  - The `X.janno` file
+  - The `X.bed`, `X.bim`, `X.fam` files
+
+It also can contain the following files:
+
 - The `README.txt` file
 - The `CHANGELOG.txt` file
 - The `LITERATURE.bib` file
-- one or data-subfolders with date name: YYYY_MM_DD, each with
-  - The `X.janno` file
-  - The `X.bed`, `X.bim`, `X.fam` files
 
 Example:
 
@@ -34,44 +37,54 @@ Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.plink.bim
 Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.plink.fam
 ```
 
-###  The `POSEIDON.yml` file
+###  The `POSEIDON.yml` file [mandatory]
+
+The POSEIDON.yml file lists metainformation in a standardized, machine-readable format.
 
 Example:
-```YAML
-#Required fields:
+
+```
+poseidonVersion": v2.0.1
 title: Schiffels_2016
 description: Genetic data published in Schiffels et al. 2016
 contributor:
   name: Stephan Schiffels
   email: stephan.schiffels@institute.org
-lastModified: 2020-02-28 #Required
-genotypeData:
-  format: PLINK
-  genoFile: Schiffels_2016.bed
-  snpFile: Schiffels_2016.bim
-  indFile: Schiffels_2016.fam
-jannoFile : Schiffels_2016.janno
-poseidonVersion: 0.1.1
-
-#Optional field
+lastModified: 2020-02-28
 bibFile: sources.bib
 ```
-Comments:
-* The version would follow standard semantic versioning with three digits
 
-### The `README.txt` file
+### The `README.txt` file [optional]
 
-...
+The README.txt file contains arbitrary, human-readable information.
 
-### The `CHANGELOG.txt` file
+Example:
 
-...
+```
+This package contains a rather interesting set of samples. 
+@Gassenhauer_2011 even claimed that they are the most important for this particular area and time period.
+```
 
-### The `LITERATURE.bib` file
+### The `CHANGELOG.txt` file [optional]
 
-...
+Documentation of important differences between the data-subfolders.
 
-###  The `X.janno` file
+Example:
+
+```
+2019_05_15
+- The authors of @Gassenhauer_2019 made some previously restricted samples for their publication available now and we added them.
+- The 2019_03_20 version also had a spelling mistake in the site name "Hosenacker"->"Rosenacker"
+
+2019_03_20
+- Initial, published version of this data as reported by @Gassenhauer_2019.
+```
+
+### The `LITERATURE.bib` file [optional]
+
+Bibtex file with all references mentioned in `POSEIDON.yml`, `README.txt` and `CHANGELOG.txt`
+
+###  The `X.janno` file [mandatory]
 
 The .janno file is a tab-separated text file with a header line that holds a clearly defined set of metainformation (columns) for each sample (rows) in a package. 
 
@@ -81,7 +94,7 @@ A .janno file must have all of these columns in exactly this order with exactly 
 
 The order of the samples (rows) in the .janno file must be equal to the order in the files that hold the core genetic data.
 
-### The `X.bed`, `X.bim`, `X.fam` files
+### The `X.bed`, `X.bim`, `X.fam` files [mandatory]
 
 ...
 
