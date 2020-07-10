@@ -35,7 +35,7 @@ Switzerland_LNBA_Roswita/LITERATURE.bib
 
 ###  The `POSEIDON.yml` file [mandatory]
 
-The POSEIDON.yml file lists metainformation in a standardized, machine-readable format.
+The `POSEIDON.yml` file lists metainformation in a standardized, machine-readable format.
 
 Example:
 
@@ -55,6 +55,19 @@ genotypeData:
   indFile: Schiffels_2016.fam	
 jannoFile : Schiffels_2016.janno
 ```
+
+###  The `X.janno` file [mandatory]
+
+The `.janno` file is a tab-separated text file with a header line that holds a clearly defined set of context information (columns) for each sample (rows) in a package.
+
+- The variables (columns), variable types and possible content of the janno file are documented in the [janno_columns.tsv file](https://github.com/poseidon-framework/poseidon2-schema/blob/master/janno_columns.tsv) in this repository.
+- A `.janno` file must have all of these columns in exactly this order with exactly these column names. 
+- If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) can be filled with the NULL value `n/a`. Ideally, a .janno file should have the least number of n/a-values possible.
+- The order of the samples (rows) in the .janno file must be equal to the order in the files that hold the genetic data.
+
+### The `X.bed`, `X.bim`, `X.fam` files [mandatory]
+
+...
 
 ### The `README.txt` file [optional]
 
@@ -82,20 +95,6 @@ Example:
 ### The `LITERATURE.bib` file [optional]
 
 Bibtex file with all references mentioned in `POSEIDON.yml`, `README.txt` and `CHANGELOG.txt`
-
-###  The `X.janno` file [mandatory]
-
-The .janno file is a tab-separated text file with a header line that holds a clearly defined set of metainformation (columns) for each sample (rows) in a package. 
-
-The variables (columns), variable types and possible content of the janno file are documented in a google doc (ask the admins).
-
-A .janno file must have all of these columns in exactly this order with exactly these column names. If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) can be filled with the NULL value n/a. Ideally, a .janno file should have the least number of n/a-values possible.
-
-The order of the samples (rows) in the .janno file must be equal to the order in the files that hold the core genetic data.
-
-### The `X.bed`, `X.bim`, `X.fam` files [mandatory]
-
-...
 
 ### Naming
 
