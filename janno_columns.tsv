@@ -1,36 +1,36 @@
-janno_column_name	column_type	choice_options	mandatory	range_lower	range_upper
-Individual_ID	String		TRUE		
-Collection_ID	String		TRUE		
-Source_Tissue	String list		FALSE		
-Country	String		FALSE		
-Location	String		FALSE		
-Site	String		FALSE		
-Latitude	Float		FALSE	-90	90
-Longitude	Float		FALSE	-180	180
-Date_C14_Labnr	String list		FALSE		
-Date_C14_Uncal_BP	Integer list		FALSE	0	Inf
-Date_C14_Uncal_BP_Err	Integer list		FALSE	0	Inf
-Date_BC_Median	Integer		FALSE	-Inf	2050
-Date_BC_Start	Integer		FALSE	-Inf	2050
-Date_BC_End	Integer		FALSE	-Inf	2050
-Date_Type	String choice	C14;contextual;modern	FALSE		
-No_of_Libraries	Integer		FALSE		
-Data_Type	String choice	Shotgun;1240K;OtherCapture;ReferenceGenome	FALSE		
-Genotype_Ploidy	String choice	diploid;haploid	FALSE		
-Group_Name	String list		FALSE		
-Genetic_Sex	Char choice	F;M;U	FALSE		
-Nr_autosomal_SNPs	Integer		FALSE		
-Coverage_1240K	Float		FALSE		
-MT_Haplogroup	String		FALSE		
-Y_Haplogroup	String		FALSE		
-Endogenous	Float		FALSE	0	100
-UDG 	String choice	minus;half;plus;mixed	FALSE		
-Library_Built	String choice	ds;ss;other	FALSE		
-Damage 	Float		FALSE	0	100
-Xcontam 	Float		FALSE	0	1
-Xcontam_stderr	Float		FALSE	0	Inf
-mtContam	Float		FALSE	0	1
-mtContam_stderr	Float		FALSE	0	Inf
-Primary_Contact	String		FALSE		
-Publication_status	String		FALSE		
-Note	String		FALSE		
+janno_column_name	description	column_type	choice_options	mandatory	range_lower	range_upper
+Individual_ID		String		TRUE		
+Collection_ID		String		TRUE		
+Source_Tissue	skeletal/tissue/source elements, multiple values in case of merged libraries	String list		FALSE		
+Country	present-day political country	String		FALSE		
+Location	city or village nearby the site	String		FALSE		
+Site	site name	String		FALSE		
+Latitude	latitude with up to 5 places after the decimal point	Float		FALSE	-90	90
+Longitude	longitude with up to 5 places after the decimal point	Float		FALSE	-180	180
+Date_C14_Labnr		String list		FALSE		
+Date_C14_Uncal_BP		Integer list		FALSE	0	Inf
+Date_C14_Uncal_BP_Err		Integer list		FALSE	0	Inf
+Date_BC_AD_Median		Integer		FALSE	-Inf	2050
+Date_BC_AD_Start		Integer		FALSE	-Inf	2050
+Date_BC_AD_Stop		Integer		FALSE	-Inf	2050
+Date_Type		String choice	C14;contextual;modern	FALSE		
+No_of_Libraries		Integer		FALSE		
+Data_Type		String choice	Shotgun;1240K;OtherCapture;ReferenceGenome	FALSE		
+Genotype_Ploidy		String choice	diploid;haploid	FALSE		
+Group_Name		String list		FALSE		
+Genetic_Sex		Char choice	F;M;U	FALSE		
+Nr_autosomal_SNPs		Integer		FALSE		
+Coverage_1240K		Float		FALSE		
+MT_Haplogroup		String		FALSE		
+Y_Haplogroup		String		FALSE		
+Endogenous		Float		FALSE	0	100
+UDG 		String choice	minus;half;plus;mixed	FALSE		
+Library_Built		String choice	ds;ss;other	FALSE		
+Damage 		Float		FALSE	0	100
+Xcontam 		Float		FALSE	0	1
+Xcontam_stderr		Float		FALSE	0	Inf
+mtContam		Float		FALSE	0	1
+mtContam_stderr		Float		FALSE	0	Inf
+Primary_Contact		String		FALSE		
+Publication_Status		String		FALSE		
+Note		String		FALSE		
