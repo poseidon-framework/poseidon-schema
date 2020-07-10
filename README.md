@@ -36,7 +36,28 @@ Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.plink.fam
 
 ###  The `POSEIDON.yml` file
 
-...
+Example:
+```YAML
+#Required fields:
+title: Schiffels_2016
+description: Genetic data published in Schiffels et al. 2016
+contributor:
+  name: Stephan Schiffels
+  email: stephan.schiffels@institute.org
+lastModified: 2020-02-28 #Required
+genotypeData:
+  format: PLINK
+  genoFile: Schiffels_2016.bed
+  snpFile: Schiffels_2016.bim
+  indFile: Schiffels_2016.fam
+jannoFile : Schiffels_2016.janno
+poseidonVersion: 0.1.1
+
+#Optional field
+bibFile: sources.bib
+```
+Comments:
+* The version would follow standard semantic versioning with three digits
 
 ### The `README.txt` file
 
