@@ -67,7 +67,9 @@ The `.janno` file is a tab-separated text file with a header line that holds a c
 
 ### The `X.bed`, `X.bim`, `X.fam` files [mandatory]
 
-...
+Binary plink genotype files consisting of [`.bed` (PLINK binary biallelic genotype table)](https://www.cog-genomics.org/plink/1.9/formats#bed), [`.bim` (PLINK extended MAP file)](https://www.cog-genomics.org/plink/1.9/formats#bim) and [`.fam` (PLINK sample information)](https://www.cog-genomics.org/plink/1.9/formats#fam).
+
+
 
 ### The `README.txt` file [optional]
 
