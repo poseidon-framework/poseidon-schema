@@ -2,6 +2,8 @@
 
 Poseidon v.2 is a solution for genotype data organisation established within the Department of Archaeogenetics at the Max Planck Institute for the Science of Human History (MPI-SHH) in Jena. 
 
+***
+
 ## The Poseidon v.2 `package`
 
 All ancient and modern data are distributed into so-called packages, which are directories containing a dedicated set of files. Packages correspond to published sets of genomes, or in case of unpublished projects, ongoing (and growing) sets of samples currently analysed.
@@ -40,7 +42,7 @@ The `POSEIDON.yml` file lists metainformation in a standardized, machine-readabl
 Example:
 
 ```
-poseidonVersion": v2.0.1
+poseidonVersion: 2.0.1
 title: Schiffels_2016
 description: Genetic data published in Schiffels et al. 2016
 contributor:
@@ -69,8 +71,6 @@ The `.janno` file is a tab-separated text file with a header line that holds a c
 
 Binary plink genotype files consisting of [`.bed` (PLINK binary biallelic genotype table)](https://www.cog-genomics.org/plink/1.9/formats#bed), [`.bim` (PLINK extended MAP file)](https://www.cog-genomics.org/plink/1.9/formats#bim) and [`.fam` (PLINK sample information)](https://www.cog-genomics.org/plink/1.9/formats#fam).
 
-
-
 ### The `README.txt` file [optional]
 
 The README.txt file contains arbitrary, human-readable information.
@@ -97,6 +97,8 @@ Example:
 ### The `LITERATURE.bib` file [optional]
 
 Bibtex file with all references mentioned in `POSEIDON.yml`, `README.txt` and `CHANGELOG.txt`
+
+***
 
 ## Naming Poseidon v.2 `package`s
 
@@ -139,6 +141,8 @@ Afrika_newHO_Andrea
 Identifiers can be somewhat informal as long as the project is ongoing, they just need to be unique. As soon as a project gets published, we create a final version of the respective package with the YEAR_NAME_IDENTIFIER label.
 
 External projects can be integrated similarly by using their publication name, or by temporary internal identifiers such as `Iron_Age_Boston_Share`.
+
+***
 
 ## DAG internal procedures
 
