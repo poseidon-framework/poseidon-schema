@@ -21,21 +21,36 @@ Every package should have the following files:
 Example:
 
 ```
+Switzerland_LNBA_Roswita/POSEIDON.yml
 Switzerland_LNBA_Roswita/README.txt
 Switzerland_LNBA_Roswita/CHANGELOG.txt
+Switzerland_LNBA_Roswita/LITERATURE.bib
 Switzerland_LNBA_Roswita/2019_03_20/
 Switzerland_LNBA_Roswita/2019_05_15/  
-...  
-Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.eigenstrat.geno
-Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.eigenstrat.snp
-Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.eigenstrat.ind
+...
+Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.janno
 Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.plink.bed
 Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.plink.bim
 Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.plink.fam
-Switzerland_LNBA_Roswita/2019_05_15/Switzerland_LNBA.janno
 ```
 
-## 2. 
+###  The `POSEIDON.yml` file
+
+...
+
+### The `README.txt` file
+
+...
+
+### The `CHANGELOG.txt` file
+
+...
+
+### The `LITERATURE.bib` file
+
+...
+
+###  The `X.janno` file
 
 The .janno file is a tab-separated text file with a header line that holds a clearly defined set of metainformation (columns) for each sample (rows) in a package. 
 
@@ -44,6 +59,10 @@ The variables (columns), variable types and possible content of the janno file a
 A .janno file must have all of these columns in exactly this order with exactly these column names. If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) can be filled with the NULL value n/a. Ideally, a .janno file should have the least number of n/a-values possible.
 
 The order of the samples (rows) in the .janno file must be equal to the order in the files that hold the core genetic data.
+
+### The `X.bed`, `X.bim`, `X.fam` files
+
+...
 
 ### Naming
 
