@@ -1,7 +1,7 @@
 janno_column_name	description	column_type	choice_options	mandatory	unique	range_lower	range_upper
 Individual_ID	id as defined by the genetics laboratory, needs to be unique (e.g. I1234, BOT001), if multiple datasets exist for the same individual different IDs are required (e.g. loschbour_snpAD)	String		TRUE	TRUE		
 Collection_ID	id as defined by the provider/owner of a sample (e.g. grave 40 skeleton 2)	String		FALSE	FALSE		
-Source_Tissue	skeletal/tissue/source elements, multiple values separated by ; in case of merged libraries	String list		FALSE	FALSE		
+Source_Tissue	skeletal/tissue/source elements, multiple values separated by ; in case of merged libraries, specific bone name should be reported in paranthesis (e.g. bone (phalanx))	String list		FALSE	FALSE		
 Country	present-day political country	String		FALSE	FALSE		
 Location	city or village nearby the site	String		FALSE	FALSE		
 Site	site name	String		FALSE	FALSE		
