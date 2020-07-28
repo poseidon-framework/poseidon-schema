@@ -46,8 +46,10 @@ poseidonVersion: 2.0.1
 title: Schiffels_2016
 description: Genetic data published in Schiffels et al. 2016
 contributor:
-  name: Stephan Schiffels
-  email: stephan.schiffels@institute.org
+  - name: Stephan Schiffels
+    email: stephan.schiffels@institute.org
+  - name: Paul Panther
+    email: gemuese@test.com
 lastModified: 2020-02-28
 bibFile: sources.bib
 genotypeData:	
