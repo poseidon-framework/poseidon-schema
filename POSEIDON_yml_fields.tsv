@@ -1,0 +1,15 @@
+field	level	parent	description	type	format	mandatory	unique
+poseidonVersion	0			String		TRUE	TRUE
+title	0			String		TRUE	TRUE
+description	0			String		FALSE	TRUE
+contributor	0			Array		TRUE	TRUE
+name	1	contributor		String		TRUE	FALSE
+email	1	contributor		String	Email	TRUE	FALSE
+lastModified	0			Date	YYYY-MM-DD	FALSE	TRUE
+bibFile	0			String	Path	FALSE	TRUE
+genotypeData	0			Array	Path	TRUE	TRUE
+format	1	genotypeData		String		TRUE	TRUE
+genoFile	1	genotypeData		String	Path	TRUE	TRUE
+snpFile	1	genotypeData		String	Path	TRUE	TRUE
+indFile	1	genotypeData		String	Path	TRUE	TRUE
+jannoFile	0			String	Path	TRUE	TRUE
