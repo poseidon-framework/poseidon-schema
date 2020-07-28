@@ -39,6 +39,9 @@ Switzerland_LNBA_Roswita/LITERATURE.bib
 
 The `POSEIDON.yml` file lists metainformation in a standardized, machine-readable format.
 
+- The `POSEIDON.yml` file must be a valid [YAML file](https://yaml.org/).
+- The fields of the `POSEIDON.yml` file are documented in the [POSEIDON_yml_fields.tsv file](https://github.com/poseidon-framework/poseidon2-schema/blob/master/POSEIDON_yml_fields.tsv) in this repository.
+
 Example:
 
 ```
