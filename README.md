@@ -66,6 +66,7 @@ The `.janno` file is a tab-separated text file with a header line that holds a c
 - A `.janno` file must have all of these columns in exactly this order with exactly these column names. 
 - If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) can be filled with the NULL value `n/a`. Ideally, a `.janno` file should have the least number of n/a-values possible.
 - The order of the samples (rows) in the `.janno` file must be equal to the order in the files that hold the genetic data.
+- The values in the columns **Individual_ID** and **Group_Name** must be equal to the terms used in the first and second column of the `.fam` file.
 - Multiple columns of the `.janno` file are list columns that hold multiple values (either strings or numerics) separated by `;`
 
 ### The `X.bed`, `X.bim`, `X.fam` files [mandatory]
