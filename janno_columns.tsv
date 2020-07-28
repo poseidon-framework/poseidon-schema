@@ -23,7 +23,7 @@ Nr_autosomal_SNPs	number of autosomal SNPs covered for 1240K capture or SG data 
 Coverage_1240K	average X-fold coverage across 1240K SNP sites after quality filtering (internal data), NOT the % SNPs of 1.2M possible	Float		FALSE	FALSE		
 MT_Haplogroup	mitochondrial haplogroup after phylotree.org as reported by Haplofind or Haplogrep	String		FALSE	FALSE		
 Y_Haplogroup	Y-chromosome haplogroup reported as published, for internal data, please follow syntax with main branch + most terminal derived Y-SNP (e.g. R1b-P312)	String		FALSE	FALSE		
-Endogenous	% endogenous DNA for the SG libraries, as estimated by EAGER for the best library (in percent), not on target and no quality filter	Float		FALSE	FALSE	0	100
+Endogenous	% endogenous DNA as estimated from SG libraries (before capture), as for example estimated by EAGER for the best library (in percent), not on target and no quality filter	Float		FALSE	FALSE	0	100
 UDG 	“mixed” in case multiple libraries with different UDG treatment were merged	String choice	minus;half;plus;mixed	FALSE	FALSE		
 Library_Built	“ds” for double stranded, “ss” for single stranded	String choice	ds;ss;other	FALSE	FALSE		
 Damage 	% damage on 5' end for the main shotgun library used for sequencing and/or capture	Float		FALSE	FALSE	0	100
