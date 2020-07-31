@@ -2,9 +2,9 @@ janno_column_name	description	column_type	choice_options	mandatory	unique	range_
 Individual_ID	id as defined by the genetics laboratory, needs to be unique (e.g. I1234, BOT001), needs to fit to the values in the poseidon package .fam file, if multiple datasets exist for the same individual different IDs are required (e.g. loschbour_snpAD)	String		TRUE	TRUE		
 Collection_ID	id as defined by the provider/owner of a sample (e.g. grave 40 skeleton 2)	String		FALSE	FALSE		
 Source_Tissue	skeletal/tissue/source elements, multiple values separated by ; in case of merged libraries, specific bone name should be reported with an underscore (e.g. bone_phalanx)	String list		FALSE	FALSE		
-Country	present-day political country	String		FALSE	FALSE		
-Location	city or village nearby the site	String		FALSE	FALSE		
-Site	site name	String		FALSE	FALSE		
+Country	present-day political country	String		FALSE	FALSE
+Location	unspecified location information like administrative or topographic region or mountains/rivers/lakes/cities nearby	String		FALSE	FALSE		
+Site	site name	String		FALSE	FALSE
 Latitude	latitude with up to 5 places after the decimal point	Float		FALSE	FALSE	-90	90
 Longitude	longitude with up to 5 places after the decimal point	Float		FALSE	FALSE	-180	180
 Date_C14_Labnr	labnr of C14 date, multiple values in case of multiple dates	String list		FALSE	FALSE		
