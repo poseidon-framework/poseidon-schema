@@ -54,7 +54,7 @@ contributor:
   - name: Paul Panther
     email: gemuese@test.com
 lastModified: 2020-02-28
-bibFile: sources.bib
+bibFile: LITERATURE.bib
 genotypeData:	
   format: PLINK	
   genoFile: Schiffels_2016.bed	
