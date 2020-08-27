@@ -151,6 +151,15 @@ External projects can be integrated similarly by using their publication name, o
 
 ***
 
+## Implementation Policies
+
+Our package definition has an optional "lastModified" field. This field becomes important if multiple versions of the same packages are to be distinguished. We recommend the following policy for implementors of client software:
+- If there is only one package with a given title, no "lastModified" field needs to be given (but can be, of course)
+- If multiple packages with the same title are provided, all these packages _must_ specify a "lastModified" field and those _must_ be different. By default, client software should import the latest of those packages and discard the others, unless an earlier version is specified by the user. 
+- Errors must be issued if any of the "must" clauses above is violated.
+
+This policy serves to preserve backwards-compatibility for package providers who update their packages regularly but would like to still provide older versions of their package.
+
 ## DAG internal procedures
 
 Individual contributors would create packages in dedicated poseidon folders in their user project directories, e.g. `/project1/user/xyz/poseidon/2018_Lamnidis_Fennoscandia`. That way, subfolders belong to individual maintainers and be writable only by them. 
