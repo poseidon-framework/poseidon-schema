@@ -32,6 +32,6 @@ Xcontam_stderr	standard error of ANGSD X contamination estimate	Float		FALSE	FAL
 mtContam	mitochondrial contamination rate as estimated by ContamMix and/or Schmutzi	Float		FALSE	FALSE	0	1
 mtContam_stderr	Standard error of ContamMix/Schmutzi estimate	Float		FALSE	FALSE	0	Inf
 Primary_Contact	Project lead or first author	String		FALSE	FALSE		
-Publication_Status	"bibtex key (e.g. ""@AuthorJournalYear"") or ""unpublished"""	String		FALSE	FALSE		
+Publication_Status	bibtex key (e.g. ""AuthorJournalYear"") or ""unpublished""	String		FALSE	FALSE		
 Note	wildcard comments. e.g. note down aneuploidies here	String		FALSE	FALSE		
 Keywords	Arbitrary tags separated by ; (e.g. for custom sorting purposes) 	String list		FALSE	FALSE		
