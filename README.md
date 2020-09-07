@@ -6,7 +6,8 @@ Poseidon v.2 is a solution for genotype data organisation established within the
 
 ## The Poseidon v.2 `package`
 
-All ancient and modern data are distributed into so-called packages, which are directories containing a dedicated set of files. Packages correspond to published sets of genomes, or in case of unpublished projects, ongoing (and growing) sets of samples currently analysed.
+All ancient and modern data are distributed into so-called packages, which are directories containing a dedicated set of files. Packages correspond to published sets of genomes, or in case of unpublished projects, ongoing (and growing) sets of samples currently analysed. All text files in the package are UTF-8 encoded.
+
 
 ### Structure
 
@@ -65,7 +66,7 @@ jannoFile : Schiffels_2016.janno
 
 ###  The `X.janno` file [mandatory]
 
-The `.janno` file is a tab-separated text file with a header line that holds a clearly defined set of context information (columns) for each sample (rows) in a package.
+The `.janno` file is a UTF-8 encoded, tab-separated text file with a header line. It holds a clearly defined set of context information (columns) for each sample (rows) in a package.
 
 - The variables (columns), variable types and possible content of the janno file are documented in the [janno_columns.tsv file](https://github.com/poseidon-framework/poseidon2-schema/blob/master/janno_columns.tsv) in this repository.
 - A `.janno` file must have all of these columns in exactly this order with exactly these column names. 
