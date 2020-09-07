@@ -15,7 +15,7 @@ Date_BC_AD_Start	lower (older) bound for the age, negative numbers for BC, posit
 Date_BC_AD_Stop	upper (more recent) bound for the age, negative numbers for BC, positive numbers for AD, in case of C14 dates 95% interval post calibration, 2000 for modern samples	Integer		FALSE	FALSE	-Inf	2050
 Date_Type	"""C14"" if directly from the individual, ""contextual"" if based on archaeology or other C14 dates from the site, “modern” for present-day individuals"	String choice	C14;contextual;modern	FALSE	FALSE		
 No_of_Libraries	number of libraries	Integer		FALSE	FALSE		
-Data_Type	specifics of data generation method	String choice	Shotgun;1240K;OtherCapture;ReferenceGenome	FALSE	FALSE		
+Data_Type	specifics of data generation method, multiple values separated by ; in case of merged libraries	String list	Shotgun;1240K;OtherCapture;ReferenceGenome	FALSE	FALSE		
 Genotype_Ploidy	ploidy of the genotypes	String choice	diploid;haploid	FALSE	FALSE		
 Group_Name	ideally Eisenmann rule + underscore flags, e.g. to annotate relatives or outliers or low coverage, multiple entries separated by ; to accommodate different labels, value must equal the group name in the .fam file (in case of multiple entries the first one)	String list		TRUE	FALSE		
 Genetic_Sex	"""F"", ""M"" or ""U"" because eigenstrat and plink formats only support these three. Edge cases (XXY, XYY, X0) are undefined and should be grouped as F, M or U, with a note added"	Char choice	F;M;U	TRUE	FALSE		
