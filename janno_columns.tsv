@@ -18,7 +18,7 @@ No_of_Libraries	number of libraries	Integer		FALSE	FALSE
 Data_Type	specifics of data generation method	String choice	Shotgun;1240K;OtherCapture;ReferenceGenome	FALSE	FALSE		
 Genotype_Ploidy	ploidy of the genotypes	String choice	diploid;haploid	FALSE	FALSE		
 Group_Name	ideally Eisenmann rule + underscore flags, e.g. to annotate relatives or outliers or low coverage, multiple entries separated by ; to accommodate different labels, value must equal the group name in the .fam file (in case of multiple entries the first one)	String list		TRUE	FALSE		
-Genetic_Sex	“F“, “M“ or “U“ because eigenstrat and plink formats only support these three. Edge cases (XXY, XYY, X0) are undefined and should be grouped as F, M or U, with a note added"	Char choice	F;M;U	TRUE	FALSE		
+Genetic_Sex	“F“, “M“ or “U“ because eigenstrat and plink formats only support these three. Edge cases (XXY, XYY, X0) are undefined and should be grouped as F, M or U, with a note added	Char choice	F;M;U	TRUE	FALSE		
 Nr_autosomal_SNPs	number of autosomal SNPs covered for 1240K capture or SG data pulldown	Integer		FALSE	FALSE		
 Coverage_1240K	average X-fold coverage across 1240K SNP sites after quality filtering (internal data), NOT the % SNPs of 1.2M possible	Float		FALSE	FALSE		
 MT_Haplogroup	mitochondrial haplogroup after phylotree.org as reported by Haplofind or Haplogrep	String		FALSE	FALSE		
