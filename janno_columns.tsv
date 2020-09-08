@@ -13,12 +13,12 @@ Date_C14_Uncal_BP_Err	standard deviation (1 sigma ±), as reported by C14 labs, 
 Date_BC_AD_Median	calibrated median age for C14 dates, or simple mid-points for archaeological intervals, 2000 for modern samples	Integer		FALSE	FALSE	-Inf	2050
 Date_BC_AD_Start	lower (older) bound for the age, negative numbers for BC, positive numbers for AD, in case of C14 dates 95% interval post calibration, 2000 for modern samples	Integer		FALSE	FALSE	-Inf	2050
 Date_BC_AD_Stop	upper (more recent) bound for the age, negative numbers for BC, positive numbers for AD, in case of C14 dates 95% interval post calibration, 2000 for modern samples	Integer		FALSE	FALSE	-Inf	2050
-Date_Type	"""C14"" if directly from the individual, ""contextual"" if based on archaeology or other C14 dates from the site, “modern” for present-day individuals"	String choice	C14;contextual;modern	FALSE	FALSE		
+Date_Type	“C14“ if directly from the individual, “contextual“ if based on archaeology or other C14 dates from the site, “modern” for present-day individuals	String choice	C14;contextual;modern	FALSE	FALSE		
 No_of_Libraries	number of libraries	Integer		FALSE	FALSE		
 Data_Type	specifics of data generation method	String choice	Shotgun;1240K;OtherCapture;ReferenceGenome	FALSE	FALSE		
 Genotype_Ploidy	ploidy of the genotypes	String choice	diploid;haploid	FALSE	FALSE		
 Group_Name	ideally Eisenmann rule + underscore flags, e.g. to annotate relatives or outliers or low coverage, multiple entries separated by ; to accommodate different labels, value must equal the group name in the .fam file (in case of multiple entries the first one)	String list		TRUE	FALSE		
-Genetic_Sex	"""F"", ""M"" or ""U"" because eigenstrat and plink formats only support these three. Edge cases (XXY, XYY, X0) are undefined and should be grouped as F, M or U, with a note added"	Char choice	F;M;U	TRUE	FALSE		
+Genetic_Sex	“F“, “M“ or “U“ because eigenstrat and plink formats only support these three. Edge cases (XXY, XYY, X0) are undefined and should be grouped as F, M or U, with a note added"	Char choice	F;M;U	TRUE	FALSE		
 Nr_autosomal_SNPs	number of autosomal SNPs covered for 1240K capture or SG data pulldown	Integer		FALSE	FALSE		
 Coverage_1240K	average X-fold coverage across 1240K SNP sites after quality filtering (internal data), NOT the % SNPs of 1.2M possible	Float		FALSE	FALSE		
 MT_Haplogroup	mitochondrial haplogroup after phylotree.org as reported by Haplofind or Haplogrep	String		FALSE	FALSE		
@@ -32,6 +32,6 @@ Xcontam_stderr	standard error of ANGSD X contamination estimate	Float		FALSE	FAL
 mtContam	mitochondrial contamination rate as estimated by ContamMix and/or Schmutzi	Float		FALSE	FALSE	0	1
 mtContam_stderr	Standard error of ContamMix/Schmutzi estimate	Float		FALSE	FALSE	0	Inf
 Primary_Contact	Project lead or first author	String		FALSE	FALSE		
-Publication_Status	bibtex key (e.g. ""AuthorJournalYear"") or ""unpublished""	String		FALSE	FALSE		
+Publication_Status	bibtex key (e.g. “AuthorJournalYear“) or “unpublished“	String		FALSE	FALSE		
 Note	wildcard comments. e.g. note down aneuploidies here	String		FALSE	FALSE		
 Keywords	Arbitrary tags separated by ; (e.g. for custom sorting purposes) 	String list		FALSE	FALSE		
