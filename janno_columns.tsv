@@ -1,37 +1,37 @@
-janno_column_name	description	column_type	choice_options	mandatory	unique	range_lower	range_upper
-Individual_ID	id as defined by the genetics laboratory, needs to be unique (e.g. I1234, BOT001), needs to fit to the values in the poseidon package .fam file, if multiple datasets exist for the same individual different IDs are required (e.g. loschbour_snpAD)	String		TRUE	TRUE		
-Collection_ID	id as defined by the provider/owner of a sample (e.g. grave 40 skeleton 2)	String		FALSE	FALSE		
-Source_Tissue	skeletal/tissue/source elements, multiple values separated by ; in case of merged libraries, specific bone name should be reported with an underscore (e.g. bone_phalanx)	String list		FALSE	FALSE		
-Country	present-day political country	String		FALSE	FALSE		
-Location	unspecified location information like administrative or topographic region or mountains/rivers/lakes/cities nearby	String		FALSE	FALSE		
-Site	site name	String		FALSE	FALSE		
-Latitude	latitude with up to 5 places after the decimal point	Float		FALSE	FALSE	-90	90
-Longitude	longitude with up to 5 places after the decimal point	Float		FALSE	FALSE	-180	180
-Date_C14_Labnr	labnr of C14 date, multiple values in case of multiple dates	String list		FALSE	FALSE		
-Date_C14_Uncal_BP	uncalibrated years BP (as in before 1950AD), as reported by C14 labs, multiple values separated by ; in the same order as Date_C14_Labnr in case of multiple dates	Integer list		FALSE	FALSE	0	Inf
-Date_C14_Uncal_BP_Err	standard deviation (1 sigma ±), as reported by C14 labs, multiple values separated by ; in the same order as Date_C14_Labnr in case of multiple dates	Integer list		FALSE	FALSE	0	Inf
-Date_BC_AD_Median	calibrated median age for C14 dates, or simple mid-points for archaeological intervals, 2000 for modern samples	Integer		FALSE	FALSE	-Inf	2050
-Date_BC_AD_Start	lower (older) bound for the age, negative numbers for BC, positive numbers for AD, in case of C14 dates 95% interval post calibration, 2000 for modern samples	Integer		FALSE	FALSE	-Inf	2050
-Date_BC_AD_Stop	upper (more recent) bound for the age, negative numbers for BC, positive numbers for AD, in case of C14 dates 95% interval post calibration, 2000 for modern samples	Integer		FALSE	FALSE	-Inf	2050
-Date_Type	“C14“ if directly from the individual, “contextual“ if based on archaeology or other C14 dates from the site, “modern” for present-day individuals	String choice	C14;contextual;modern	FALSE	FALSE		
-No_of_Libraries	number of libraries	Integer		FALSE	FALSE		
-Data_Type	specifics of data generation method	String choice	Shotgun;1240K;OtherCapture;ReferenceGenome	FALSE	FALSE		
-Genotype_Ploidy	ploidy of the genotypes	String choice	diploid;haploid	FALSE	FALSE		
-Group_Name	ideally Eisenmann rule + underscore flags, e.g. to annotate relatives or outliers or low coverage, multiple entries separated by ; to accommodate different labels, value must equal the group name in the .fam file (in case of multiple entries the first one)	String list		TRUE	FALSE		
-Genetic_Sex	“F“, “M“ or “U“ because eigenstrat and plink formats only support these three. Edge cases (XXY, XYY, X0) are undefined and should be grouped as F, M or U, with a note added	Char choice	F;M;U	TRUE	FALSE		
-Nr_autosomal_SNPs	number of autosomal SNPs covered for 1240K capture or SG data pulldown	Integer		FALSE	FALSE		
-Coverage_1240K	average X-fold coverage across 1240K SNP sites after quality filtering (internal data), NOT the % SNPs of 1.2M possible	Float		FALSE	FALSE		
-MT_Haplogroup	mitochondrial haplogroup after phylotree.org as reported by Haplofind or Haplogrep	String		FALSE	FALSE		
-Y_Haplogroup	Y-chromosome haplogroup reported as published, for internal data, please follow syntax with main branch + most terminal derived Y-SNP (e.g. R1b-P312)	String		FALSE	FALSE		
-Endogenous	% endogenous DNA as estimated from SG libraries (before capture), as for example estimated by EAGER for the best library (in percent), not on target and no quality filter	Float		FALSE	FALSE	0	100
-UDG 	“mixed” in case multiple libraries with different UDG treatment were merged	String choice	minus;half;plus;mixed	FALSE	FALSE		
-Library_Built	“ds” for double stranded, “ss” for single stranded	String choice	ds;ss;other	FALSE	FALSE		
-Damage 	% damage on 5' end for the main shotgun library used for sequencing and/or capture	Float		FALSE	FALSE	0	100
-Xcontam 	if male for captured library	Float		FALSE	FALSE	0	1
-Xcontam_stderr	standard error of ANGSD X contamination estimate	Float		FALSE	FALSE	0	Inf
-mtContam	mitochondrial contamination rate as estimated by ContamMix and/or Schmutzi	Float		FALSE	FALSE	0	1
-mtContam_stderr	Standard error of ContamMix/Schmutzi estimate	Float		FALSE	FALSE	0	Inf
-Primary_Contact	Project lead or first author	String		FALSE	FALSE		
-Publication_Status	bibtex key (e.g. “AuthorJournalYear“) or “unpublished“	String		FALSE	FALSE		
-Note	wildcard comments. e.g. note down aneuploidies here	String		FALSE	FALSE		
-Keywords	Arbitrary tags separated by ; (e.g. for custom sorting purposes) 	String list		FALSE	FALSE		
+janno_column_name	description	data_type	multi	choice	range	choice_options	range_lower	range_upper	mandatory	unique
+Individual_ID	id as defined by the genetics laboratory, needs to be unique (e.g. I1234, BOT001), needs to fit to the values in the poseidon package .fam file, if multiple datasets exist for the same individual different IDs are required (e.g. loschbour_snpAD)	String	FALSE	FALSE	FALSE				TRUE	TRUE
+Collection_ID	id as defined by the provider/owner of a sample (e.g. grave 40 skeleton 2)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Source_Tissue	skeletal/tissue/source elements, specific bone name should be reported with an underscore (e.g. bone_phalanx), multiple values separated by ; in case of multiple libraries	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Country	present-day political country	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Location	unspecified location information like administrative or topographic region or mountains/rivers/lakes/cities nearby	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Site	site name	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Latitude	latitude with up to 5 places after the decimal point	Float	FALSE	FALSE	TRUE		-90	90	FALSE	FALSE
+Longitude	longitude with up to 5 places after the decimal point	Float	FALSE	FALSE	TRUE		-180	180	FALSE	FALSE
+Date_C14_Labnr	labnr of C14 date, multiple values separated by ; in case of multiple dates	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Date_C14_Uncal_BP	uncalibrated years BP (as in before 1950AD), as reported by C14 labs, multiple values separated by ; in the same order as Date_C14_Labnr in case of multiple dates	Integer	TRUE	FALSE	TRUE		0	Inf	FALSE	FALSE
+Date_C14_Uncal_BP_Err	standard deviation (1 sigma ±), as reported by C14 labs, multiple values separated by ; in the same order as Date_C14_Labnr in case of multiple dates	Integer	TRUE	FALSE	TRUE		0	Inf	FALSE	FALSE
+Date_BC_AD_Median	calibrated median age for C14 dates, or simple mid-points for archaeological intervals, 2000 for modern samples	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE
+Date_BC_AD_Start	lower (older) bound for the age, negative numbers for BC, positive numbers for AD, in case of C14 dates 95% interval post calibration, 2000 for modern samples	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE
+Date_BC_AD_Stop	upper (more recent) bound for the age, negative numbers for BC, positive numbers for AD, in case of C14 dates 95% interval post calibration, 2000 for modern samples	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE
+Date_Type	“C14“ if directly from the individual, “contextual“ if based on archaeology or other C14 dates from the site, “modern” for present-day individuals	String	FALSE	TRUE	FALSE	C14;contextual;modern			FALSE	FALSE
+No_of_Libraries	number of libraries	Integer	FALSE	FALSE	FALSE				FALSE	FALSE
+Data_Type	specifics of data generation method, multiple values separated by ;	String	TRUE	TRUE	FALSE	Shotgun;1240K;OtherCapture;ReferenceGenome			FALSE	FALSE
+Genotype_Ploidy	ploidy of the genotypes	String	FALSE	TRUE	FALSE	diploid;haploid			FALSE	FALSE
+Group_Name	ideally Eisenmann rule + underscore flags, e.g. to annotate relatives or outliers or low coverage, multiple entries separated by ; to accommodate different labels, value must equal the group name in the .fam file (in case of multiple entries the first one)	String	TRUE	FALSE	FALSE				TRUE	FALSE
+Genetic_Sex	“F“, “M“ or “U“ because eigenstrat and plink formats only support these three. Edge cases (XXY, XYY, X0) are undefined and should be grouped as F, M or U, with a note added	Char	FALSE	TRUE	FALSE	F;M;U			TRUE	FALSE
+Nr_autosomal_SNPs	number of autosomal SNPs covered for 1240K capture or SG data pulldown	Integer	FALSE	FALSE	FALSE				FALSE	FALSE
+Coverage_1240K	average X-fold coverage across 1240K SNP sites after quality filtering (internal data), NOT the % SNPs of 1.2M possible	Float	FALSE	FALSE	FALSE				FALSE	FALSE
+MT_Haplogroup	mitochondrial haplogroup after phylotree.org as reported by Haplofind or Haplogrep	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Y_Haplogroup	Y-chromosome haplogroup reported as published, for internal data, please follow syntax with main branch + most terminal derived Y-SNP (e.g. R1b-P312)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Endogenous	% endogenous DNA as estimated from SG libraries (before capture), as for example estimated by EAGER, not on target and no quality filter, multiple values separated by ; in case of multiple libraries	Float	TRUE	FALSE	TRUE		0	100	FALSE	FALSE
+UDG 	multiple values separated by ; in case of multiple libraries, “mixed” in case multiple libraries with different UDG treatment were merged	String	TRUE	TRUE	FALSE	minus;half;plus;mixed			FALSE	FALSE
+Library_Built	“ds” for double stranded, “ss” for single stranded, multiple values separated by ; in case of multiple libraries	String	TRUE	TRUE	FALSE	ds;ss;other			FALSE	FALSE
+Damage 	% damage on 5' end for the main shotgun library used for sequencing and/or capture, multiple values separated by ; in case of multiple libraries	Float	TRUE	FALSE	TRUE		0	100	FALSE	FALSE
+Xcontam 	if male for captured library, multiple values separated by ; in case of multiple libraries	Float	TRUE	FALSE	TRUE		0	1	FALSE	FALSE
+Xcontam_stderr	standard error of ANGSD X contamination estimate, multiple values separated by ; in case of multiple libraries	Float	TRUE	FALSE	TRUE		0	Inf	FALSE	FALSE
+mtContam	mitochondrial contamination rate as estimated by ContamMix and/or Schmutzi, multiple values separated by ; in case of multiple libraries	Float	TRUE	FALSE	TRUE		0	1	FALSE	FALSE
+mtContam_stderr	Standard error of ContamMix/Schmutzi estimate, multiple values separated by ; in case of multiple libraries	Float	TRUE	FALSE	TRUE		0	Inf	FALSE	FALSE
+Primary_Contact	Project lead or first author	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Publication_Status	bibtex key (e.g. “AuthorJournalYear“) or “unpublished“	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Note	wildcard comments. e.g. note down aneuploidies here	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Keywords	Arbitrary tags separated by ; (e.g. for custom sorting purposes) 	String	TRUE	FALSE	FALSE				FALSE	FALSE
