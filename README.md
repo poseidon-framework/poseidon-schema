@@ -8,7 +8,6 @@ Poseidon v.2 is a solution for genotype data organisation established within the
 
 All ancient and modern data are distributed into so-called packages, which are directories containing a dedicated set of files. Packages correspond to published sets of genomes, or in case of unpublished projects, ongoing (and growing) sets of samples currently analysed. All text files in the package are UTF-8 encoded.
 
-
 ### Structure
 
 Every package should have the following files: 
@@ -54,6 +53,7 @@ contributor:
     email: stephan.schiffels@institute.org
   - name: Paul Panther
     email: gemuese@test.com
+packageVersion: 1.12
 lastModified: 2020-02-28
 bibFile: LITERATURE.bib
 genotypeData:	
@@ -63,6 +63,8 @@ genotypeData:
   indFile: Schiffels_2016.fam	
 jannoFile : Schiffels_2016.janno
 ```
+
+When a package is modified in any way (e.g. updates of the context information in the `.janno` file), then the `packageVersion` field should be incremented and the `lastModified` field updated to the current date.
 
 ###  The `X.janno` file [mandatory]
 

@@ -5,7 +5,8 @@ description	0		some descriptive words about the package	String		FALSE	TRUE
 contributor	0		list of contributors to the package (not the data producer/publication author, but the poseidon package creator), each with name and email	Array		TRUE	TRUE
 name	1	contributor	name of one contributor	String		TRUE	FALSE
 email	1	contributor	email of one contributor (must be a valid email address)	String	Email	TRUE	FALSE
-lastModified	0		date of last modification of the poseidon package	Date	YYYY-MM-DD	FALSE	TRUE
+packageVersion	0		version of the package (should be changed/incremented when the package is changed)	String		FALSE	TRUE
+lastModified	0		date of last modification of the poseidon package (should be updated when the package is changed)	Date	YYYY-MM-DD	FALSE	TRUE
 bibFile	0		file name (.bib)	String	Path	FALSE	TRUE
 genotypeData	0		genotype file name section			TRUE	TRUE
 format	1	genotypeData	file format definition, only allows PLINK right now	String		TRUE	TRUE
