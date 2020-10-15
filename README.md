@@ -2,9 +2,19 @@
 
 Poseidon v.2 is a solution for genotype data organisation established within the Department of Archaeogenetics at the Max Planck Institute for the Science of Human History (MPI-SHH) in Jena. 
 
+- [The Poseidon package](#the-poseidon-package)
+    - [Structure](#structure)
+    - [The `POSEIDON.yml` file](#the-poseidonyml-file-mandatory)
+    - [The `X.janno` file](#the-xjanno-file-mandatory)
+    - [The `X.bed`, `X.bim`, `X.fam` files](#the-xbed-xbim-xfam-files-mandatory)
+    - [The `README.txt` file](#the-readmetxt-file-optional)
+    - [The `CHANGELOG.txt` file](#the-changelogtxt-file-optional)
+    - [The `LITERATURE.bib` file](#the-literaturebib-file-optional)
+- [Naming Poseidon v.2 `package`s](#naming-poseidon-v2-packages)
+    
 ***
 
-## The Poseidon v.2 `package`
+## The Poseidon package
 
 All ancient and modern data are distributed into so-called packages, which are directories containing a dedicated set of files. Packages correspond to published sets of genomes, or in case of unpublished projects, ongoing (and growing) sets of samples currently analysed. All text files in the package are UTF-8 encoded.
 
@@ -35,7 +45,7 @@ Switzerland_LNBA_Roswita/CHANGELOG.txt
 Switzerland_LNBA_Roswita/LITERATURE.bib
 ```
 
-###  The `POSEIDON.yml` file [mandatory]
+### The `POSEIDON.yml` file [mandatory]
 
 The `POSEIDON.yml` file lists metainformation in a standardized, machine-readable format.
 
