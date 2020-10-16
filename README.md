@@ -87,6 +87,8 @@ The `.janno` file is a UTF-8 encoded, tab-separated text file with a header line
 - The values in the columns **Individual_ID** and **Group_Name** must be equal to the terms used in the first and second column of the `.fam` file.
 - Multiple columns of the `.janno` file are list columns that hold multiple values (either strings or numerics) separated by `;`
 
+For creating a new `.janno` file you can find an empty template [here](https://github.com/poseidon-framework/poseidon2-schema/blob/master/empty_janno_template.janno).
+
 ### The `X.bed`, `X.bim`, `X.fam` files [mandatory]
 
 Binary plink genotype files consisting of [`.bed` (PLINK binary biallelic genotype table)](https://www.cog-genomics.org/plink/1.9/formats#bed), [`.bim` (PLINK extended MAP file)](https://www.cog-genomics.org/plink/1.9/formats#bim) and [`.fam` (PLINK sample information)](https://www.cog-genomics.org/plink/1.9/formats#fam).
