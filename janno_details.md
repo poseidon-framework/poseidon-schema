@@ -2,6 +2,16 @@
 
 This documentation includes some more background about some of the columns in the `.janno` file beyond the general remarks [here](https://github.com/poseidon-framework/poseidon2-schema#the-xjanno-file-mandatory) and the overview table [here](https://github.com/poseidon-framework/poseidon2-schema/blob/master/janno_columns.tsv). This should make it more easy to compile the necessary information for both published and unpublished data.
 
+- [Identifiers](#identifiers)
+- [Spatial position (`Country`, `Location`, `Site`, `Latitude`, `Longitude`)](#spatial-position)
+- [Temporal position (`Date_C14_Labnr`, `Date_C14_Uncal_BP`, `Date_C14_Uncal_BP_Err`, `Date_BC_AD_Median`, `Date_BC_AD_Start`, `Date_BC_AD_Stop`, `Date_Type`)](#temporal-position)
+- [Genetic summary data](#genetic-summary-data)
+    - [Library properties (`Source_Tissue`, `No_of_Libraries`, `Data_Type`, `Endogenous`, `UDG`, `Library_Built`, `Genotype_Ploidy`)](#library-properties)
+    - [On-1240K properties (`Nr_autosomal_SNPs`, `Coverage_1240K`)](#on-1240K-properties)
+    - [Individual properties (`Genetic_Sex`, `MT_Haplogroup`, `Y_Haplogroup`)](#individual-properties)
+    - [Damage and Contamination (`Damage`, `Xcontam`, `Xcontam_stderr`, `mtContam`, `mtContam_stderr`)](#damage-and-contamination)
+- [Context information (`Primary_Contact`, `Publication_Status`, `Note`, `Keywords`)](#context-information)
+
 # Identifiers
 
 `Individual_ID`
