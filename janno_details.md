@@ -2,6 +2,12 @@
 
 This documentation includes some more background about some of the columns in the `.janno` file beyond the general remarks [here](https://github.com/poseidon-framework/poseidon2-schema#the-xjanno-file-mandatory) and the overview table [here](https://github.com/poseidon-framework/poseidon2-schema/blob/master/janno_columns.tsv). This should make it more easy to compile the necessary information for both published and unpublished data.
 
+# Identifiers
+
+`Individual_ID`
+`Collection_ID`
+`Group_Name`
+
 # Spatial position
 
 The `.janno` file contains five columns to describe the spatial origin of an individual sample:  `Country`, `Location`, `Site` and finally `Latitude` and `Longitude`. 
@@ -35,5 +41,39 @@ The columns `Date_BC_AD_Median`, `Date_BC_AD_Start`, `Date_BC_AD_Stop` store a s
 
 # Genetic summary data
 
+## Library properties
+
+`Source_Tissue`
+`No_of_Libraries`
+`Data_Type`
+`Endogenous`
+`UDG`
+`Library_Built`
+`Genotype_Ploidy`
+
+## On-1240K properties
+
+`Nr_autosomal_SNPs`
+`Coverage_1240K`
+
+## Individual properties
+
+`Genetic_Sex`
+`MT_Haplogroup`
+`Y_Haplogroup`
+
+## Damage and Contamination
+
+`Damage`
+`Xcontam` 
+`Xcontam_stderr`
+`mtContam`
+`mtContam_stderr`
+
 # Context information
+
+`Primary_Contact`
+`Publication_Status`
+`Note`
+`Keywords`
 
