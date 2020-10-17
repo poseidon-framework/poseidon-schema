@@ -43,6 +43,8 @@ The columns `Date_BC_AD_Median`, `Date_BC_AD_Start`, `Date_BC_AD_Stop` store a s
 
 ## Library properties
 
+In case of multiple libraries: merge.
+
 `Source_Tissue`
 `No_of_Libraries`
 `Data_Type`
@@ -53,8 +55,9 @@ The columns `Date_BC_AD_Median`, `Date_BC_AD_Start`, `Date_BC_AD_Stop` store a s
 
 ## On-1240K properties
 
-`Nr_autosomal_SNPs`
-`Coverage_1240K`
+The `Nr_autosomal_SNPs` column should report the number of SNPs on the 1240K SNP array covered at least once in any of the libraries from this sample. The 1240K SNP array was specifically designed for ancient human population genetics research and includes "nearly all SNPs on the Affymetrix Human Origins and Illumina 610-Quad arrays, 49,711 SNPs on chromosome X and 32,681 on chromosome Y, and 47,384 SNPs with evidence of functional importance" -- [Mathieson et al. 2015](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4918750/). This can be calculated for example with ...
+
+The `Coverage_1240K` column should report the mean SNP *coverage* on the 1240K SNP array for the merged libraries of this sample. To calculate the coverage it's necessary to determine which 1240K SNPs are covered how many times by the mapped reads. Individual SNPs might be covered multiple times, whereas others may not be covered at all by the highly deteriorated ancient DNA. The coverage for each SNP is therefore a number between 0 and n and the mean coverage for a complete sample can be calculated as a mean of the SNP-wise coverage distribution for all its libraries combined. The coverage can be determined with ...
 
 ## Individual properties
 
