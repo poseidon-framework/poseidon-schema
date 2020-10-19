@@ -56,6 +56,7 @@ The columns `Date_BC_AD_Median`, `Date_BC_AD_Start`, `Date_BC_AD_Stop` store a s
 The `Genetic_Sex` column should encode the biological sex as determined from the DNA read distribution on the X and Y chromosome. It only allows for the entries `F` (female), `M` (male) and `U` (unknown), just as the genotype data formats by Plink and the Eigensoft software package. Edge cases (e.g. XXY, XYY, X0, ...) can not be expressed with this format should be reported as `U` with an additional comment in the free text `Note` field. Genetic sex determination for ancient DNA can be performed for example with [Sex.DetERRmine](https://github.com/TCLamnidis/Sex.DetERRmine).
 
 `MT_Haplogroup`
+
 `Y_Haplogroup`
 
 ## Library properties
@@ -63,17 +64,20 @@ The `Genetic_Sex` column should encode the biological sex as determined from the
 In case of multiple libraries: merge.
 
 `Source_Tissue`
+
 `No_of_Libraries`
+
 `Data_Type`
+
 `UDG`
+
 `Library_Built`
+
 `Genotype_Ploidy`
 
 ## Data yield
 
 `Endogenous`
-% endogenous DNA as estimated from SG libraries (before capture), as for example estimated by EAGER, not on target and no quality filter, in case of multiple libraries report only the highest value
-
 
 The `Nr_autosomal_SNPs` column should report the number of SNPs on the 1240K SNP array covered at least once in any of the libraries from this sample. The 1240K SNP array was specifically designed for ancient human population genetics research and includes "nearly all SNPs on the Affymetrix Human Origins and Illumina 610-Quad arrays, 49,711 SNPs on chromosome X and 32,681 on chromosome Y, and 47,384 SNPs with evidence of functional importance" -- [Mathieson et al. 2015](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4918750/). This can be calculated for example with ...
 
@@ -82,15 +86,54 @@ The `Coverage_1240K` column should report the mean SNP *coverage* on the 1240K S
 ## Data quality
 
 `Damage`
-`Xcontam` 
+
+`Xcontam`
+
 `Xcontam_stderr`
+
 `mtContam`
+
 `mtContam_stderr`
 
 # Context information
 
-`Primary_Contact`
-`Publication_Status`
-`Note`
-`Keywords`
+The `Primary_Contact` column is a free form text field that stores the name of the main or the corresponding author of the respective paper for published data.
+
+The `Publication_Status` column holds either the value `unpublished` for (yet) unpublished samples or -- for published data -- a citation-key of the form `AuthorJournalYear` without any spaces or special characters. This key has to be identical to the [BibTeX](http://www.bibtex.org/) citation-key identifying the respective entry in the `LITERATURE.bib` file of the package. BibTeX is a file format to store bibliographic information, where each entry (article, book, website, ...) is defined by a series of parameters (authors, year of publication, journal, ...). Here's an example `LITERATURE.bib` file with two entries:
+
+```
+@article{CassidyPNAS2015,
+    doi = {10.1073/pnas.1518445113},
+    url = {https://doi.org/10.1073%2Fpnas.1518445113},
+    year = 2015,
+    month = {dec},
+    publisher = {Proceedings of the National Academy of Sciences},
+    volume = {113},
+    number = {2},
+    pages = {368--373},
+    author = {Lara M. Cassidy and Rui Martiniano and Eileen M. Murphy and Matthew D. Teasdale and James Mallory and Barrie Hartwell and Daniel G. Bradley},
+    title = {Neolithic and Bronze Age migration to Ireland and establishment of the insular Atlantic genome},
+    journal = {Proceedings of the National Academy of Sciences}
+}
+
+@article{FeldmanScienceAdvances2019,
+    doi = {10.1126/sciadv.aax0061},
+    url = {https://doi.org/10.1126%2Fsciadv.aax0061},
+    year = 2019,
+    month = {jul},
+    publisher = {American Association for the Advancement of Science ({AAAS})},
+    volume = {5},
+    number = {7},
+    pages = {eaax0061},
+    author = {Michal Feldman and Daniel M. Master and Raffaela A. Bianco and Marta Burri and Philipp W. Stockhammer and Alissa Mittnik and Adam J. Aja and Choongwon Jeong and Johannes Krause},
+    title = {Ancient {DNA} sheds light on the genetic origins of early Iron Age Philistines},
+    journal = {Science Advances}
+}
+```
+
+The string `CassidyPNAS2015` is the citation-key of the first entry. When creating a new Poseidon package the `LITERATURE.bib` file should be filled together with the `Publication_Status` column. The most easy way to obtain the BibTeX entries is to request them with the doi from https://doi2bib.org/. Some times it may be necessary to adjust the outcome manually though. The citation-key has to be replaced by the one used in the `Publication_Status` column.
+
+The `Note` column is a free form text field that can contain small amounts of additional information that is not yet expressed in a more systematic form in the the other `.janno` file columns.
+
+The `Keywords` column was introduced to allow for tagging individuals with arbitrary keywords. This should simplify sorting and filtering in personal Poseidon package repositories. Each keyword is a string and multiple keywords can be separated with `;`.
 
