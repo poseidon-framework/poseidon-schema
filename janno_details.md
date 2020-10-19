@@ -14,9 +14,11 @@ This documentation includes some more background about some of the columns in th
 
 # Identifiers
 
-`Individual_ID`
-`Collection_ID`
-`Group_Name`
+The `Individual_ID` column has to represent each sample with a world-wide unique identifier string equal to the identifier used in the respective accompanying publication. There is no central authority to issue these identifiers, so it remains in the hand of the authors to avoid duplication. The `Individual_ID`s are also employed in the genetic data files and therefore have to adhere to certain constraints. If there are multiple samples from one individual, then they have to be clearly distinguished with relevant suffixes added to the `Individual_ID`.
+
+The `Collection_ID` column stores an additional, secondary identifier as it is often provided by collaboration partners (archaeologists, museums, collections) that provide specimen for archaeogenetic research. These identifiers might have a very heterogenous structure and may not be unique across different projects or institutions. The `Collection_ID` column is therefore a free form text field.
+
+The `Group_Name` column ...
 
 # Spatial position
 
@@ -53,7 +55,7 @@ The columns `Date_BC_AD_Median`, `Date_BC_AD_Start`, `Date_BC_AD_Stop` store a s
 
 ## Individual properties
 
-The `Genetic_Sex` column should encode the biological sex as determined from the DNA read distribution on the X and Y chromosome. It only allows for the entries `F` (female), `M` (male) and `U` (unknown), just as the genotype data formats by Plink and the Eigensoft software package. Edge cases (e.g. XXY, XYY, X0, ...) can not be expressed with this format should be reported as `U` with an additional comment in the free text `Note` field. Genetic sex determination for ancient DNA can be performed for example with [Sex.DetERRmine](https://github.com/TCLamnidis/Sex.DetERRmine).
+The `Genetic_Sex` column should encode the biological sex as determined from the DNA read distribution on the X and Y chromosome. It only allows for the entries `F` (female), `M` (male) and `U` (unknown), just as the genotype data formats by Plink and the Eigensoft software package. Edge cases (e.g. XXY, XYY, X0, ...) can not be expressed with this format and should be reported as `U` with an additional comment in the free text `Note` field. Genetic sex determination for ancient DNA can be performed for example with [Sex.DetERRmine](https://github.com/TCLamnidis/Sex.DetERRmine).
 
 `MT_Haplogroup`
 
@@ -131,7 +133,7 @@ The `Publication_Status` column holds either the value `unpublished` for (yet) u
 }
 ```
 
-The string `CassidyPNAS2015` is the citation-key of the first entry. When creating a new Poseidon package the `LITERATURE.bib` file should be filled together with the `Publication_Status` column. The most easy way to obtain the BibTeX entries is to request them with the doi from https://doi2bib.org/. Some times it may be necessary to adjust the outcome manually though. The citation-key has to be replaced by the one used in the `Publication_Status` column.
+The string `CassidyPNAS2015` is the citation-key of the first entry. When creating a new Poseidon package the `LITERATURE.bib` file should be filled together with the `Publication_Status` column. One of the most simple ways to obtain the BibTeX entries may be to request them with the doi from https://doi2bib.org/. Some times it may be necessary to adjust the outcome manually, though. The citation-key for example has to be replaced by the one used in the `Publication_Status` column.
 
 The `Note` column is a free form text field that can contain small amounts of additional information that is not yet expressed in a more systematic form in the the other `.janno` file columns.
 
