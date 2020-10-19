@@ -53,7 +53,8 @@ The columns `Date_BC_AD_Median`, `Date_BC_AD_Start`, `Date_BC_AD_Stop` store a s
 
 ## Individual properties
 
-`Genetic_Sex`
+The `Genetic_Sex` column should encode the biological sex as determined from the DNA read distribution on the X and Y chromosome. It only allows for the entries `F` (female), `M` (male) and `U` (unknown), just as the genotype data formats by Plink and the Eigensoft software package. Edge cases (e.g. XXY, XYY, X0, ...) can not be expressed with this format should be reported as `U` with an additional comment in the free text `Note` field. Genetic sex determination for ancient DNA can be performed for example with [Sex.DetERRmine](https://github.com/TCLamnidis/Sex.DetERRmine).
+
 `MT_Haplogroup`
 `Y_Haplogroup`
 
@@ -71,6 +72,8 @@ In case of multiple libraries: merge.
 ## Data yield
 
 `Endogenous`
+% endogenous DNA as estimated from SG libraries (before capture), as for example estimated by EAGER, not on target and no quality filter, in case of multiple libraries report only the highest value
+
 
 The `Nr_autosomal_SNPs` column should report the number of SNPs on the 1240K SNP array covered at least once in any of the libraries from this sample. The 1240K SNP array was specifically designed for ancient human population genetics research and includes "nearly all SNPs on the Affymetrix Human Origins and Illumina 610-Quad arrays, 49,711 SNPs on chromosome X and 32,681 on chromosome Y, and 47,384 SNPs with evidence of functional importance" -- [Mathieson et al. 2015](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4918750/). This can be calculated for example with ...
 
