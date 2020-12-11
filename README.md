@@ -5,12 +5,12 @@ Poseidon v.2 is a solution for genotype data organisation established within the
 - [The Poseidon package](#the-poseidon-package)
     - [Structure](#structure)
     - [The `POSEIDON.yml` file](#the-poseidonyml-file-mandatory)
+    - [The genotype data files](#the-genotype-data-files-mandatory)
     - [The `X.janno` file](#the-xjanno-file-mandatory)
-    - [The `X.bed`, `X.bim`, `X.fam` files](#the-xbed-xbim-xfam-files-mandatory)
+    - [The `X.bib` file](#the-xbib-file-optional)
     - [The `README.txt` file](#the-readmetxt-file-optional)
     - [The `CHANGELOG.txt` file](#the-changelogtxt-file-optional)
-    - [The `LITERATURE.bib` file](#the-literaturebib-file-optional)
-- [Naming Poseidon v.2 `package`s](#naming-poseidon-v2-packages)
+- [Naming Poseidon packages](#naming-poseidon-packages)
     
 ***
 
@@ -20,17 +20,17 @@ All ancient and modern data are distributed into so-called packages, which are d
 
 ### Structure
 
-Every package should have the following files: 
+Every package should have the following content: 
 
-- The `POSEIDON.yml` file
-- The `X.janno` file
-- The `X.bed`, `X.bim`, `X.fam` files
+- A `POSEIDON.yml` file to formally define the package
+- Genotype data in eigenstrat or plink format
+- A `X.janno` file to store context information 
+- A `X.bib` file for literature references
 
-It also can contain the following files:
+It can also contain the following files:
 
-- The `README.txt` file
-- The `CHANGELOG.txt` file
-- The `LITERATURE.bib` file
+- A `README.txt` file for arbitrary context information
+- A `CHANGELOG.txt` file to document changes to the package
 
 Example:
 
@@ -40,17 +40,17 @@ Switzerland_LNBA_Roswita/Switzerland_LNBA.janno
 Switzerland_LNBA_Roswita/Switzerland_LNBA.plink.bed
 Switzerland_LNBA_Roswita/Switzerland_LNBA.plink.bim
 Switzerland_LNBA_Roswita/Switzerland_LNBA.plink.fam
+Switzerland_LNBA_Roswita/Switzerland_LNBA.bib
 Switzerland_LNBA_Roswita/README.txt
 Switzerland_LNBA_Roswita/CHANGELOG.txt
-Switzerland_LNBA_Roswita/LITERATURE.bib
 ```
 
 ### The `POSEIDON.yml` file [mandatory]
 
 The `POSEIDON.yml` file lists metainformation in a standardized, machine-readable format.
 
-- The `POSEIDON.yml` file must be a valid [YAML file](https://yaml.org/).
-- The fields of the `POSEIDON.yml` file are documented in the [POSEIDON_yml_fields.tsv file](https://github.com/poseidon-framework/poseidon2-schema/blob/master/POSEIDON_yml_fields.tsv) in this repository.
+- It must be a valid [YAML file](https://yaml.org/).
+- Its fields are documented in the [POSEIDON_yml_fields.tsv file](https://github.com/poseidon-framework/poseidon2-schema/blob/master/POSEIDON_yml_fields.tsv) in this repository.
 
 Example:
 
@@ -65,8 +65,8 @@ contributor:
     email: gemuese@test.com
 packageVersion: 1.12
 lastModified: 2020-02-28
-bibFile: LITERATURE.bib
-genotypeData:	
+bibFile: Schiffels_2016.bib
+genotypeData:
   format: PLINK	
   genoFile: Schiffels_2016.bed	
   snpFile: Schiffels_2016.bim	
@@ -76,52 +76,43 @@ jannoFile : Schiffels_2016.janno
 
 When a package is modified in any way (e.g. updates of the context information in the `.janno` file), then the `packageVersion` field should be incremented and the `lastModified` field updated to the current date.
 
+### The genotype data files [mandatory]
+
+The genotype data can be stored in the following formats, given that it is indicated correctly in the `POSEIDON.yml` file.
+
+|          | EIGENSTRAT | PLINK |
+|----------|------------|-------|
+| genoFile | [`.geno` (genotype file)](https://github.com/argriffing/eigensoft/blob/890ef8f24b6cf0b68e9dd11608f9a058a95ff2cd/CONVERTF/README#L70)| [`.bed` (binary biallelic genotype table)](https://www.cog-genomics.org/plink/1.9/formats#bed)  |
+| snpFile  | [`.snp` (snp file)](https://github.com/argriffing/eigensoft/blob/890ef8f24b6cf0b68e9dd11608f9a058a95ff2cd/CONVERTF/README#L70) | [`.bim` (extended MAP file)](https://www.cog-genomics.org/plink/1.9/formats#bim)  |
+| indFile  | [`.ind` (indiv file)](https://github.com/argriffing/eigensoft/blob/890ef8f24b6cf0b68e9dd11608f9a058a95ff2cd/CONVERTF/README#L70) | [`.fam` (sample information)](https://www.cog-genomics.org/plink/1.9/formats#fam)  |
+
 ###  The `X.janno` file [mandatory]
 
-The `.janno` file is a UTF-8 encoded, tab-separated text file with a header line. It holds a clearly defined set of context information (columns) for each sample (rows) in a package.
+The `.janno` file is a tab-separated text file with a header line. It holds a clearly defined set of context information (columns) for each sample (rows) in a package.
 
 - The variables (columns), variable types and possible content of the janno file are documented in the [janno_columns.tsv file](https://github.com/poseidon-framework/poseidon2-schema/blob/master/janno_columns.tsv) in this repository.
 - A `.janno` file must have all of these columns in exactly this order with exactly these column names. 
 - If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) can be filled with the NULL value `n/a`. Ideally, a `.janno` file should have the least number of n/a-values possible.
 - The order of the samples (rows) in the `.janno` file must be equal to the order in the files that hold the genetic data.
 - The values in the columns **Individual_ID** and **Group_Name** must be equal to the terms used in the first and second column of the `.fam` file.
-- Multiple columns of the `.janno` file are list columns that hold multiple values (either strings or numerics) separated by `;`
-- The decimal separator for all floating point numbers is `.`
+- Multiple columns of the `.janno` file are list columns that hold multiple values (either strings or numerics) separated by `;`.
+- The decimal separator for all floating point numbers is `.`.
 
-### The `X.bed`, `X.bim`, `X.fam` files [mandatory]
+### The `X.bib` file [optional]
 
-Binary plink genotype files consisting of [`.bed` (PLINK binary biallelic genotype table)](https://www.cog-genomics.org/plink/1.9/formats#bed), [`.bim` (PLINK extended MAP file)](https://www.cog-genomics.org/plink/1.9/formats#bim) and [`.fam` (PLINK sample information)](https://www.cog-genomics.org/plink/1.9/formats#fam).
+[BibTeX](http://www.bibtex.org/) file with all references listed in `X.janno`.
 
 ### The `README.txt` file [optional]
 
-The README.txt file contains arbitrary, human-readable information.
-
-Example:
-
-```
-This package contains a rather interesting set of samples. 
-@Uebertruplf_2021 even claimed that they are the most important for this particular area and time period.
-```
+Informal information accompanying the package.
 
 ### The `CHANGELOG.txt` file [optional]
 
-Documentation of important changes in the history of a package.
-
-Example:
-
-```
-- 2021_10_01: Fixed a spelling mistake in the site name "Hosenacker"->"Rosenacker". 
-- 2021_05_05: The authors of @Gassenhauer_2021 made some previously restricted samples for their publication available later and we added them.
-- 2021_03_08: Creation of the package.
-```
-
-### The `LITERATURE.bib` file [optional]
-
-Bibtex file with all references mentioned in `POSEIDON.yml`, `README.txt` and `CHANGELOG.txt`
+Informal documentation of important changes in the history of a package.
 
 ***
 
-## Naming Poseidon v.2 `package`s
+## Naming Poseidon packages
 
 The naming of packages should follow a simple scheme:
 
@@ -163,15 +154,3 @@ Identifiers can be somewhat informal as long as the project is ongoing, they jus
 
 External projects can be integrated similarly by using their publication name, or by temporary internal identifiers such as `Iron_Age_Boston_Share`.
 
-***
-
-## DAG internal procedures
-
-Individual contributors would create packages in dedicated poseidon folders in their user project directories, e.g. `/project1/user/xyz/poseidon/2018_Lamnidis_Fennoscandia`. That way, subfolders belong to individual maintainers and be writable only by them. 
-
-The poseidon admins would then link these packages into the official `/projects1/poseidon` repo, located on the HPC storage unit of the MPI-SHH, where we distinguish ancient and modern genotype data:
-
-```
-/projects1/poseidon/ancient/…  
-/projects1/poseidon/modern/…
-```
