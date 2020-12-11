@@ -86,6 +86,7 @@ The `.janno` file is a UTF-8 encoded, tab-separated text file with a header line
 - The order of the samples (rows) in the `.janno` file must be equal to the order in the files that hold the genetic data.
 - The values in the columns **Individual_ID** and **Group_Name** must be equal to the terms used in the first and second column of the `.fam` file.
 - Multiple columns of the `.janno` file are list columns that hold multiple values (either strings or numerics) separated by `;`
+- The decimal separator for all floating point numbers is `.`
 
 ### The `X.bed`, `X.bim`, `X.fam` files [mandatory]
 
