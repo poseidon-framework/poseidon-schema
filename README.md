@@ -1,18 +1,15 @@
-# Poseidon v.2: DAG Genotype Data Organisation
+# Poseidon: DAG Genotype Data Organisation
 
-Poseidon v.2 is a solution for genotype data organisation established within the Department of Archaeogenetics at the Max Planck Institute for the Science of Human History (MPI-SHH) in Jena. 
+Poseidon is a solution for genotype data organisation established within the Department of Archaeogenetics at the Max Planck Institute for the Science of Human History (MPI-SHH) in Jena. 
 
 - [The Poseidon package](#the-poseidon-package)
-    - [Structure](#structure)
-    - [The `POSEIDON.yml` file](#the-poseidonyml-file-mandatory)
-    - [The genotype data files](#the-genotype-data-files-mandatory)
-    - [The `X.janno` file](#the-xjanno-file-mandatory)
-    - [The `X.bib` file](#the-xbib-file-optional)
-    - [The `README.txt` file](#the-readmetxt-file-optional)
-    - [The `CHANGELOG.txt` file](#the-changelogtxt-file-optional)
-- [Naming Poseidon packages](#naming-poseidon-packages)
-    
-***
+  * [Structure](#structure)
+  * [The `POSEIDON.yml` file](#the--poseidonyml--file)
+  * [Genotype data](#genotype-data)
+  * [The `X.janno` file](#the--xjanno--file)
+  * [The `.bib` file](#the--bib--file)
+  * [The `README.txt` file](#the--readmetxt--file)
+  * [The `CHANGELOG.txt` file](#the--changelogtxt--file)
 
 ## The Poseidon package
 
@@ -20,11 +17,11 @@ All ancient and modern data are distributed into so-called packages, which are d
 
 ### Structure
 
-Every package should have the following content: 
+Every package should have the following files: 
 
 - A `POSEIDON.yml` file to formally define the package
 - Genotype data in eigenstrat or plink format
-- A `X.janno` file to store context information 
+- A `X.janno` file to store context information
 - A `X.bib` file for literature references
 
 It can also contain the following files:
@@ -36,121 +33,108 @@ Example:
 
 ```
 Switzerland_LNBA_Roswita/POSEIDON.yml
-Switzerland_LNBA_Roswita/Switzerland_LNBA.janno
 Switzerland_LNBA_Roswita/Switzerland_LNBA.plink.bed
 Switzerland_LNBA_Roswita/Switzerland_LNBA.plink.bim
 Switzerland_LNBA_Roswita/Switzerland_LNBA.plink.fam
+Switzerland_LNBA_Roswita/Switzerland_LNBA.janno
 Switzerland_LNBA_Roswita/Switzerland_LNBA.bib
 Switzerland_LNBA_Roswita/README.txt
 Switzerland_LNBA_Roswita/CHANGELOG.txt
 ```
 
-### The `POSEIDON.yml` file [mandatory]
+### The `POSEIDON.yml` file
 
 The `POSEIDON.yml` file lists metainformation in a standardized, machine-readable format.
 
 - It must be a valid [YAML file](https://yaml.org/).
-- Its fields are documented in the [POSEIDON_yml_fields.tsv file](https://github.com/poseidon-framework/poseidon2-schema/blob/master/POSEIDON_yml_fields.tsv) in this repository.
+- Its fields of the `POSEIDON.yml` file are documented in the [POSEIDON_yml_fields.tsv file](https://github.com/poseidon-framework/poseidon2-schema/blob/master/POSEIDON_yml_fields.tsv) in this repository.
 
 Example:
 
 ```
-poseidonVersion: 2.0.1
-title: Schiffels_2016
-description: Genetic data published in Schiffels et al. 2016
+poseidonVersion: 2.0.2
+title: Switzerland_LNBA_Roswita
+description: LNBA Switzerland genetic data not yet published # optional
 contributor:
-  - name: Stephan Schiffels
-    email: stephan.schiffels@institute.org
+  - name: Roswita Malone
+    email: roswita.malone@institute.org
   - name: Paul Panther
-    email: gemuese@test.com
-packageVersion: 1.12
-lastModified: 2020-02-28
-bibFile: Schiffels_2016.bib
-genotypeData:
+    email: paul.panther@next-institute.com
+packageVersion: 1.1.2
+lastModified: 2021-01-28
+genotypeData:	
   format: PLINK	
-  genoFile: Schiffels_2016.bed	
-  snpFile: Schiffels_2016.bim	
-  indFile: Schiffels_2016.fam	
-jannoFile : Schiffels_2016.janno
+  genoFile: Switzerland_LNBA_Roswita.bed
+  genoFileChkSum: 95b093eefacc1d6499afcfe89b15d56c # optional
+  snpFile: Switzerland_LNBA_Roswita.bim
+  snpFileChkSum: 6771d7c873219039ba3d5bdd96031ce3 # optional
+  indFile: Switzerland_LNBA_Roswita.fam
+  indFileChkSum: f77dc756666dbfef3bb35191ae15a167 # optional
+jannoFile : Switzerland_LNBA_Roswita.janno
+jannoFileChkSum: 555d7733135ebcabd032d581381c5d6f # optional
+bibFile: sources.bib
+bibFileChkSum: 70cd3d5801cee8a93fc2eb40a99c63fa # optional
+readmeFile: README.txt # optional
+changelogFile: CHANGELOG.txt # optional
 ```
 
 When a package is modified in any way (e.g. updates of the context information in the `.janno` file), then the `packageVersion` field should be incremented and the `lastModified` field updated to the current date.
 
-### The genotype data files [mandatory]
+### Genotype data
 
-The genotype data can be stored in the following formats, given that it is indicated correctly in the `POSEIDON.yml` file.
+Genotype data in Poseidon packages files is stored either in PLINK (binary) or EIGENSTRAT format.
 
-|          | EIGENSTRAT | PLINK |
-|----------|------------|-------|
-| genoFile | [`.geno` (genotype file)](https://github.com/argriffing/eigensoft/blob/890ef8f24b6cf0b68e9dd11608f9a058a95ff2cd/CONVERTF/README#L70)| [`.bed` (binary biallelic genotype table)](https://www.cog-genomics.org/plink/1.9/formats#bed)  |
-| snpFile  | [`.snp` (snp file)](https://github.com/argriffing/eigensoft/blob/890ef8f24b6cf0b68e9dd11608f9a058a95ff2cd/CONVERTF/README#L70) | [`.bim` (extended MAP file)](https://www.cog-genomics.org/plink/1.9/formats#bim)  |
-| indFile  | [`.ind` (indiv file)](https://github.com/argriffing/eigensoft/blob/890ef8f24b6cf0b68e9dd11608f9a058a95ff2cd/CONVERTF/README#L70) | [`.fam` (sample information)](https://www.cog-genomics.org/plink/1.9/formats#fam)  |
+|   | PLINK (binary) | EIGENSTRAT |
+|---|---|---|
+| genotype file | [`.bed` (binary biallelic genotype table)](https://www.cog-genomics.org/plink/1.9/formats#bed) | [`.geno` (genotype file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67)
+| SNP file  | [`.bim` (extended MAP file)](https://www.cog-genomics.org/plink/1.9/formats#bim) | [`.snp` (snp file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |
+| individual file  | [`.fam` (sample information)](https://www.cog-genomics.org/plink/1.9/formats#fam) | [`.ind` (indiv file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |
 
-###  The `X.janno` file [mandatory]
+###  The `X.janno` file
 
 The `.janno` file is a tab-separated text file with a header line. It holds a clearly defined set of context information (columns) for each sample (rows) in a package.
 
 - The variables (columns), variable types and possible content of the janno file are documented in the [janno_columns.tsv file](https://github.com/poseidon-framework/poseidon2-schema/blob/master/janno_columns.tsv) in this repository.
-- A `.janno` file must have all of these columns in exactly this order with exactly these column names. 
-- If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) can be filled with the NULL value `n/a`. Ideally, a `.janno` file should have the least number of n/a-values possible.
+- A `.janno` file must have all of these columns in exactly this order with exactly these column names.
+- If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) can be filled with the NULL value `n/a`.
 - The order of the samples (rows) in the `.janno` file must be equal to the order in the files that hold the genetic data.
-- The values in the columns **Individual_ID** and **Group_Name** must be equal to the terms used in the first and second column of the `.fam` file.
+- The values in the columns **Individual_ID** and **Group_Name** must be equal to the terms used in the genetic data files.
 - Multiple columns of the `.janno` file are list columns that hold multiple values (either strings or numerics) separated by `;`.
 - The decimal separator for all floating point numbers is `.`.
 
-### The `X.bib` file [optional]
+For creating a new `.janno` file you can find an empty template [here](https://github.com/poseidon-framework/poseidon2-schema/blob/master/empty_janno_template.janno).
+
+### The `.bib` file
 
 [BibTeX](http://www.bibtex.org/) file with all references listed in `X.janno`.
 
-### The `README.txt` file [optional]
+### The `README.txt` file
 
 Informal information accompanying the package.
 
-### The `CHANGELOG.txt` file [optional]
-
-Informal documentation of important changes in the history of a package.
-
-***
-
-## Naming Poseidon packages
-
-The naming of packages should follow a simple scheme:
-
-Ancient published: YEAR_NAME_IDENTIFIER
+Example:
 
 ```
-2018_Lamnidis_Fennoscandia  
-2019_Wang_Caucasus  
-2019_Flegontov_PaleoEskimo  
+This package contains a rather interesting set of samples relevant for the peopling of the Territory of Christmas Island in the Indian Ocean. We consider this especially relevant, because ...
 ```
 
-Ancient unpublished: IDENTIFIER_NAME
+### The `CHANGELOG.txt` file
+
+Documentation of important changes in the history of a package.
+
+Example:
 
 ```
-Switzerland_LNBA_Roswita  
-Italy_Mesolithic_Paul  
-SouthEastAsia_Simon  
+## 1.2.0
+- Fixed a spelling mistake in the site name "Hosenacker"->"Rosenacker". 
+
+## 1.1.1
+- Added mtDNA contamination estimation to .janno file
+
+## 1.1.0
+- The authors of @Gassenhauer_2021 made some previously restricted samples for their publication available later and we added them.
+
+## 1.0.0
+- Creation of the package.
 ```
-
-Modern published: YEAR_(NAME)_IDENTIFIER
-
-```
-2015_1000_Genomes-1240K_haploid_pulldown
-2016_Mallick_SGDP1240K_diploid_pulldown
-2014_Lazaridis_HOmodern
-2016_Lazaridis_HOmodern
-2019_Flegontov_HO_NewSiberian
-2018_Lipson_SEA
-```
-
-Modern unpublished: IDENTIFIER_NAME
-
-```
-Eurasia_newHO_Paul
-Afrika_newHO_Andrea
-```
-
-Identifiers can be somewhat informal as long as the project is ongoing, they just need to be unique. As soon as a project gets published, we create a final version of the respective package with the YEAR_NAME_IDENTIFIER label.
-
-External projects can be integrated similarly by using their publication name, or by temporary internal identifiers such as `Iron_Age_Boston_Share`.
 
