@@ -1,6 +1,6 @@
 # Poseidon: Genotype Data Organisation
 
-Poseidon is a solution for genotype data organisation established within the Department of Archaeogenetics at the Max Planck Institute for the Science of Human History (MPI-SHH) in Jena. 
+Poseidon is a solution for genotype data organisation established within the Department of Archaeogenetics at the Max Planck Institute for the Science of Human History (MPI-SHH) in Jena.
 
 - [The Poseidon package](#the-poseidon-package)
   * [Structure](#structure)
