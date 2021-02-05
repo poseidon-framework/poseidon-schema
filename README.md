@@ -6,7 +6,7 @@ Poseidon is a solution for genotype data organisation established within the Dep
   * [Structure](#structure)
   * [The `POSEIDON.yml` file](#the--poseidonyml--file)
   * [Genotype data](#genotype-data)
-  * [The `X.janno` file](#the--xjanno--file)
+  * [The `.janno` file](#the--janno--file)
   * [The `.bib` file](#the--bib--file)
   * [The `README.txt` file](#the--readmetxt--file)
   * [The `CHANGELOG.txt` file](#the--changelogtxt--file)
@@ -21,8 +21,8 @@ Every package should have the following files:
 
 - A `POSEIDON.yml` file to formally define the package
 - Genotype data in eigenstrat or plink format
-- A `X.janno` file to store context information
-- A `X.bib` file for literature references
+- A `.janno` file to store context information
+- A `.bib` file for literature references
 
 It can also contain the following files:
 
@@ -82,7 +82,7 @@ When a package is modified in any way (e.g. updates of the context information i
 
 ### Genotype data
 
-Genotype data in Poseidon packages files is stored either in PLINK (binary) or EIGENSTRAT format.
+Genotype data in Poseidon packages is stored either in PLINK (binary) or EIGENSTRAT format.
 
 |   | PLINK (binary) | EIGENSTRAT |
 |---|---|---|
@@ -90,7 +90,7 @@ Genotype data in Poseidon packages files is stored either in PLINK (binary) or E
 | SNP file  | [`.bim` (extended MAP file)](https://www.cog-genomics.org/plink/1.9/formats#bim) | [`.snp` (snp file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |
 | individual file  | [`.fam` (sample information)](https://www.cog-genomics.org/plink/1.9/formats#fam) | [`.ind` (indiv file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |
 
-###  The `X.janno` file
+###  The `.janno` file
 
 The `.janno` file is a tab-separated text file with a header line. It holds a clearly defined set of context information (columns) for each sample (rows) in a package.
 
@@ -106,7 +106,7 @@ For creating a new `.janno` file you can find an empty template [here](https://g
 
 ### The `.bib` file
 
-[BibTeX](http://www.bibtex.org/) file with all references listed in `X.janno`.
+[BibTeX](http://www.bibtex.org/) file with all references listed in the `.janno` file.
 
 ### The `README.txt` file
 
@@ -137,4 +137,3 @@ Example:
 ## 1.0.0
 - Creation of the package.
 ```
-
