@@ -1,4 +1,4 @@
-# Poseidon: DAG Genotype Data Organisation
+# Poseidon: Genotype Data Organisation
 
 Poseidon is a solution for genotype data organisation established within the Department of Archaeogenetics at the Max Planck Institute for the Science of Human History (MPI-SHH) in Jena. 
 
@@ -44,7 +44,7 @@ Switzerland_LNBA_Roswita/CHANGELOG.txt
 
 ### The `POSEIDON.yml` file
 
-The `POSEIDON.yml` file lists metainformation in a standardized, machine-readable format.
+The `POSEIDON.yml` file lists relative file paths and metainformation in a standardized, machine-readable format.
 
 - It must be a valid [YAML file](https://yaml.org/).
 - Its fields of the `POSEIDON.yml` file are documented in the [POSEIDON_yml_fields.tsv file](https://github.com/poseidon-framework/poseidon2-schema/blob/master/POSEIDON_yml_fields.tsv) in this repository.
@@ -106,7 +106,25 @@ For creating a new `.janno` file you can find an empty template [here](https://g
 
 ### The `.bib` file
 
-[BibTeX](http://www.bibtex.org/) file with all references listed in the `.janno` file.
+[BibTeX](http://www.bibtex.org/) file with all references listed in the `.janno` file. The bibtex keys must fit to ones used in the `.janno` file.
+
+Example:
+
+```
+@article{CassidyPNAS2015,
+    doi = {10.1073/pnas.1518445113},
+    url = {https://doi.org/10.1073%2Fpnas.1518445113},
+    year = 2015,
+    month = {dec},
+    publisher = {Proceedings of the National Academy of Sciences},
+    volume = {113},
+    number = {2},
+    pages = {368--373},
+    author = {Lara M. Cassidy and Rui Martiniano and Eileen M. Murphy and Matthew D. Teasdale and James Mallory and Barrie Hartwell and Daniel G. Bradley},
+    title = {Neolithic and Bronze Age migration to Ireland and establishment of the insular Atlantic genome},
+    journal = {Proceedings of the National Academy of Sciences}
+}
+```
 
 ### The `README.txt` file
 
