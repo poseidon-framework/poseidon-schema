@@ -102,8 +102,6 @@ The `.janno` file is a tab-separated text file with a header line. It holds a cl
 - Multiple columns of the `.janno` file are list columns that hold multiple values (either strings or numerics) separated by `;`.
 - The decimal separator for all floating point numbers is `.`.
 
-For creating a new `.janno` file you can find an empty template [here](https://github.com/poseidon-framework/poseidon2-schema/blob/master/empty_janno_template.janno).
-
 ### The `.bib` file
 
 [BibTeX](http://www.bibtex.org/) file with all references listed in the `.janno` file. The bibtex keys must fit to ones used in the `.janno` file.
