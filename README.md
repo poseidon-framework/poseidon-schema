@@ -4,12 +4,12 @@ Poseidon is a solution for genotype data organisation established within the Dep
 
 - [The Poseidon package](#the-poseidon-package)
   * [Structure](#structure)
-  * [The `POSEIDON.yml` file](#the--poseidonyml--file)
+  * [The `POSEIDON.yml` file](#the-poseidonyml-file)
   * [Genotype data](#genotype-data)
-  * [The `.janno` file](#the--janno--file)
-  * [The `.bib` file](#the--bib--file)
-  * [The `README.txt` file](#the--readmetxt--file)
-  * [The `CHANGELOG.txt` file](#the--changelogtxt--file)
+  * [The `.janno` file](#the-janno-file)
+  * [The `.bib` file](#the-bib-file)
+  * [The `README.txt` file](#the-readmetxt-file)
+  * [The `CHANGELOG.txt` file](#the-changelogtxt-file)
 
 ## The Poseidon package
 
