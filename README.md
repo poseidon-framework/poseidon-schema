@@ -1,21 +1,18 @@
-# Poseidon: Genotype Data Organisation
+# The Poseidon Standard:
 
 Poseidon is a solution for genotype data organisation established within the Department of Archaeogenetics at the Max Planck Institute for the Science of Human History (MPI-SHH) in Jena.
 
-- [The Poseidon package](#the-poseidon-package)
-  * [Structure](#structure)
-  * [The `POSEIDON.yml` file](#the-poseidonyml-file)
-  * [Genotype data](#genotype-data)
-  * [The `.janno` file](#the-janno-file)
-  * [The `.bib` file](#the-bib-file)
-  * [The `README.txt` file](#the-readmetxt-file)
-  * [The `CHANGELOG.txt` file](#the-changelogtxt-file)
+* [Poseidon Package Structure](#structure)
+* [The `POSEIDON.yml` file](#the-poseidonyml-file)
+* [Genotype data](#genotype-data)
+* [The `.janno` file](#the-janno-file)
+* [The `.bib` file](#the-bib-file)
+* [The `README.txt` file](#the-readmetxt-file)
+* [The `CHANGELOG.txt` file](#the-changelogtxt-file)
 
-## The Poseidon package
+## The Poseidon package structure
 
 All ancient and modern data are distributed into so-called packages, which are directories containing a dedicated set of files. Packages correspond to published sets of genomes, or in case of unpublished projects, ongoing (and growing) sets of samples currently analysed. All text files in the package are UTF-8 encoded.
-
-### Structure
 
 Every package should have the following files: 
 
@@ -42,7 +39,7 @@ Switzerland_LNBA_Roswita/README.txt
 Switzerland_LNBA_Roswita/CHANGELOG.txt
 ```
 
-### The `POSEIDON.yml` file
+## The `POSEIDON.yml` file
 
 The `POSEIDON.yml` file lists relative file paths and metainformation in a standardized, machine-readable format.
 
@@ -80,7 +77,7 @@ changelogFile: CHANGELOG.txt # optional
 
 When a package is modified in any way (e.g. updates of the context information in the `.janno` file), then the `packageVersion` field should be incremented and the `lastModified` field updated to the current date.
 
-### Genotype data
+## Genotype data
 
 Genotype data in Poseidon packages is stored either in PLINK (binary) or EIGENSTRAT format.
 
@@ -90,7 +87,7 @@ Genotype data in Poseidon packages is stored either in PLINK (binary) or EIGENST
 | SNP file  | [`.bim` (extended MAP file)](https://www.cog-genomics.org/plink/1.9/formats#bim) | [`.snp` (snp file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |
 | individual file  | [`.fam` (sample information)](https://www.cog-genomics.org/plink/1.9/formats#fam) | [`.ind` (indiv file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |
 
-###  The `.janno` file
+##  The `.janno` file
 
 The `.janno` file is a tab-separated text file with a header line. It holds a clearly defined set of context information (columns) for each sample (rows) in a package.
 
@@ -102,7 +99,7 @@ The `.janno` file is a tab-separated text file with a header line. It holds a cl
 - Multiple columns of the `.janno` file are list columns that hold multiple values (either strings or numerics) separated by `;`.
 - The decimal separator for all floating point numbers is `.`.
 
-### The `.bib` file
+## The `.bib` file
 
 [BibTeX](http://www.bibtex.org/) file with all references listed in the `.janno` file. The bibtex keys must fit to ones used in the `.janno` file.
 
@@ -124,7 +121,7 @@ Example:
 }
 ```
 
-### The `README.txt` file
+## The `README.txt` file
 
 Informal information accompanying the package.
 
@@ -134,7 +131,7 @@ Example:
 This package contains a rather interesting set of samples relevant for the peopling of the Territory of Christmas Island in the Indian Ocean. We consider this especially relevant, because ...
 ```
 
-### The `CHANGELOG.txt` file
+## The `CHANGELOG.txt` file
 
 Documentation of important changes in the history of a package.
 
