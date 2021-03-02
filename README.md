@@ -90,7 +90,7 @@ The `.janno` file is a tab-separated text file with a header line. It holds cont
 - Only three columns are mandatory to make the file valid: **Individual_ID**, **Group_Name** and **Genetic_Sex**
 - Arbitrary columns not defined here can be added as long as their column names do not clash with the defined ones.
 - The column order is irrelevant.
-- If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) can be filled with the NULL value `n/a` or simple an empty string.
+- If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) can be filled with the NULL value `n/a` or simply an empty string.
 - The order of the samples (rows) in the `.janno` file must be equal to the order in the genetic data files (`.ind`, `.fam`).
 - The values in the columns **Individual_ID**, **Group_Name** and **Genetic_Sex** must be equal to the terms used in the genetic data files (`.ind`, `.fam`).
 - Multiple pre-defined columns of the `.janno` file are list columns that hold multiple values (either strings or numerics) separated by `;`.
