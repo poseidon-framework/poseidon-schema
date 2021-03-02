@@ -100,7 +100,7 @@ For a more extensive documenation of the columns and their interaction see [http
 
 ## The `.bib` file
 
-[BibTeX](http://www.bibtex.org/) file with all references listed inhttps://poseidon-framework.github.io/#/janno_details the `.janno` file. The bibtex keys must fit to ones used in the `.janno` file.
+[BibTeX](http://www.bibtex.org/) file with all references listed in the `.janno` file. The bibtex keys must fit to ones used in the `.janno` file.
 
 Example:
 
