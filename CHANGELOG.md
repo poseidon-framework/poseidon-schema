@@ -1,12 +1,4 @@
-# 2.0.2
-
-## changes in the standard
-
-...
-
-## changes in the repository
-
-- added a `CHANGELOG.md` file 
-
-
-
+V 2.0.0: Initial release
+V 2.0.1: Added a field definition for the POSEIDON.yml file, made UTF-8 encoding mandatory, more detailed definition of .janno columns
+V 2.1.0: Added checksums and the paths to the README and CHANGELOG files in the POSEIDON.yml, cleaned the schema definition and removed DAG internal procedures that do not belong here
+V 2.2.0: A lot more freedom for the .janno file while remaining fully backwards compatible
