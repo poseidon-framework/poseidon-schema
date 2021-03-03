@@ -83,15 +83,20 @@ Genotype data in Poseidon packages is stored either in PLINK (binary) or EIGENST
 
 ##  The `.janno` file
 
-The `.janno` file is a tab-separated text file with a header line. It holds a clearly defined set of context information (columns) for each sample (rows) in a package.
+The `.janno` file is a tab-separated text file with a header line. It holds context information (variables/columns) for each sample (objects/rows) in a package.
 
-- The variables (columns), variable types and possible content of the janno file are documented in the [janno_columns.tsv file](https://github.com/poseidon-framework/poseidon2-schema/blob/master/janno_columns.tsv) in this repository.
-- A `.janno` file must have all of these columns in exactly this order with exactly these column names.
-- If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) can be filled with the NULL value `n/a`.
-- The order of the samples (rows) in the `.janno` file must be equal to the order in the files that hold the genetic data.
-- The values in the columns **Individual_ID** and **Group_Name** must be equal to the terms used in the genetic data files.
-- Multiple columns of the `.janno` file are list columns that hold multiple values (either strings or numerics) separated by `;`.
+- A set of strictly defined core variables (defined by column name) and their possible content are documented here: [janno_columns.tsv](https://github.com/poseidon-framework/poseidon2-schema/blob/master/janno_columns.tsv)
+- A `.janno` file can have all of these core variables, or only a subset of them. 
+- Only three columns are mandatory to make the file valid: **Individual_ID**, **Group_Name** and **Genetic_Sex**
+- Arbitrary columns not defined here can be added as long as their column names do not clash with the defined ones.
+- The column order is irrelevant.
+- If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) can be filled with the NULL value `n/a` or simply an empty string.
+- The order of the samples (rows) in the `.janno` file must be equal to the order in the genetic data files (`.ind`, `.fam`).
+- The values in the columns **Individual_ID**, **Group_Name** and **Genetic_Sex** must be equal to the terms used in the genetic data files (`.ind`, `.fam`).
+- Multiple pre-defined columns of the `.janno` file are list columns that hold multiple values (either strings or numerics) separated by `;`.
 - The decimal separator for all floating point numbers is `.`.
+
+For a more extensive documenation of the columns and their interaction see [https://poseidon-framework.github.io/#/janno_details](https://poseidon-framework.github.io/#/janno_details).
 
 ## The `.bib` file
 
