@@ -35,6 +35,6 @@ Genetic_Source_Data	Accession ID(s) or URLs pointing to the source data used to 
 Data_Preparation_Pipeline	URL pointing to a description of the pipeline used to generate the genotype data from the source data	String	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
 Genotype_SNP_set	A term describing the particular SNP set used for the genotype data. Typically these will either be "AffymetrixHumanOrigins" or "1240k", but other SNP sets may be included	String	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
 Primary_Contact	Project lead or first author	String	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
-Publication_Status	bibtex key (e.g. “AuthorJournalYear“) or “unpublished“	String	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
+Publication_Status	bibtex key (e.g. “AuthorJournalYear“) or “unpublished“	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
 Note	wildcard comments. e.g. note down aneuploidies here	String	FALSE	FALSE	FALSE				FALSE	FALSE	TRUE
 Keywords	Arbitrary tags separated by ; (e.g. for custom sorting purposes) 	String	TRUE	FALSE	FALSE				FALSE	FALSE	TRUE
