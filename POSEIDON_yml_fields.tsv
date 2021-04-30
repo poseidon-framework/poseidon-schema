@@ -14,7 +14,7 @@ genoFileChkSum	1	genotypeData	md5 checksum of the genoFile	String		FALSE	TRUE
 snpFile	1	genotypeData	relative path to snpFile	String	Path	TRUE	TRUE
 snpFileChkSum	1	genotypeData	md5 checksum of the snpFile	String		FALSE	TRUE
 indFile	1	genotypeData	relative path to indFile	String	Path	TRUE	TRUE
-indFileChSum	1	genotypeData	md5 checksum of the indFile	String		FALSE	TRUE
+indFileChkSum	1	genotypeData	md5 checksum of the indFile	String		FALSE	TRUE
 snpSet	1	genotypeData	Can be either "1240k", "HumanOrigins" or "Other" depending on the list of SNPs used.	String	(1240k|HumanOrigins|Other)	TRUE	FALSE
 jannoFile	0		relative path to jannoFile	String	Path	FALSE	TRUE
 jannoFileChkSum	1	genotypeData	md5 checksum of the jannoFile	String		FALSE	TRUE
