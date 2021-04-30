@@ -61,6 +61,7 @@ genotypeData:
   snpFileChkSum: 6771d7c873219039ba3d5bdd96031ce3 # optional
   indFile: Switzerland_LNBA_Roswita.fam
   indFileChkSum: f77dc756666dbfef3bb35191ae15a167 # optional
+  snpset: 1240k
 jannoFile : Switzerland_LNBA_Roswita.janno
 jannoFileChkSum: 555d7733135ebcabd032d581381c5d6f # optional
 bibFile: sources.bib
@@ -80,6 +81,8 @@ Genotype data in Poseidon packages is stored either in PLINK (binary) or EIGENST
 | genotype file | [`.bed` (binary biallelic genotype table)](https://www.cog-genomics.org/plink/1.9/formats#bed) | [`.geno` (genotype file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67)
 | SNP file  | [`.bim` (extended MAP file)](https://www.cog-genomics.org/plink/1.9/formats#bim) | [`.snp` (snp file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |
 | individual file  | [`.fam` (sample information)](https://www.cog-genomics.org/plink/1.9/formats#fam) | [`.ind` (indiv file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |
+
+In addition to these files and their checksums, you also must provide a `snpset` entry which determines the shape of the genotype file. Currently, only `1240k`, `HumanOrigins` or `Other` are allowed.
 
 ##  The `.janno` file
 
