@@ -31,7 +31,9 @@ Xcontam 	if male for captured library, in case of multiple libraries report a va
 Xcontam_stderr	standard error of ANGSD X contamination estimate, in case of multiple libraries report a value from the merged read alignment	Float	FALSE	FALSE	TRUE		0	Inf	FALSE	FALSE	FALSE
 mtContam	mitochondrial contamination rate as estimated by ContamMix and/or Schmutzi, in case of multiple libraries report a value from the merged read alignment	Float	FALSE	FALSE	TRUE		0	1	FALSE	FALSE	FALSE
 mtContam_stderr	Standard error of ContamMix/Schmutzi estimate, in case of multiple libraries report a value from the merged read alignment	Float	FALSE	FALSE	TRUE		0	Inf	FALSE	FALSE	FALSE
+Genetic_Source_Accession_IDs	ENA or SRA Accession ID(s) pointing to the source data used to generate the genotyping data. If multiple are given they should be arranged by descending specificity (e.g. project id > sample id > sequencing run id).	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
+Data_Preparation_Pipeline_URL	URL pointing to a description of the pipeline used to generate the genotype data from the source data	String	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
 Primary_Contact	Project lead or first author	String	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
-Publication_Status	bibtex key (e.g. “AuthorJournalYear“) or “unpublished“	String	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
+Publication_Status	bibtex key (e.g. “AuthorJournalYear“) or “unpublished“	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
 Note	wildcard comments. e.g. note down aneuploidies here	String	FALSE	FALSE	FALSE				FALSE	FALSE	TRUE
 Keywords	Arbitrary tags separated by ; (e.g. for custom sorting purposes) 	String	TRUE	FALSE	FALSE				FALSE	FALSE	TRUE
