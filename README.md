@@ -43,7 +43,7 @@ The `POSEIDON.yml` file lists relative file paths and metainformation in a stand
 Example:
 
 ```
-poseidonVersion: 2.0.2
+poseidonVersion: 2.3.1
 title: Switzerland_LNBA_Roswita
 description: LNBA Switzerland genetic data not yet published # optional
 contributor:
@@ -61,7 +61,7 @@ genotypeData:
   snpFileChkSum: 6771d7c873219039ba3d5bdd96031ce3 # optional
   indFile: Switzerland_LNBA_Roswita.fam
   indFileChkSum: f77dc756666dbfef3bb35191ae15a167 # optional
-  snpset: 1240k
+  snpSet: 1240K
 jannoFile : Switzerland_LNBA_Roswita.janno
 jannoFileChkSum: 555d7733135ebcabd032d581381c5d6f # optional
 bibFile: sources.bib
@@ -82,7 +82,7 @@ Genotype data in Poseidon packages is stored either in PLINK (binary) or EIGENST
 | SNP file  | [`.bim` (extended MAP file)](https://www.cog-genomics.org/plink/1.9/formats#bim) | [`.snp` (snp file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |
 | individual file  | [`.fam` (sample information)](https://www.cog-genomics.org/plink/1.9/formats#fam) | [`.ind` (indiv file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |
 
-In addition to these files and their checksums, you also must provide a `snpset` entry which determines the shape of the genotype file. Currently, only `1240k`, `HumanOrigins` or `Other` are allowed.
+In addition to these files and their checksums, you also must provide a `snpSet` entry which determines the shape of the genotype file. Currently, only `1240K`, `HumanOrigins` or `Other` are allowed.
 
 ##  The `.janno` file
 
