@@ -82,7 +82,7 @@ Genotype data in Poseidon packages is stored either in PLINK (binary) or EIGENST
 | SNP file  | [`.bim` (extended MAP file)](https://www.cog-genomics.org/plink/1.9/formats#bim) | [`.snp` (snp file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |
 | individual file  | [`.fam` (sample information)](https://www.cog-genomics.org/plink/1.9/formats#fam) | [`.ind` (indiv file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |
 
-In addition to these files and their checksums, you also must provide a `snpSet` entry which determines the shape of the genotype file. Currently, only `1240K`, `HumanOrigins` or `Other` are allowed.
+In addition to these files and their checksums, you also should provide a `snpSet` entry which determines the shape of the genotype file. Currently, only `1240K`, `HumanOrigins` or `Other` are allowed. While technically not a mandatory field, for backwards compatibility, we encourage users to set this field, and in fact our software also encourages this through required user input.
 
 ##  The `.janno` file
 
