@@ -4,3 +4,4 @@
 - V 2.2.0: A lot more freedom for the .janno file while remaining fully backwards compatible
 - V 2.3.0: Introduced janno-columns for source accession numbers, and a package-level entry called snpset.
 - V 2.3.1: 1240K instead of 1240k everywhere
+- V 2.4.0: Made snpSet non-mandatory to maintain backwards-compatibility
