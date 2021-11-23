@@ -31,6 +31,7 @@ Data_Preparation_Pipeline_URL	URL pointing to a description of the pipeline used
 Endogenous	% endogenous DNA as estimated from SG libraries (before capture), as for example estimated by EAGER, not on target and no quality filter, in case of multiple libraries report only the highest value	Float	FALSE	FALSE	TRUE		0	100	FALSE	FALSE	FALSE
 Nr_SNPs	number of SNPs covered	Integer	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
 Coverage_1240K	average X-fold coverage across 1240K SNP sites after quality filtering (internal data), NOT the % SNPs of 1.2M possible	Float	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
+Coverage_on_Autosomal_Targets	average X-fold coverage across autosomal SNP sites after quality filtering (internal data)	Float	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
 Damage	% damage on 5' end for the main shotgun library used for sequencing and/or capture, in case of multiple libraries report a value from the merged read alignment	Float	FALSE	FALSE	TRUE		0	100	FALSE	FALSE	FALSE
 X_Contam 	if male for captured library, in case of multiple libraries report a value from the merged read alignment	Float	FALSE	FALSE	TRUE		0	1	FALSE	FALSE	FALSE
 X_Contam_Stderr	standard error of ANGSD X contamination estimate, in case of multiple libraries report a value from the merged read alignment	Float	FALSE	FALSE	TRUE		0	Inf	FALSE	FALSE	FALSE
