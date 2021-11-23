@@ -18,6 +18,7 @@ Date_C14_Uncal_BP_Err	standard deviation (1 sigma ±), as reported by C14 labs, 
 Date_BC_AD_Median	calibrated median age for C14 dates, or simple mid-points for archaeological intervals, 2000 for modern samples	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE	FALSE
 Date_BC_AD_Start	lower (older) bound for the age, negative numbers for BC, positive numbers for AD, in case of C14 dates 95% interval post calibration, 2000 for modern samples	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE	FALSE
 Date_BC_AD_Stop	upper (more recent) bound for the age, negative numbers for BC, positive numbers for AD, in case of C14 dates 95% interval post calibration, 2000 for modern samples	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE	FALSE
+Date_Note	a free text field for arbitrary comments about the dating information	String	FALSE	FALSE	FALSE				FALSE	FALSE	TRUE
 Genetic_Sex	“F“, “M“ or “U“ because eigenstrat and plink formats only support these three. Edge cases (XXY, XYY, X0) are undefined and should be grouped as F, M or U, with a note added	Char	FALSE	TRUE	FALSE	F;M;U			TRUE	FALSE	FALSE
 MT_Haplogroup	mitochondrial haplogroup after phylotree.org as reported by Haplofind or Haplogrep	String	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
 Y_Haplogroup	Y-chromosome haplogroup reported as published, for internal data, please follow syntax with main branch + most terminal derived Y-SNP (e.g. R1b-P312)	String	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
