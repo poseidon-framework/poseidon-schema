@@ -34,9 +34,9 @@ Nr_SNPs	number of SNPs covered	Integer	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
 Coverage_1240K	average X-fold coverage across 1240K SNP sites after quality filtering (internal data), NOT the % SNPs of 1.2M possible	Float	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
 Coverage_on_Autosomal_Targets	average X-fold coverage across autosomal SNP sites after quality filtering (internal data)	Float	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
 Damage	% damage on 5' end for the main shotgun library used for sequencing and/or capture, in case of multiple libraries report a value from the merged read alignment	Float	FALSE	FALSE	TRUE		0	100	FALSE	FALSE	FALSE
-Contamination	(modern) contamination as measured by the method in Contamination_Measure, multiple values can be separated by ;, Contamination_Error, Contamination_Measure and Contamination_Note must have the same number and order of entries, in case of multiple libraries report a value from the merged read alignment	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
-Contamination_Error	(modern) contamination estimate error	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
-Contamination_Measure	method to measure contamination, should be a software tool (ANGSD, Schmutzi, …) and the respective software versions, details should go to Contamination_Note	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
+Contamination	(modern) contamination as measured by the method in Contamination_Measure, multiple values can be separated by ;, Contamination_Err, Contamination_Meas and Contamination_Note must have the same number and order of entries, in case of multiple libraries report a value from the merged read alignment	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
+Contamination_Err	(modern) contamination estimate error	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
+Contamination_Meas	method to measure contamination, should be a software tool (ANGSD, Schmutzi, …) and the respective software versions, details should go to Contamination_Note	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
 Contamination_Note	arbitrary comments about the contamination estimate	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
 Genetic_Source_Accession_IDs	ENA or SRA Accession ID(s) pointing to the source data used to generate the genotyping data, if multiple are given they should be arranged by descending specificity (e.g. project id > sample id > sequencing run id)	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
 Primary_Contact	Project lead or first author	String	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
