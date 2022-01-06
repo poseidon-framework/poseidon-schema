@@ -19,7 +19,7 @@ Date_BC_AD_Median	calibrated median age for C14 dates, or simple mid-points for 
 Date_BC_AD_Start	lower (older) bound for the age, negative numbers for BC, positive numbers for AD, in case of C14 dates 95% interval post calibration, 2000 for modern samples	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE	FALSE
 Date_BC_AD_Stop	upper (more recent) bound for the age, negative numbers for BC, positive numbers for AD, in case of C14 dates 95% interval post calibration, 2000 for modern samples	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE	FALSE
 Date_Note	a free text field for arbitrary comments about the dating information	String	FALSE	FALSE	FALSE				FALSE	FALSE	TRUE
-Genetic_Sex	“F“, “M“ or “U“ because eigenstrat and plink formats only support these three. Edge cases (XXY, XYY, X0) are undefined and should be grouped as F, M or U, with a note added	Char	FALSE	TRUE	FALSE	F;M;U			TRUE	FALSE	FALSE
+Genetic_Sex	“F“, “M“ or “U“ because eigenstrat and plink formats only support these three, edge cases (XXY, XYY, X0) are undefined and should be grouped as F, M or U, with a note added	Char	FALSE	TRUE	FALSE	F;M;U			TRUE	FALSE	FALSE
 MT_Haplogroup	mitochondrial haplogroup after phylotree.org as reported by Haplofind or Haplogrep	String	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
 Y_Haplogroup	Y-chromosome haplogroup reported as published, for internal data, please follow syntax with main branch + most terminal derived Y-SNP (e.g. R1b-P312)	String	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
 Source_Tissue	skeletal/tissue/source elements, specific bone name should be reported with an underscore (e.g. bone_phalanx), multiple values separated by ; in case of multiple libraries	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
@@ -34,12 +34,12 @@ Nr_SNPs	number of SNPs covered	Integer	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
 Coverage_1240K	average X-fold coverage across 1240K SNP sites after quality filtering (internal data), NOT the % SNPs of 1.2M possible	Float	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
 Coverage_on_Autosomal_Targets	average X-fold coverage across autosomal SNP sites after quality filtering (internal data)	Float	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
 Damage	% damage on 5' end for the main shotgun library used for sequencing and/or capture, in case of multiple libraries report a value from the merged read alignment	Float	FALSE	FALSE	TRUE		0	100	FALSE	FALSE	FALSE
-X_Contam 	if male for captured library, in case of multiple libraries report a value from the merged read alignment	Float	FALSE	FALSE	TRUE		0	1	FALSE	FALSE	FALSE
-X_Contam_Stderr	standard error of ANGSD X contamination estimate, in case of multiple libraries report a value from the merged read alignment	Float	FALSE	FALSE	TRUE		0	Inf	FALSE	FALSE	FALSE
-MT_Contam	mitochondrial contamination rate as estimated by ContamMix and/or Schmutzi, in case of multiple libraries report a value from the merged read alignment	Float	FALSE	FALSE	TRUE		0	1	FALSE	FALSE	FALSE
-MT_Contam_Stderr	Standard error of ContamMix/Schmutzi estimate, in case of multiple libraries report a value from the merged read alignment	Float	FALSE	FALSE	TRUE		0	Inf	FALSE	FALSE	FALSE
-Genetic_Source_Accession_IDs	ENA or SRA Accession ID(s) pointing to the source data used to generate the genotyping data. If multiple are given they should be arranged by descending specificity (e.g. project id > sample id > sequencing run id).	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
+Contamination	(modern) contamination as measured by the method in Contamination_Measure, multiple values can be separated by ;, Contamination_Error, Contamination_Measure and Contamination_Note must have the same number and order of entries, in case of multiple libraries report a value from the merged read alignment	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
+Contamination_Error	(modern) contamination estimate error	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
+Contamination_Measure	method to measure contamination, should be a software tool (ANGSD, Schmutzi, …) and the respective software versions, details should go to Contamination_Note	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
+Contamination_Note	arbitrary comments about the contamination estimate	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
+Genetic_Source_Accession_IDs	ENA or SRA Accession ID(s) pointing to the source data used to generate the genotyping data, if multiple are given they should be arranged by descending specificity (e.g. project id > sample id > sequencing run id)	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
 Primary_Contact	Project lead or first author	String	FALSE	FALSE	FALSE				FALSE	FALSE	FALSE
 Publication	bibtex key (e.g. “AuthorJournalYear“) or “unpublished“	String	TRUE	FALSE	FALSE				FALSE	FALSE	FALSE
-Note	wildcard comments. e.g. note down aneuploidies here	String	FALSE	FALSE	FALSE				FALSE	FALSE	TRUE
-Keywords	Arbitrary tags separated by ; (e.g. for custom sorting purposes) 	String	TRUE	FALSE	FALSE				FALSE	FALSE	TRUE
+Note	wildcard comments, e.g. note down aneuploidies here	String	FALSE	FALSE	FALSE				FALSE	FALSE	TRUE
+Keywords	arbitrary tags separated by ; (e.g. for custom sorting purposes) 	String	TRUE	FALSE	FALSE				FALSE	FALSE	TRUE
