@@ -3,8 +3,9 @@ Poseidon_ID	id as defined by the genetics laboratory, needs to be unique (e.g. I
 Group_Name	ideally Eisenmann rule + underscore flags, e.g. to annotate relatives or outliers or low coverage, multiple entries separated by ; to accommodate different labels, value must equal the group name in the .fam file (in case of multiple entries the first one)	String	TRUE	FALSE	FALSE				TRUE	FALSE
 Alternative_IDs	other identifiers for the same individual, e.g. IDs in other databases or popular names (e.g. Ötzi/Iceman)	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Relation_To	other individuals (by Poseidon_ID) that are related/identical to this individual, multiple entries separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Relation_Degree	relationship degree for relatives mentioned in Related_To, multiple values separated by ; in the same order as Related_To in case of multiple relations	String	TRUE	TRUE	FALSE	identical;first;second;thirdToFifth;sixthToTenth;unrelated;other			FALSE	FALSE
 Relation_Type	relationship type for relatives mentioned in Related_To as an arbitrary string (e.g. sister_of, child_of, nephew_of, ...), multiple values separated by ; in the same order as Related_To in case of multiple relations	String	TRUE	FALSE	FALSE				FALSE	FALSE
-Relation_Degree	relationship degree for relatives mentioned in Related_To as an integer number expressing a degree of relationship (e.g. 0, 1, 2, 3, ...), multiple values separated by ; in the same order as Related_To in case of multiple relations	Integer	TRUE	FALSE	TRUE		0	Inf	FALSE	FALSE
+Relation_Note	arbitrary comments about the relations of this individual	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Collection_ID	id as defined by the provider/owner of a sample (e.g. grave 40 skeleton 2)	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Country	present-day political country	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Location	unspecified location information like administrative or topographic region or mountains/rivers/lakes/cities nearby	String	FALSE	FALSE	FALSE				FALSE	FALSE
@@ -37,7 +38,7 @@ Damage	% damage on 5' end for the main shotgun library used for sequencing and/o
 Contamination	(modern) contamination as measured by the method in Contamination_Measure, multiple values can be separated by ;, Contamination_Err, Contamination_Meas and Contamination_Note must have the same number and order of entries, in case of multiple libraries report a value from the merged read alignment	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Contamination_Err	(modern) contamination estimate error	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Contamination_Meas	method to measure contamination, should be a software tool (ANGSD, Schmutzi, …) and the respective software versions, details should go to Contamination_Note	String	TRUE	FALSE	FALSE				FALSE	FALSE
-Contamination_Note	arbitrary comments about the contamination estimate	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Contamination_Note	arbitrary comments about the contamination estimate	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Genetic_Source_Accession_IDs	ENA or SRA Accession ID(s) pointing to the source data used to generate the genotyping data, if multiple are given they should be arranged by descending specificity (e.g. project id > sample id > sequencing run id)	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Primary_Contact	Project lead or first author	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Publication	bibtex key (e.g. “AuthorJournalYear“) or “unpublished“	String	TRUE	FALSE	FALSE				FALSE	FALSE
