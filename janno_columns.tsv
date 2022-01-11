@@ -1,5 +1,6 @@
 janno_column_name	description	data_type	multi	choice	range	choice_options	range_lower	range_upper	mandatory	unique
 Poseidon_ID	id as defined by the genetics laboratory, needs to be unique (e.g. I1234, BOT001), needs to fit to the values in the poseidon package .fam file, if multiple datasets exist for the same individual different IDs are required (e.g. loschbour_snpAD)	String	FALSE	FALSE	FALSE				TRUE	TRUE
+Genetic_Sex	“F“, “M“ or “U“ because eigenstrat and plink formats only support these three, edge cases (XXY, XYY, X0) are undefined and should be grouped as F, M or U, with a note added	Char	FALSE	TRUE	FALSE	F;M;U			TRUE	FALSE
 Group_Name	ideally Eisenmann rule + underscore flags, e.g. to annotate relatives or outliers or low coverage, multiple entries separated by ; to accommodate different labels, value must equal the group name in the .fam file (in case of multiple entries the first one)	String	TRUE	FALSE	FALSE				TRUE	FALSE
 Alternative_IDs	other identifiers for the same individual, e.g. IDs in other databases or popular names (e.g. Ötzi/Iceman)	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Relation_To	other individuals (by Poseidon_ID) that are related/identical to this individual, multiple entries separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
@@ -20,7 +21,6 @@ Date_BC_AD_Start	lower (older) bound for the age, negative numbers for BC, posit
 Date_BC_AD_Median	calibrated median age for C14 dates, or simple mid-points for archaeological intervals, 2000 for modern samples	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE
 Date_BC_AD_Stop	upper (more recent) bound for the age, negative numbers for BC, positive numbers for AD, in case of C14 dates 95% interval post calibration, 2000 for modern samples	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE
 Date_Note	a free text field for arbitrary comments about the dating information	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Genetic_Sex	“F“, “M“ or “U“ because eigenstrat and plink formats only support these three, edge cases (XXY, XYY, X0) are undefined and should be grouped as F, M or U, with a note added	Char	FALSE	TRUE	FALSE	F;M;U			TRUE	FALSE
 MT_Haplogroup	mitochondrial haplogroup after phylotree.org as reported by Haplofind or Haplogrep	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Y_Haplogroup	Y-chromosome haplogroup reported as published, for internal data, please follow syntax with main branch + most terminal derived Y-SNP (e.g. R1b-P312)	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Source_Tissue	skeletal/tissue/source elements, specific bone name should be reported with an underscore (e.g. bone_phalanx), multiple values separated by ; in case of multiple libraries	String	TRUE	FALSE	FALSE				FALSE	FALSE
@@ -32,8 +32,7 @@ Genotype_Ploidy	ploidy of the genotypes	String	FALSE	TRUE	FALSE	diploid;haploid	
 Data_Preparation_Pipeline_URL	URL pointing to a description of the pipeline used to generate the genotype data from the source data	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Endogenous	% endogenous DNA as estimated from SG libraries (before capture), as for example estimated by EAGER, not on target and no quality filter, in case of multiple libraries report only the highest value	Float	FALSE	FALSE	TRUE		0	100	FALSE	FALSE
 Nr_SNPs	number of SNPs covered	Integer	FALSE	FALSE	FALSE				FALSE	FALSE
-Coverage_1240K	average X-fold coverage across 1240K SNP sites after quality filtering (internal data), NOT the % SNPs of 1.2M possible	Float	FALSE	FALSE	FALSE				FALSE	FALSE
-Coverage_on_Autosomal_Targets	average X-fold coverage across autosomal SNP sites after quality filtering (internal data)	Float	FALSE	FALSE	FALSE				FALSE	FALSE
+Coverage_on_Target_SNPs	average X-fold coverage across targeted SNP sites after quality filtering (internal data)	Float	FALSE	FALSE	FALSE				FALSE	FALSE
 Damage	% damage on 5' end for the main shotgun library used for sequencing and/or capture, in case of multiple libraries report a value from the merged read alignment	Float	FALSE	FALSE	TRUE		0	100	FALSE	FALSE
 Contamination	(modern) contamination as measured by the method in Contamination_Measure, multiple values can be separated by ;, Contamination_Err, Contamination_Meas and Contamination_Note must have the same number and order of entries, in case of multiple libraries report a value from the merged read alignment	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Contamination_Err	(modern) contamination estimate error	String	TRUE	FALSE	FALSE				FALSE	FALSE
