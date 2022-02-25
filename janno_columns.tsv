@@ -34,7 +34,7 @@ Endogenous	% endogenous DNA as estimated from SG libraries (before capture), as 
 Nr_SNPs	number of SNPs covered	Integer	FALSE	FALSE	FALSE				FALSE	FALSE
 Coverage_on_Target_SNPs	average X-fold coverage across targeted SNP sites after quality filtering (internal data)	Float	FALSE	FALSE	FALSE				FALSE	FALSE
 Damage	% damage on 5' end for the main shotgun library used for sequencing and/or capture, in case of multiple libraries report a value from the merged read alignment	Float	FALSE	FALSE	TRUE		0	100	FALSE	FALSE
-Contamination	(modern) contamination as measured by the method in Contamination_Measure, multiple values can be separated by ;, Contamination_Err, Contamination_Meas and Contamination_Note must have the same number and order of entries, in case of multiple libraries report a value from the merged read alignment	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Contamination	(modern) contamination as measured by the method in Contamination_Meas, multiple values can be separated by ; (for different methods! In case of multiple libraries report a value from the merged read alignment), Contamination, Contamination_Err and Contamination_Meas must have the same number and order of (non-n/a) entries	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Contamination_Err	(modern) contamination estimate error	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Contamination_Meas	method to measure contamination, should be a software tool (ANGSD, Schmutzi, …) and the respective software versions, details should go to Contamination_Note	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Contamination_Note	arbitrary comments about the contamination estimate	String	FALSE	FALSE	FALSE				FALSE	FALSE
