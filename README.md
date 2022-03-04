@@ -43,7 +43,7 @@ The `POSEIDON.yml` file lists relative file paths and metainformation in a stand
 Example:
 
 ```
-poseidonVersion: 2.3.1
+poseidonVersion: 2.5.0
 title: Switzerland_LNBA_Roswita
 description: LNBA Switzerland genetic data not yet published # optional
 contributor:
@@ -142,8 +142,8 @@ Example:
 ```
 V 1.2.0: Fixed a spelling mistake in the site name "Hosenacker"->"Rosenacker"
 V 1.1.1: Added mtDNA contamination estimation to .janno file
-V 1.1.0: The authors of @Gassenhauer_2021 made some previously restricted samples for their publication available later and we added them.
-V 1.0.0: Creation of the package.
+V 1.1.0: The authors of @Gassenhauer_2021 made some previously restricted samples for their publication available later and we added them
+V 1.0.0: Creation of the package
 ```
 
 
