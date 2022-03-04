@@ -140,17 +140,10 @@ Documentation of important changes in the history of a package.
 Example:
 
 ```
-## 1.2.0
-- Fixed a spelling mistake in the site name "Hosenacker"->"Rosenacker". 
-
-## 1.1.1
-- Added mtDNA contamination estimation to .janno file
-
-## 1.1.0
-- The authors of @Gassenhauer_2021 made some previously restricted samples for their publication available later and we added them.
-
-## 1.0.0
-- Creation of the package.
+V 1.2.0: Fixed a spelling mistake in the site name "Hosenacker"->"Rosenacker"
+V 1.1.1: Added mtDNA contamination estimation to .janno file
+V 1.1.0: The authors of @Gassenhauer_2021 made some previously restricted samples for their publication available later and we added them.
+V 1.0.0: Creation of the package.
 ```
 
 
