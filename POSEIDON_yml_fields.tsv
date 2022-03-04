@@ -7,7 +7,7 @@ name	1	contributor	name of one contributor	String		TRUE
 email	1	contributor	email of one contributor (must be a valid email address)	String	Email	TRUE
 orcid	1	contributor	orcid of one contributor (must be a valid orcid)	String	ORCID	FALSE
 packageVersion	0		version of the package (should be changed/incremented when the package is changed)	String		TRUE
-lastModified	0		date of last modification of the Poseidon package (should be updated when the package is changed)	Date	YYYY-MM-DD	TRUE
+lastModified	0		date of last modification of the Poseidon package (should be updated when the package is changed)	Date	YYYY-MM-DD	FALSE
 genotypeData	0		genotype file name section			TRUE
 format	1	genotypeData	file format definition, allows EIGENSTRAT and PLINK	String		TRUE
 genoFile	1	genotypeData	relative path to genoFile	String	Path	TRUE
