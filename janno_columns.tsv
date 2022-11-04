@@ -25,7 +25,7 @@ MT_Haplogroup	mitochondrial haplogroup after phylotree.org as reported by Haplof
 Y_Haplogroup	Y-chromosome haplogroup reported as published, for internal data, please follow syntax with main branch + most terminal derived Y-SNP (e.g. R1b-P312)	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Source_Tissue	skeletal/tissue/source elements, specific bone name should be reported with an underscore (e.g. bone_phalanx), multiple values separated by ; in case of multiple libraries	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Nr_Libraries	number of libraries	Integer	FALSE	FALSE	FALSE				FALSE	FALSE
-Capture_Type	specifics of data generation method, multiple values separated by ;	String	TRUE	TRUE	FALSE	Shotgun;1240K;OtherCapture;ReferenceGenome			FALSE	FALSE
+Capture_Type	specifics of data generation method, multiple values separated by ;	String	TRUE	TRUE	FALSE	Shotgun;1240K;ArborComplete;ArborPrimePlus;ArborAncestralPlus;TwistAncientDNA;OtherCapture;ReferenceGenome			FALSE	FALSE
 UDG 	“mixed” in case multiple libraries with different UDG treatment were merged	String	FALSE	TRUE	FALSE	minus;half;plus;mixed			FALSE	FALSE
 Library_Built	“ds” for double stranded, “ss” for single stranded, “mixed” in case multiple libraries with different protocols were merged	String	FALSE	TRUE	FALSE	ds;ss;other			FALSE	FALSE
 Genotype_Ploidy	ploidy of the genotypes	String	FALSE	TRUE	FALSE	diploid;haploid			FALSE	FALSE
