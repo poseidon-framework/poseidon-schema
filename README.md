@@ -4,6 +4,8 @@ Poseidon is a solution for genotype data organisation established within the Dep
 
 Detailed documentation for Poseidon can be found at [https://poseidon-framework.github.io](https://poseidon-framework.github.io)
 
+A changelog is available [here](https://poseidon-framework.github.io/#/changelog).
+
 ## The Poseidon package structure
 
 All ancient and modern data in Poseidon are distributed into so-called packages, which are directories containing a dedicated set of files. Packages correspond to published sets of genomes, or in case of unpublished projects, ongoing (and growing) sets of samples currently analysed. All text files in the package are UTF-8 encoded.
