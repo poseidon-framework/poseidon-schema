@@ -1,0 +1,22 @@
+sequencingSourceFile_column_name	description	data_type	multi	choice	range	choice_options	range_lower	range_upper	mandatory	unique
+
+Poseidon_ID	The Poseidon_ID field that this sequencing entity corresponds to, from the Janno-file.	String	FALSE	FALSE	FALSE				TRUE	FALSE
+sample_accession	The sample accession code as used at the ENA or SRA (Example: SAMEA7050454)	String	FALSE	FALSE	FALSE				TRUE	TRUE
+study_accession	The study accession code as used at the ENA or SRA (Example: PRJEB39316)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+run_accession	The run accession code as used at the ENA or SRA (Example: ERR4331996)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+sample_alias	The sample alias defined by the submitter	String	FALSE	FALSE	FALSE				FALSE	FALSE
+secondary_sample_accession	A secondary sample accession, as used at the ENA for historical reasons (Example: ERS4811084)	String	FALSE	FALSE	FALSE				FALSE	TRUE
+first_public	The date (YYYY-MM-DD) this sample was first made public	Date	FALSE	FALSE	FALSE				FALSE	FALSE
+last_updated	The date (YYYY-MM-DD) this sample was last updated	Date	FALSE	FALSE	FALSE				FALSE	FALSE
+instrument_model	The name of the instrument used (Example: Illumina HiSeq 2500)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+library_layout	The library layout of the sequencing entity (Example: SINGLE)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+library_source	The source of the DNA library (Example: GENOMIC)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+instrument_platform	The platform brand or type of the sequencer (Example: ILLUMINA)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+library_name	This is the library name the submitted has entered. Can sometimes be useful to figure out which Poseidon_ID this entity belongs to	String	FALSE	FALSE	FALSE				FALSE	FALSE
+library_strategy	The strategy used to create the library (Example: WGS)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+fastq_aspera	The Aspera-link (URL) to the FASTQ-file(s). (Example: fasp.sra.ebi.ac.uk:/vol1/fastq/ERR433/009/ERR4332639/ERR4332639.fastq.gz)	URL	TRUE	FALSE	FALSE				FALSE	FALSE
+fastq_bytes	The number of bytes of the FASTQ-file(s) in bytes	Integer	TRUE	FALSE	TRUE		0	Inf	FALSE	FALSE
+fastq_md5	The MD5 hash(es) of the FASTQ-file(s)	String	TRUE	FALSE	FALSE				FALSE	FALSE
+fastq_ftp	The FTP-link(s) (URL) to the FASTQ file(s) (Example: ftp.sra.ebi.ac.uk/vol1/fastq/ERR433/009/ERR4332639/ERR4332639.fastq.gz)	URL	TRUE	FALSE	FALSE				FALSE	FALSE
+read_count	The number of reads	Integer	FALSE	FALSE	TRUE		0	Inf	FALSE	FALSE
+submitted_ftp	The URL(s) to the originally submitted file(s) before it got converted to FASTQ. This can sometimes be helpful for processing	String	TRUE	FALSE	FALSE				FALSE	FALSE
