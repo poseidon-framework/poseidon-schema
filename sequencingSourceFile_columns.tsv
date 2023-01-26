@@ -14,9 +14,9 @@ library_source	The source of the DNA library (Example: GENOMIC)	String	FALSE	FAL
 instrument_platform	The platform brand or type of the sequencer (Example: ILLUMINA)	String	FALSE	FALSE	FALSE				FALSE	FALSE
 library_name	This is the library name the submitter has entered. Can sometimes be useful to figure out which Poseidon_ID this entity belongs to	String	FALSE	FALSE	FALSE				FALSE	FALSE
 library_strategy	The strategy used to create the library (Example: WGS)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+fastq_ftp	The FTP-link(s) (URL) to the FASTQ file(s) (Example: ftp.sra.ebi.ac.uk/vol1/fastq/ERR433/009/ERR4332639/ERR4332639.fastq.gz)	URL	TRUE	FALSE	FALSE				FALSE	FALSE
 fastq_aspera	The Aspera-link (URL) to the FASTQ-file(s). (Example: fasp.sra.ebi.ac.uk:/vol1/fastq/ERR433/009/ERR4332639/ERR4332639.fastq.gz)	URL	TRUE	FALSE	FALSE				FALSE	FALSE
 fastq_bytes	The number of bytes of the FASTQ-file(s) in bytes	Integer	TRUE	FALSE	TRUE		0	Inf	FALSE	FALSE
 fastq_md5	The MD5 hash(es) of the FASTQ-file(s)	String	TRUE	FALSE	FALSE				FALSE	FALSE
-fastq_ftp	The FTP-link(s) (URL) to the FASTQ file(s) (Example: ftp.sra.ebi.ac.uk/vol1/fastq/ERR433/009/ERR4332639/ERR4332639.fastq.gz)	URL	TRUE	FALSE	FALSE				FALSE	FALSE
 read_count	The number of reads	Integer	FALSE	FALSE	TRUE		0	Inf	FALSE	FALSE
 submitted_ftp	The URL(s) to the originally submitted file(s) before it got converted to FASTQ. This can sometimes be helpful for processing	String	TRUE	FALSE	FALSE				FALSE	FALSE
