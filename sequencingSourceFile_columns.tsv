@@ -1,9 +1,9 @@
 sequencingSourceFile_column_name	description	data_type	multi	choice	range	choice_options	range_lower	range_upper	mandatory	unique
 
 Poseidon_ID	The Poseidon_ID field that this sequencing entity corresponds to, from the Janno-file.	String	FALSE	FALSE	FALSE				TRUE	FALSE
-sample_accession	The sample accession code as used at the ENA or SRA (Example: SAMEA7050454)	String	FALSE	FALSE	FALSE				TRUE	TRUE
-study_accession	The study accession code as used at the ENA or SRA (Example: PRJEB39316)	String	FALSE	FALSE	FALSE				FALSE	FALSE
-run_accession	The run accession code as used at the ENA or SRA (Example: ERR4331996)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+sample_accession	The sample accession code as used in INSDC databases, including ENA and SRA (Example: SAMEA7050454)	String	FALSE	FALSE	FALSE				TRUE	TRUE
+study_accession	The study accession code as used in INSDC databases, including ENA and SRA (Example: PRJEB39316)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+run_accession	The run accession code as used in INSDC databases, including ENA and SRA (Example: ERR4331996)	String	FALSE	FALSE	FALSE				FALSE	FALSE
 sample_alias	The sample alias defined by the submitter	String	FALSE	FALSE	FALSE				FALSE	FALSE
 secondary_sample_accession	A secondary sample accession, as used at the ENA for historical reasons (Example: ERS4811084)	String	FALSE	FALSE	FALSE				FALSE	TRUE
 first_public	The date (YYYY-MM-DD) this sample was first made public	Date	FALSE	FALSE	FALSE				FALSE	FALSE
