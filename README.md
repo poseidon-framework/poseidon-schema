@@ -148,4 +148,6 @@ V 1.1.0: The authors of @Gassenhauer_2021 made some previously restricted sample
 V 1.0.0: Creation of the package
 ```
 
+## The Sequencing Source file
 
+Poseidon 2.7.0 added an option to specify sequencing source data. This is a tab-separated table, much like the Janno file, but following a different schema, specified in the file `sequencingSourceFile_columns.tsv`. Note that the primary entities in this table are Sequencing entities (typically corresponding to DNA libraries or even multiple runs/lanes of the same library). The link to the Individuals listed in the Janno-file are made through a foreign-key relationship into `Poseidon_ID`.

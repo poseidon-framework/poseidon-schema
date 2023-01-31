@@ -19,6 +19,8 @@ indFileChkSum	1	genotypeData	md5 checksum of the indFile	String		FALSE
 snpSet	1	genotypeData	Can be either 1240K, HumanOrigins or Other depending on the list of SNPs used	String	(1240K|HumanOrigins|Other)	FALSE
 jannoFile	0		relative path to jannoFile	String	Path	FALSE
 jannoFileChkSum	0		md5 checksum of the jannoFile	String		FALSE
+sequencingSourceFile	0		relative path to sequencingSourceFile	String	Path	FALSE
+sequencingSourceFileChkSum	0		md5 checksum of the sequencingSourceFile	String		FALSE
 bibFile	0		relative path to bibFile	String	Path	FALSE
 bibFileChkSum	0		md5 checksum of the bibFile	String		FALSE
 readmeFile	0		relative path to readmeFile	String	Path	FALSE
