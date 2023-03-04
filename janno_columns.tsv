@@ -24,12 +24,12 @@ Date_BC_AD_Stop	upper (more recent) bound for the age, negative numbers for BC, 
 Date_Note	a free text field for arbitrary comments about the dating information	String	FALSE	FALSE	FALSE				FALSE	FALSE
 MT_Haplogroup	mitochondrial haplogroup after phylotree.org as reported by Haplofind or Haplogrep	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Y_Haplogroup	Y-chromosome haplogroup reported as published, for internal data, please follow syntax with main branch + most terminal derived Y-SNP (e.g. R1b-P312)	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Source_Tissue	skeletal/tissue/source elements, specific bone name should be reported with an underscore (e.g. bone_phalanx), multiple values separated by ; in the same order as Libraries in case of multiple libraries	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Source_Tissue	skeletal/tissue/source elements, specific bone name should be reported with an underscore (e.g. bone_phalanx), multiple values separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Nr_Libraries	number of libraries	Integer	FALSE	FALSE	FALSE				FALSE	FALSE
-Libraries	identifiers of the libraries, multiple values separated by ; in case of multiple libraries	String	TRUE	FALSE	FALSE				FALSE	FALSE
-Capture_Type	specifics of data generation method, multiple values separated by ; in the same order as Libraries in case of multiple libraries	String	TRUE	TRUE	FALSE	Shotgun;1240K;ArborComplete;ArborPrimePlus;ArborAncestralPlus;TwistAncientDNA;OtherCapture;ReferenceGenome			FALSE	FALSE
-UDG 	multiple values separated by ; in the same order as Libraries in case of multiple libraries, “mixed” is a legacy option that should not be used	String	TRUE	TRUE	FALSE	minus;half;plus;mixed;other			FALSE	FALSE
-Library_Built	multiple values separated by ; in the same order as Libraries in case of multiple libraries	String	TRUE	TRUE	FALSE	ds;ss;other			FALSE	FALSE
+Library_Names	identifiers of the libraries used to generate the genotype data, multiple values separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Capture_Type	specifics of data generation method, multiple values separated by ;	String	TRUE	TRUE	FALSE	Shotgun;1240K;ArborComplete;ArborPrimePlus;ArborAncestralPlus;TwistAncientDNA;OtherCapture;ReferenceGenome			FALSE	FALSE
+UDG 	UDG treatment, “mixed” in case multiple libraries with different UDG treatment were merged	String	FALSE	TRUE	FALSE	minus;half;plus;mixed			FALSE	FALSE
+Library_Built	strandedness, “mixed” in case multiple libraries with different protocols were merged	String	FALSE	TRUE	FALSE	ds;ss;mixed			FALSE	FALSE
 Genotype_Ploidy	ploidy of the genotypes	String	FALSE	TRUE	FALSE	diploid;haploid			FALSE	FALSE
 Data_Preparation_Pipeline_URL	URL pointing to a description of the pipeline used to generate the genotype data from the source data	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Endogenous	% endogenous DNA as estimated from SG libraries (before capture), as for example estimated by EAGER, not on target and no quality filter, in case of multiple libraries report only the highest value	Float	FALSE	FALSE	TRUE		0	100	FALSE	FALSE
