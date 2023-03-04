@@ -19,8 +19,9 @@ Every package should have the following files:
 
 It can also contain the following files:
 
-- A `README.txt` file for arbitrary context information
-- A `CHANGELOG.txt` file to document changes to the package
+- A `README.md` file for arbitrary context information
+- A `CHANGELOG.md` file to document changes to the package
+- A `.ssf` file with information on the underlying raw sequencing data
 
 Example:
 
@@ -30,9 +31,10 @@ Switzerland_LNBA_Roswita/Switzerland_LNBA.plink.bed
 Switzerland_LNBA_Roswita/Switzerland_LNBA.plink.bim
 Switzerland_LNBA_Roswita/Switzerland_LNBA.plink.fam
 Switzerland_LNBA_Roswita/Switzerland_LNBA.janno
+Switzerland_LNBA_Roswita/Switzerland_LNBA.ssf
 Switzerland_LNBA_Roswita/Switzerland_LNBA.bib
-Switzerland_LNBA_Roswita/README.txt
-Switzerland_LNBA_Roswita/CHANGELOG.txt
+Switzerland_LNBA_Roswita/README.md
+Switzerland_LNBA_Roswita/CHANGELOG.md
 ```
 
 ## The `POSEIDON.yml` file
@@ -47,7 +49,7 @@ Example:
 ```
 poseidonVersion: 2.5.0
 title: Switzerland_LNBA_Roswita
-description: LNBA Switzerland genetic data not yet published # optional
+description: LNBA Switzerland genetic data not yet published
 contributor:
   - name: Roswita Malone
     email: roswita.malone@example.org
@@ -58,18 +60,20 @@ lastModified: 2021-01-28
 genotypeData:	
   format: PLINK	
   genoFile: Switzerland_LNBA_Roswita.bed
-  genoFileChkSum: 95b093eefacc1d6499afcfe89b15d56c # optional
+  genoFileChkSum: 95b093eefacc1d6499afcfe89b15d56c
   snpFile: Switzerland_LNBA_Roswita.bim
-  snpFileChkSum: 6771d7c873219039ba3d5bdd96031ce3 # optional
+  snpFileChkSum: 6771d7c873219039ba3d5bdd96031ce3
   indFile: Switzerland_LNBA_Roswita.fam
-  indFileChkSum: f77dc756666dbfef3bb35191ae15a167 # optional
+  indFileChkSum: f77dc756666dbfef3bb35191ae15a167
   snpSet: 1240K
 jannoFile : Switzerland_LNBA_Roswita.janno
-jannoFileChkSum: 555d7733135ebcabd032d581381c5d6f # optional
-bibFile: sources.bib
-bibFileChkSum: 70cd3d5801cee8a93fc2eb40a99c63fa # optional
-readmeFile: README.txt # optional
-changelogFile: CHANGELOG.txt # optional
+jannoFileChkSum: 555d7733135ebcabd032d581381c5d6f
+sequencingSourceFile: Switzerland_LNBA_Roswita.ssf
+sequencingSourceFileChkSum: 19db1906240ee2f076e1a9659567dca4
+bibFile: Switzerland_LNBA_Roswita.bib
+bibFileChkSum: 70cd3d5801cee8a93fc2eb40a99c63fa
+readmeFile: README.md
+changelogFile: CHANGELOG.md
 ```
 
 When a package is modified in any way (e.g. updates of the context information in the `.janno` file), then the `packageVersion` field should be incremented and the `lastModified` field updated to the current date.
@@ -125,7 +129,7 @@ Example:
 }
 ```
 
-## The `README.txt` file
+## The `README.md` file
 
 Informal information accompanying the package.
 
@@ -135,19 +139,22 @@ Example:
 This package contains a rather interesting set of samples relevant for the peopling of the Territory of Christmas Island in the Indian Ocean. We consider this especially relevant, because ...
 ```
 
-## The `CHANGELOG.txt` file
+## The `CHANGELOG.md` file
 
 Documentation of important changes in the history of a package.
 
 Example:
 
 ```
-V 1.2.0: Fixed a spelling mistake in the site name "Hosenacker"->"Rosenacker"
-V 1.1.1: Added mtDNA contamination estimation to .janno file
-V 1.1.0: The authors of @Gassenhauer_2021 made some previously restricted samples for their publication available later and we added them
-V 1.0.0: Creation of the package
+- V 1.2.0: Fixed a spelling mistake in the site name "Hosenacker"->"Rosenacker"
+- V 1.1.1: Added mtDNA contamination estimation to .janno file
+- V 1.1.0: The authors of @Gassenhauer_2021 made some previously restricted samples for their publication available later and we added them
+- V 1.0.0: Creation of the package
 ```
 
-## The Sequencing Source file
+## The `.ssf` file
 
-Poseidon 2.7.0 added an option to specify sequencing source data. This is a tab-separated table, much like the Janno file, but following a different schema, specified in the file `sequencingSourceFile_columns.tsv`. Note that the primary entities in this table are Sequencing entities (typically corresponding to DNA libraries or even multiple runs/lanes of the same library). The link to the Individuals listed in the Janno-file are made through a foreign-key relationship into `Poseidon_ID`.
+Poseidon 2.7.0 added an option to specify sequencing source data. This is a tab-separated table, much like the `.janno` file, but following a different schema, specified in the file `ssf_columns.tsv`.
+
+Note that the primary entities in this table are sequencing entities (typically corresponding to DNA libraries or even multiple runs/lanes of the same library). The link to the Individuals listed in the `.janno`-file are made through a foreign-key relationship into `Poseidon_ID`.
+
