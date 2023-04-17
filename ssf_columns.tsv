@@ -13,7 +13,7 @@ instrument_model	The name of the instrument used (Example: Illumina HiSeq 2500)	
 library_layout	The library layout of the sequencing entity (Example: SINGLE)	String	FALSE	FALSE	FALSE				FALSE	FALSE
 library_source	The source of the DNA library (Example: GENOMIC)	String	FALSE	FALSE	FALSE				FALSE	FALSE
 instrument_platform	The platform brand or type of the sequencer (Example: ILLUMINA)	String	FALSE	FALSE	FALSE				FALSE	FALSE
-library_name	This is the library name the submitter has entered. Can sometimes be useful to figure out which Poseidon_ID this entity belongs to	String	FALSE	FALSE	FALSE				FALSE	FALSE
+library_name	The ID of the library. Defaults to the library name the submitter has entered to the raw sequencing data repository. Can sometimes be useful to figure out which Poseidon_ID this entity belongs to.	String	FALSE	FALSE	FALSE				FALSE	FALSE
 library_strategy	The strategy used to create the library (Example: WGS)	String	FALSE	FALSE	FALSE				FALSE	FALSE
 fastq_ftp	The FTP-link(s) (URL) to the FASTQ file(s) (Example: ftp.sra.ebi.ac.uk/vol1/fastq/ERR433/009/ERR4332639/ERR4332639.fastq.gz)	URL	TRUE	FALSE	FALSE				FALSE	FALSE
 fastq_aspera	The Aspera-link (URL) to the FASTQ-file(s). (Example: fasp.sra.ebi.ac.uk:/vol1/fastq/ERR433/009/ERR4332639/ERR4332639.fastq.gz)	URL	TRUE	FALSE	FALSE				FALSE	FALSE
