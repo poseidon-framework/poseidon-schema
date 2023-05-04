@@ -1,5 +1,5 @@
 sequencingSourceFile_column_name	description	data_type	multi	choice	range	choice_options	range_lower	range_upper	mandatory	unique
-poseidon_IDs	The Poseidon_IDs this sequencing entity corresponds to, from the Janno-file, multiple entries separated by ;	String	TRUE	FALSE	FALSE				TRUE	FALSE
+poseidon_IDs	The Poseidon_IDs this sequencing entity corresponds to, from the Janno-file, multiple entries separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
 udg	The kind of UDG treatment applied to the library for this sequencing entity	String	FALSE	TRUE	FALSE	minus;half;plus			FALSE	FALSE
 library_built	The library preparation method applied for this sequencing entity (single- or double-stranded)	String	FALSE	TRUE	FALSE	ds;ss			FALSE	FALSE
 run_accession	The run accession code as used in INSDC databases, including ENA and SRA (Example: ERR4331996). This serves as a unique identifier for this sequencing entity	String	FALSE	FALSE	FALSE				TRUE	TRUE
