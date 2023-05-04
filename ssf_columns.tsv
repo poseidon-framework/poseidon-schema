@@ -2,11 +2,11 @@ sequencingSourceFile_column_name	description	data_type	multi	choice	range	choice
 poseidon_IDs	The Poseidon_IDs this sequencing entity corresponds to, from the Janno-file, multiple entries separated by ;	String	TRUE	FALSE	FALSE				TRUE	FALSE
 udg	UDG treatment	String	FALSE	TRUE	FALSE	minus;half;plus			FALSE	FALSE
 library_built	strandedness	String	FALSE	TRUE	FALSE	ds;ss			FALSE	FALSE
-sample_accession	The sample accession code as used in INSDC databases, including ENA and SRA (Example: SAMEA7050454)	String	FALSE	FALSE	FALSE				TRUE	TRUE
+sample_accession	The sample accession code as used in INSDC databases, including ENA and SRA (Example: SAMEA7050454)	String	FALSE	FALSE	FALSE				TRUE	FALSE
 study_accession	The study accession code as used in INSDC databases, including ENA and SRA (Example: PRJEB39316)	String	FALSE	FALSE	FALSE				FALSE	FALSE
-run_accession	The run accession code as used in INSDC databases, including ENA and SRA (Example: ERR4331996)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+run_accession	The run accession code as used in INSDC databases, including ENA and SRA (Example: ERR4331996)	String	FALSE	FALSE	FALSE				FALSE	TRUE
 sample_alias	The sample alias defined by the submitter	String	FALSE	FALSE	FALSE				FALSE	FALSE
-secondary_sample_accession	A secondary sample accession, as used at the ENA for historical reasons (Example: ERS4811084)	String	FALSE	FALSE	FALSE				FALSE	TRUE
+secondary_sample_accession	A secondary sample accession, as used at the ENA for historical reasons (Example: ERS4811084)	String	FALSE	FALSE	FALSE				FALSE	FALSE
 first_public	The date (YYYY-MM-DD) this sample was first made public	Date	FALSE	FALSE	FALSE				FALSE	FALSE
 last_updated	The date (YYYY-MM-DD) this sample was last updated	Date	FALSE	FALSE	FALSE				FALSE	FALSE
 instrument_model	The name of the instrument used (Example: Illumina HiSeq 2500)	String	FALSE	FALSE	FALSE				FALSE	FALSE
