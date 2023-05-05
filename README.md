@@ -158,3 +158,15 @@ Poseidon 2.7.0 added an option to specify sequencing source data. This is a tab-
 
 Note that the primary entities in this table are sequencing entities (typically corresponding to DNA libraries or even multiple runs/lanes of the same library). The link to the Individuals listed in the `.janno`-file are made through a foreign-key relationship into `Poseidon_ID`.
 
+# Developer Notes
+
+New features or changes to the schema are to be implemented in workable Pull Requests, and parallel Pull Requests are to be opened in
+
+* poseidon-hs (trident and server)
+* poseidon-analysis-hs
+* published_data (enough packages with the new schema update shall be there to provide sufficient test cases)
+* janno (if changes affect the Janno File)
+* poseidon-eager (regarding input if the change affects the SSF format, and output in general)
+
+
+
