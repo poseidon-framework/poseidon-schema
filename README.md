@@ -154,9 +154,9 @@ Example:
 
 ## The `.ssf` file
 
-The `.ssf` file stores sequencing source data. It is a tab-separated table, much like the `.janno` file, but following a different schema, specified in the file `ssf_columns.tsv`.
+The `.ssf` file stores sequencing source data, so metainformation about the raw sequencing data behind the genotypes in a Poseidon package. The primary entities in this table are sequencing entities, typically corresponding to DNA libraries or even multiple runs/lanes of the same library.
 
-The primary entities in this table are sequencing entities, typically corresponding to DNA libraries or even multiple runs/lanes of the same library. A unique, identifying key is provided in the .ssf column `run_accession`.
+It is a tab-separated table, much like the `.janno` file, but following a different schema, specified in the file `ssf_columns.tsv`. All columns of this schema are optional.
 
 The link to the individuals listed in the `.janno`-file (and therefore to the entire Poseidon package) is made through a many-to-many foreign-key relationship between the .janno column `Poseidon_ID` and the .ssf column `poseidon_IDs`. That means each entry in the .janno file can be linked to many rows in the .ssf file and vice versa.
 
