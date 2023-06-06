@@ -8,21 +8,21 @@ A changelog for this standard is available on the website [here](https://poseido
 
 ### The Poseidon package structure
 
-A Poseidon package stores genotype data with context information for individuals/samples. Packages are defined by the POSEIDON.yml file, which holds relative paths to all other files in a package.
+A Poseidon package stores genotype data with context information for DNA samples from (ancient) (human) individuals. Packages are defined by the POSEIDON.yml file, which holds relative paths to all other files in a package.
 
-A package must contain:
+A package therefore must contain:
 
 - A `POSEIDON.yml` file to formally define the package
 - Genotype data in PLINK or EIGENSTRAT format
 
 It should additionally contain:
 
-- A `.janno` file to store context information
+- A `.janno` file to store context information on spatiotemporal origin or sample quality
 - A `.bib` file for literature references
 
 It can also contain:
 
-- A `README.md` file for arbitrary context information
+- A `README.md` file for arbitrary, additional context information
 - A `CHANGELOG.md` file to document changes to the package
 - A `.ssf` file with information on the underlying raw sequencing data
 
@@ -30,9 +30,9 @@ Here is an example of a package `Switzerland_LNBA_Roswita` in one directory:
 
 ```
 Switzerland_LNBA_Roswita/POSEIDON.yml
-Switzerland_LNBA_Roswita/Switzerland_LNBA.plink.bed
-Switzerland_LNBA_Roswita/Switzerland_LNBA.plink.bim
-Switzerland_LNBA_Roswita/Switzerland_LNBA.plink.fam
+Switzerland_LNBA_Roswita/Switzerland_LNBA.bed
+Switzerland_LNBA_Roswita/Switzerland_LNBA.bim
+Switzerland_LNBA_Roswita/Switzerland_LNBA.fam
 Switzerland_LNBA_Roswita/Switzerland_LNBA.janno
 Switzerland_LNBA_Roswita/Switzerland_LNBA.ssf
 Switzerland_LNBA_Roswita/Switzerland_LNBA.bib
@@ -46,13 +46,13 @@ All text files in the package are UTF-8 encoded.
 
 The `POSEIDON.yml` file defines Poseidon packages by listing metainformation and relative paths in a standardized, machine-readable format.
 
-- It must be a valid [YAML file](https://yaml.org/).
+- It must be a valid [YAML file](https://yaml.org).
 - Its mandatory and optional fields are documented in the [POSEIDON_yml_fields.tsv file](https://github.com/poseidon-framework/poseidon-schema/blob/master/POSEIDON_yml_fields.tsv) in this repository.
 
 Here is an example for a `POSEIDON.yml` file:
 
 ```
-poseidonVersion: 2.5.0
+poseidonVersion: 2.7.1
 title: Switzerland_LNBA_Roswita
 description: LNBA Switzerland genetic data not yet published
 contributor:
@@ -82,7 +82,7 @@ readmeFile: README.md
 changelogFile: CHANGELOG.md
 ```
 
-When a package is modified in any way (e.g. updates of the context information in the `.janno` file), then the `packageVersion` field should be incremented and the `lastModified` field updated to the current date.
+When a package is modified in any way (including updates of the context information in the `.janno` file), then the `packageVersion` field should be incremented and the `lastModified` field updated to the current date.
 
 ### Genotype data
 
@@ -135,9 +135,11 @@ Example:
 }
 ```
 
+To connect a sample in the package to this particular literature reference, the .janno file column `Publication` would have to be filled with `CassidyPNAS2015`.
+
 ### The `README.md` file
 
-Informal information accompanying the package.
+A simple [markdown](https://daringfireball.net/projects/markdown/) file with informal, arbitrarily structured information accompanying the package.
 
 Example:
 
@@ -147,7 +149,7 @@ This package contains a rather interesting set of samples relevant for the peopl
 
 ### The `CHANGELOG.md` file
 
-Documentation of important changes in the history of a package.
+A markdown file to document changes in the history of a package.
 
 Example:
 
@@ -158,10 +160,18 @@ Example:
 - V 1.0.0: Creation of the package
 ```
 
+The structure with `- V X.X.X:` at the beginning of each line is not mandatory, but should be followed for reasons of interoperability.
+
 ### The `.ssf` file
 
-The `.ssf` file stores sequencing source data, so metainformation about the raw sequencing data behind the genotypes in a Poseidon package. The primary entities in this table are sequencing entities, typically corresponding to DNA libraries or even multiple runs/lanes of the same library.
+The `.ssf` file is another tab-separated text file with a header line. It stores sequencing source data, so metainformation about the raw sequencing data behind the genotypes in a Poseidon package. The primary entities in this table are sequencing entities, typically corresponding to DNA libraries or even multiple runs/lanes of the same library.
 
-- It is a tab-separated table, much like the `.janno` file, but following a different schema, specified here: [ssf_columns.tsv](https://github.com/poseidon-framework/poseidon-schema/blob/master/ssf_columns.tsv)
-- All columns of this schema are optional.
+- The pre-defined columns are specified here: [ssf_columns.tsv](https://github.com/poseidon-framework/poseidon-schema/blob/master/ssf_columns.tsv)
+- All columns of this schema are optional, so a `.ssf` can have all of these core variables, only a subset of them, or even none. It should have a `poseidon_IDs` column, though, to link the sequencing entities to the Poseidon package.
 - The link to the individuals listed in the `.janno`-file (and therefore to the entire Poseidon package) is made through a many-to-many foreign-key relationship between the .janno column `Poseidon_ID` and the .ssf column `poseidon_IDs`. That means each entry in the .janno file can be linked to many rows in the .ssf file and vice versa.
+- As in the `.janno` file arbitrary columns not defined here can be added as long as their column names do not clash with the defined ones.
+- The order of columns and rows is irrelevant.
+- If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) can be filled with the NULL value `n/a` or simply an empty string.
+- Multiple pre-defined columns of the `.ssf` file are list columns that hold multiple values (either strings or numerics) separated by `;`.
+- The decimal separator for all floating point numbers is `.`.
+
