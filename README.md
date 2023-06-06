@@ -1,8 +1,8 @@
 ## The Poseidon Standard v2.7.1
 
-Poseidon is a solution for archeogenetic genotype data organisation.
+Poseidon is a solution for archaeogenetic genotype data organisation.
 
-This standard defines the core compontents of the Poseidon package. Further details on [genotype data](https://poseidon-framework.github.io/#/genotype_data), the [.janno file](https://poseidon-framework.github.io/#/janno_details) and the [.ssf file](https://poseidon-framework.github.io/#/ssf_details) are documented on the Poseidon website.
+This standard defines the core components of the Poseidon package. Further details on [genotype data](https://poseidon-framework.github.io/#/genotype_data), the [.janno file](https://poseidon-framework.github.io/#/janno_details) and the [.ssf file](https://poseidon-framework.github.io/#/ssf_details) are documented on the Poseidon website.
 
 A changelog for this standard is available on the website [here](https://poseidon-framework.github.io/#/changelog).
 
@@ -44,7 +44,7 @@ All text files in the package are UTF-8 encoded.
 
 ### The `POSEIDON.yml` file
 
-The `POSEIDON.yml` file defines Poseidon packages by listing metainformation and relative paths in a standardized, machine-readable format.
+The `POSEIDON.yml` file defines Poseidon packages by listing metainformation and relative paths in a standardised, machine-readable format.
 
 - It must be a valid [YAML file](https://yaml.org).
 - Its mandatory and optional fields are documented in the [POSEIDON_yml_fields.tsv file](https://github.com/poseidon-framework/poseidon-schema/blob/master/POSEIDON_yml_fields.tsv) in this repository.
@@ -108,10 +108,10 @@ The `.janno` file is a tab-separated text file with a header line. It holds cont
 - If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) can be filled with the NULL value `n/a` or simply an empty string.
 - The order of the samples (rows) in the `.janno` file must be equal to the order in the genetic data files (`.ind`, `.fam`).
 - The values in the columns **Poseidon_ID**, **Group_Name** and **Genetic_Sex** must be equal to the terms used in the genetic data files (`.ind`, `.fam`).
-- Multiple pre-defined columns of the `.janno` file are list columns that can hold multiple values (either strings or numerics) separated by `;`.
+- Multiple predefined columns of the `.janno` file are list columns that can hold multiple values (either strings or numerics) separated by `;`.
 - The decimal separator for all floating point numbers is `.`.
 
-For a more extensive documenation of the columns and their interaction see [https://poseidon-framework.github.io/#/janno_details](https://poseidon-framework.github.io/#/janno_details).
+For a more extensive documentation of the columns and their interaction see [https://poseidon-framework.github.io/#/janno_details](https://poseidon-framework.github.io/#/janno_details).
 
 ### The `.bib` file
 
@@ -166,12 +166,12 @@ The structure with `- V X.X.X:` at the beginning of each line is not mandatory, 
 
 The `.ssf` file is another tab-separated text file with a header line. It stores sequencing source data, so metainformation about the raw sequencing data behind the genotypes in a Poseidon package. The primary entities in this table are sequencing entities, typically corresponding to DNA libraries or even multiple runs/lanes of the same library.
 
-- The pre-defined columns are specified here: [ssf_columns.tsv](https://github.com/poseidon-framework/poseidon-schema/blob/master/ssf_columns.tsv)
+- The predefined columns are specified here: [ssf_columns.tsv](https://github.com/poseidon-framework/poseidon-schema/blob/master/ssf_columns.tsv)
 - All columns of this schema are optional, so a `.ssf` can have all of these core variables, only a subset of them, or even none. It should have a `poseidon_IDs` column, though, to link the sequencing entities to the Poseidon package.
 - The link to the individuals listed in the `.janno`-file (and therefore to the entire Poseidon package) is made through a many-to-many foreign-key relationship between the .janno column `Poseidon_ID` and the .ssf column `poseidon_IDs`. That means each entry in the .janno file can be linked to many rows in the .ssf file and vice versa.
 - As in the `.janno` file arbitrary columns not defined here can be added as long as their column names do not clash with the defined ones.
 - The order of columns and rows is irrelevant.
 - If information is unknown or a variable does not apply, then the respective cell(s) can be filled with the NULL value `n/a` or simply an empty string.
-- Multiple pre-defined columns of the `.ssf` file are list columns that can hold multiple values (either strings or numerics) separated by `;`.
+- Multiple predefined columns of the `.ssf` file are list columns that can hold multiple values (either strings or numerics) separated by `;`.
 - The decimal separator for all floating point numbers is `.`.
 
