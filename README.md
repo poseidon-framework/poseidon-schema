@@ -115,7 +115,7 @@ For a more extensive documentation of the columns and their interaction see [htt
 
 ### The `.bib` file
 
-A [BibTeX](http://www.bibtex.org/) file with all references listed in the `.janno` file. The entry keys must fit to the ones used in the `.janno` file.
+A [BibTeX](http://www.bibtex.org/) file with all references listed in the `.janno` file. The entry keys must fit the ones used in the `.janno` file.
 
 Example:
 
