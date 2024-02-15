@@ -92,7 +92,7 @@ Each version number is comprised of three numbers, separated by a `.`. For examp
 
 - **`major`** (first number)
   - When samples are removed from a package.
-  - When genotype data for any number of samples is changed in any way.
+  - When genotype data (i.e. the contents of the `*.bed` or `*.geno` file) for any number of samples is changed.
 
 - **`minor`** (second number)
   - When new samples are added to a package.
