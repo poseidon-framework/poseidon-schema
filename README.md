@@ -91,11 +91,11 @@ The `packageVersion` field is a mandatory entry of the `POSEIDON.yml` file. It d
 Each version number is comprised of three numbers, separated by a `.`. For example: `0.1.0`, `1.0.0` or `2.1.3`. The first number gives the `major`, the second the `minor` and the third the `patch` component of the version number. For a Poseidon package these components SHOULD be incremented, so raised by one, when the following changes occur:
 
 - **`major`** (first number)
+  - When samples are added to a package.
   - When samples are removed from a package.
-  - When genotype data (i.e. the contents of the `.bed`/`.bim`/`.fam` or `.geno`/`.snp`/`.ind` files) for any number of samples is changed.
+  - When the genotype data (i.e. the contents of the `.bed`/`.bim`/`.fam` or `.geno`/`.snp`/`.ind` files) for any number of samples is changed.
 
 - **`minor`** (second number)
-  - When new samples are added to a package.
   - When larger pieces of meta- or context information are added or modified in any package file, except the genotype data. For example:
     - An entire `.janno`, `.bib` or `.ssf` file is added or replaced.
     - Entire columns in the `.janno` or `.ssf` file are added or replaced.
