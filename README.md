@@ -101,7 +101,7 @@ Each version number is comprised of three numbers, separated by a `.`. For examp
     - Entire columns in the `.janno` or `.ssf` file are added or replaced.
     - Primary publications for samples in the `.janno` and `.bib` file are added or replaced.
 
-- **`patch`** (third number)
+- **`Patch`** (e.g. `1.4.2` -> `1.4.3`)
   - When smaller pieces of meta- or context information are added or modified in any package file, except the genotype data. For example:
     - Individual entries in the `.janno` or `.ssf` file are added or replaced.
     - Secondary publications for samples in the `.janno` and `.bib` file are added or replaced.
