@@ -95,7 +95,7 @@ Each version number is comprised of three numbers, separated by a `.`. For examp
   - When samples are removed from a package.
   - When the genotype data (i.e. the contents of the `.bed`/`.bim`/`.fam` or `.geno`/`.snp`/`.ind` files) for any number of samples is changed.
 
-- **`minor`** (second number)
+- **`Minor`** (e.g. `1.4.2` -> `1.5.0`)
   - When larger pieces of meta- or context information are added or modified in any package file, except the genotype data. For example:
     - An entire `.janno`, `.bib` or `.ssf` file is added or replaced.
     - Entire columns in the `.janno` or `.ssf` file are added or replaced.
