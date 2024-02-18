@@ -109,7 +109,7 @@ Each version number is comprised of three numbers, separated by a `.`. For examp
     - The package `description` changes in the `POSEIDON.yml` file.
     - The `CHANGELOG.md` file is modified with additional information on previous entries.
 
-When the `packageVersion` is changed, then the `lastModified` date MUST be updated and an entry to the `CHANGELOG.md` file SHOULD be added.
+When the `packageVersion` is changed, then the `lastModified` date MUST be updated and an entry to the `CHANGELOG.md` file SHOULD be added summarising the changes made.
 
 Packages SHOULD start at `packageVersion` `0.1.0`.
 
