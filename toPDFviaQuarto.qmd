@@ -82,6 +82,16 @@ u <- \(x) paste0("\\underline{", x, "}")
 a <- \(name,x) ifelse(!is.na(x), paste0(u(name), ": ", x), NA_character_)
 # "" to NA
 toNA <- \(x) ifelse(x == "", NA_character_, x)
+# escape text in table (e.g. underscores)
+escape <- \(df) {
+  df %>%
+    dplyr::mutate(dplyr::across(tidyselect::where(is.character), \(x) {
+      Hmisc::latexTranslate(x) %>%
+      toNA %>%
+      gsub(";", "; ", .) # this is only for the choice field to fix the line wrapping there
+                         # - should go to an own function
+    }))
+}
 ```
 
 ```{r}
@@ -91,6 +101,7 @@ raw <- readr::read_tsv(
   show_col_types = FALSE
 )
 raw %>%
+  escape() %>%
   dplyr::transmute(
     Field = paste0(b(field), ifelse(mandatory, "\\textsuperscript{\\ast}", "")),
     Description = lb(n(
@@ -114,8 +125,7 @@ raw <- readr::read_tsv(
   show_col_types = FALSE
 )
 raw %>%
-  # handle underscores
-  dplyr::mutate(dplyr::across(tidyselect::where(is.character), \(x) toNA(Hmisc::latexTranslate(x)))) %>%
+  escape() %>%
   dplyr::transmute(
     Variable = paste0(b(janno_column_name), ifelse(mandatory, "\\textsuperscript{\\ast}", "")),
     Description = lb(n(
@@ -139,8 +149,7 @@ raw <- readr::read_tsv(
   show_col_types = FALSE
 )
 raw %>%
-  # handle underscores
-  dplyr::mutate(dplyr::across(tidyselect::where(is.character), \(x) toNA(Hmisc::latexTranslate(x)))) %>%
+  escape() %>%
   dplyr::transmute(
     Variable = paste0(b(sequencingSourceFile_column_name), ifelse(mandatory, "\\textsuperscript{\\ast}", "")),
     Description = lb(n(
