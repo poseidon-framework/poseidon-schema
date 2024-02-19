@@ -84,6 +84,35 @@ changelogFile: CHANGELOG.md
 
 When a package is modified in any way (including updates of the context information in the `.janno` file), then the `packageVersion` field SHOULD be incremented and the `lastModified` field updated to the current date.
 
+#### Package versioning
+
+The `packageVersion` field is a mandatory entry of the `POSEIDON.yml` file. It denotes the version of the individual package, using a three-component versioning system derived from [semantic versioning](https://semver.org).
+
+Each version number is comprised of three numbers, separated by a `.`. For example: `0.1.0`, `1.0.0` or `2.1.3`. The first number gives the `Major`, the second the `Minor` and the third the `Patch` component of the version number. For a Poseidon package these components SHOULD be incremented when the following changes occur:
+
+- **`Major`** (e.g. `1.4.2` -> `2.0.0`)
+  - When samples are added to a package.
+  - When samples are removed from a package.
+  - When the genotype data (i.e. the contents of the `.bed`/`.bim`/`.fam` or `.geno`/`.snp`/`.ind` files) for any number of samples is changed.
+
+- **`Minor`** (e.g. `1.4.2` -> `1.5.0`)
+  - When larger pieces of meta- or context information are added or modified in any package file, except the genotype data. For example:
+    - An entire `.janno`, `.bib` or `.ssf` file is added or replaced.
+    - Entire columns in the `.janno` or `.ssf` file are added or replaced.
+    - Primary publications for samples in the `.janno` and `.bib` file are added or replaced.
+
+- **`Patch`** (e.g. `1.4.2` -> `1.4.3`)
+  - When smaller pieces of meta- or context information are added or modified in any package file, except the genotype data. For example:
+    - Individual entries in the `.janno` or `.ssf` file are added or replaced.
+    - Secondary publications for samples in the `.janno` and `.bib` file are added or replaced.
+    - BibTeX entries in the `.bib` file are modified.
+    - The package `description` changes in the `POSEIDON.yml` file.
+    - The `CHANGELOG.md` file is modified with additional information on previous entries.
+
+When the `packageVersion` is changed, then the `lastModified` date MUST be updated and an entry to the `CHANGELOG.md` file SHOULD be added summarising the changes made.
+
+Packages SHOULD start at `packageVersion` `0.1.0`.
+
 ### Genotype data
 
 Genotype data in Poseidon packages is stored either in (binary) PLINK or EIGENSTRAT format.
