@@ -43,6 +43,8 @@ include-before-body:
     \renewcommand{\thesubsubsection}{\thesubsection.\roman{subsubsection}}
 ---
 
+<!-- can be rendered with "quarto render toPDFviaQuarto.qmd --to pdf" -->
+
 {{< include README.md >}}
 
 ## Appendix 1: POSEIDON.yml file fields
@@ -50,17 +52,31 @@ include-before-body:
 ```{r}
 #| echo: false
 library(magrittr)
+# build table with kableExtra
+make_tab <- function(x) {
+  x %>%
+    kableExtra::kbl(longtable = T, booktabs = T, escape = FALSE) %>%
+    kableExtra::kable_styling(latex_options = c("striped", "HOLD_position", "repeat_header")) %>%
+    kableExtra::column_spec(1, width = "15em") %>%
+    kableExtra::column_spec(2, width = "30em")
+}
 # construct cell with linebreak
 lb <- \(x) kableExtra::linebreak(x)
 # newline
-n <- \(...) purrr::pmap_chr(list(...), \(...) paste(..., sep = "\n") )
+n <- \(...) {
+    purrr::pmap_chr(list(...), \(...) {
+      # omit NA rows
+      rows <- na.omit(unlist(list(...)))
+      paste(rows, collapse = "\n")
+    })
+  }
 #n <- \(x, y) paste(x, y, sep = "\n")
 # bold
 b <- \(x) paste0("\\textbf{", x, "}")
 # underscore
 u <- \(x) paste0("\\underline{", x, "}")
 # named argument
-a <- \(name,x) paste0(u(name), ": ", x)
+a <- \(name,x) ifelse(!is.na(x), paste0(u(name), ": ", x), NA_character_)
 ```
 
 ```{r}
@@ -74,13 +90,12 @@ raw %>%
     Field = paste0(b(field), ifelse(mandatory, "\\textsuperscript{\\ast}", "")),
     Description = lb(n(
       description,
-      a("type", type)
+      a("subfield of", parent),
+      a("type", type),
+      a("format", format)
     ))
-  ) %>%
-  kableExtra::kbl(longtable = T, booktabs = T, escape = FALSE) %>%
-  kableExtra::kable_styling(latex_options = c("striped", "HOLD_position", "repeat_header")) %>%
-  kableExtra::column_spec(1, width = "15em") %>%
-  kableExtra::column_spec(2, width = "30em")
+  ) %>% make_tab()
+  
 ```
 
 ## Appendix 2: .janno file variables
