@@ -47,6 +47,8 @@ include-before-body:
 
 {{< include README.md >}}
 
+\newpage
+
 ## Appendix 1: POSEIDON.yml file fields
 
 ```{r}
@@ -98,12 +100,32 @@ raw %>%
   
 ```
 
+\newpage
+
 ## Appendix 2: .janno file variables
 
 ```{r}
 #| echo: false
-plot(1,1)
+raw <- readr::read_tsv(
+  file = "janno_columns.tsv",
+  show_col_types = FALSE
+)
+raw %>%
+  # handle underscores
+  dplyr::mutate(dplyr::across(tidyselect::where(is.character), \(x) Hmisc::latexTranslate(x))) %>%
+  dplyr::transmute(
+    Variable = paste0(b(janno_column_name), ifelse(mandatory, "\\textsuperscript{\\ast}", "")),
+    Description = lb(n(
+      description,
+      ifelse(multi, u("list column"), NA_character_),
+      a("type", data_type),
+      a("allowed values", choice_options),
+      a("allowed range", paste(range_lower, "\\-", range_upper))
+    ))
+  ) %>% make_tab()
 ```
+
+\newpage
 
 ## Appendix 3: .ssf file variables
 
