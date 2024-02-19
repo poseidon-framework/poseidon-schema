@@ -24,6 +24,7 @@ format:
          \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
 include-before-body:
   text: |
+    % also necessary to wrap long code lines
     \RecustomVerbatimEnvironment{verbatim}{Verbatim}{
       showspaces = false,
       showtabs = false,
@@ -31,6 +32,30 @@ include-before-body:
       breaklines
       % Note: setting commandchars=\\\{\} here will cause an error 
     }
+    % turn off page numbers
+    \pagenumbering{gobble}
+    % roman section headers
+    \renewcommand{\thesection}{\Alph{section}}
+    \renewcommand{\thesubsection}{\Roman{subsection}}
+    \renewcommand{\thesubsubsection}{\thesubsection.\roman{subsubsection}}
 ---
 
 {{< include README.md >}}
+
+## Appendix 1: POSEIDON.yml file fields
+
+```{r}
+plot(1,1)
+```
+
+## Appendix 2: .janno file variables
+
+```{r}
+plot(1,1)
+```
+
+## Appendix 3: .ssf file variables
+
+```{r}
+plot(1,1)
+```
