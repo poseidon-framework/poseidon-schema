@@ -41,6 +41,7 @@ include-before-body:
     \renewcommand{\thesection}{\Alph{section}}
     \renewcommand{\thesubsection}{\Roman{subsection}}
     \renewcommand{\thesubsubsection}{\thesubsection.\roman{subsubsection}}
+    \renewcommand{\arraystretch}{1.5}
 ---
 
 <!-- can be rendered with "quarto render toPDFviaQuarto.qmd --to pdf" -->
@@ -55,11 +56,11 @@ include-before-body:
 #| echo: false
 library(magrittr)
 # build table with kableExtra
-make_tab <- function(x) {
+make_tab <- function(x, caption) {
   x %>%
-    kableExtra::kbl(longtable = T, booktabs = T, escape = FALSE) %>%
+    kableExtra::kbl(caption = caption, longtable = T, booktabs = T, escape = FALSE) %>%
     kableExtra::kable_styling(latex_options = c("striped", "HOLD_position", "repeat_header")) %>%
-    kableExtra::column_spec(1, width = "15em") %>%
+    kableExtra::column_spec(1, width = "18em") %>%
     kableExtra::column_spec(2, width = "30em")
 }
 # construct cell with linebreak
@@ -79,6 +80,8 @@ b <- \(x) paste0("\\textbf{", x, "}")
 u <- \(x) paste0("\\underline{", x, "}")
 # named argument
 a <- \(name,x) ifelse(!is.na(x), paste0(u(name), ": ", x), NA_character_)
+# "" to NA
+toNA <- \(x) ifelse(x == "", NA_character_, x)
 ```
 
 ```{r}
@@ -96,7 +99,7 @@ raw %>%
       a("type", type),
       a("format", format)
     ))
-  ) %>% make_tab()
+  ) %>% make_tab(caption = "POSEIDON.yml file fields")
   
 ```
 
@@ -112,7 +115,7 @@ raw <- readr::read_tsv(
 )
 raw %>%
   # handle underscores
-  dplyr::mutate(dplyr::across(tidyselect::where(is.character), \(x) Hmisc::latexTranslate(x))) %>%
+  dplyr::mutate(dplyr::across(tidyselect::where(is.character), \(x) toNA(Hmisc::latexTranslate(x)))) %>%
   dplyr::transmute(
     Variable = paste0(b(janno_column_name), ifelse(mandatory, "\\textsuperscript{\\ast}", "")),
     Description = lb(n(
@@ -120,9 +123,9 @@ raw %>%
       ifelse(multi, u("list column"), NA_character_),
       a("type", data_type),
       a("allowed values", choice_options),
-      a("allowed range", paste(range_lower, "\\-", range_upper))
+      a("allowed range", ifelse(!is.na(range_lower), paste(range_lower, "to", range_upper), NA_character_))
     ))
-  ) %>% make_tab()
+  ) %>% make_tab(caption = ".janno file variables")
 ```
 
 \newpage
@@ -131,5 +134,21 @@ raw %>%
 
 ```{r}
 #| echo: false
-plot(1,1)
+raw <- readr::read_tsv(
+  file = "ssf_columns.tsv",
+  show_col_types = FALSE
+)
+raw %>%
+  # handle underscores
+  dplyr::mutate(dplyr::across(tidyselect::where(is.character), \(x) toNA(Hmisc::latexTranslate(x)))) %>%
+  dplyr::transmute(
+    Variable = paste0(b(sequencingSourceFile_column_name), ifelse(mandatory, "\\textsuperscript{\\ast}", "")),
+    Description = lb(n(
+      description,
+      ifelse(multi, u("list column"), NA_character_),
+      a("type", data_type),
+      a("allowed values", choice_options),
+      a("allowed range", ifelse(!is.na(range_lower), paste(range_lower, "to", range_upper), NA_character_))
+    ))
+  ) %>% make_tab(caption = ".ssf file variables")
 ```
