@@ -1,9 +1,10 @@
 ---
-title: Poseidon package specification
+title: Poseidon package specification \vspace{-1cm}
 format:
   pdf:
     #keep-tex: true
     toc: true
+    toc-depth: 2
     colorlinks: true
 #### section layout ####
     number-sections: true
@@ -23,8 +24,12 @@ format:
          % wrap long code lines
          \usepackage{fvextra}
          \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
-         % get more control over table cells
-         % \usepackage{makecell}
+         % remove dots in toc
+         \usepackage[titles]{tocloft}
+         \renewcommand{\cftdot}{}
+         %
+         \usepackage{caption}
+         \captionsetup{labelformat=empty}
 include-before-body:
   text: |
     % also necessary to wrap long code lines
@@ -38,9 +43,9 @@ include-before-body:
     % turn off page numbers
     \pagenumbering{gobble}
     % roman section headers
-    \renewcommand{\thesection}{\Alph{section}}
-    \renewcommand{\thesubsection}{\Roman{subsection}}
-    \renewcommand{\thesubsubsection}{\thesubsection.\roman{subsubsection}}
+    \renewcommand{\thesection}{\Roman{section}}
+    \renewcommand{\thesubsection}{\arabic{subsection}}
+    \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
     \renewcommand{\arraystretch}{1.5}
 ---
 
@@ -50,7 +55,9 @@ include-before-body:
 
 \newpage
 
-## Appendix 1: POSEIDON.yml file fields
+## Appendix
+
+### POSEIDON.yml file fields
 
 ```{r}
 #| echo: false
@@ -60,8 +67,8 @@ make_tab <- function(x, caption) {
   x %>%
     kableExtra::kbl(caption = caption, longtable = T, booktabs = T, escape = FALSE) %>%
     kableExtra::kable_styling(latex_options = c("striped", "HOLD_position", "repeat_header")) %>%
-    kableExtra::column_spec(1, width = "18em") %>%
-    kableExtra::column_spec(2, width = "30em")
+    kableExtra::column_spec(1, width = "15em") %>%
+    kableExtra::column_spec(2, width = "32em")
 }
 # construct cell with linebreak
 lb <- \(x) kableExtra::linebreak(x)
@@ -87,11 +94,11 @@ escape <- \(df) {
   df %>%
     dplyr::mutate(dplyr::across(tidyselect::where(is.character), \(x) {
       Hmisc::latexTranslate(x) %>%
-      toNA %>%
-      gsub(";", "; ", .) # this is only for the choice field to fix the line wrapping there
-                         # - should go to an own function
+      toNA
     }))
 }
+# for better linebreaks of long enumerations
+split_choice <- \(x) x %>% dplyr::mutate(choice_options = gsub(";", "; ", choice_options))
 ```
 
 ```{r}
@@ -103,7 +110,7 @@ raw <- readr::read_tsv(
 raw %>%
   escape() %>%
   dplyr::transmute(
-    Field = paste0(b(field), ifelse(mandatory, "\\textsuperscript{\\ast}", "")),
+    Field = paste0(field, ifelse(mandatory, "\\textsuperscript{\\ast}", "")),
     Description = lb(n(
       description,
       a("subfield of", parent),
@@ -114,9 +121,7 @@ raw %>%
   
 ```
 
-\newpage
-
-## Appendix 2: .janno file variables
+### .janno file variables
 
 ```{r}
 #| echo: false
@@ -126,8 +131,9 @@ raw <- readr::read_tsv(
 )
 raw %>%
   escape() %>%
+  split_choice %>%
   dplyr::transmute(
-    Variable = paste0(b(janno_column_name), ifelse(mandatory, "\\textsuperscript{\\ast}", "")),
+    Variable = paste0(janno_column_name, ifelse(mandatory, "\\textsuperscript{\\ast}", "")),
     Description = lb(n(
       description,
       ifelse(multi, u("list column"), NA_character_),
@@ -138,9 +144,7 @@ raw %>%
   ) %>% make_tab(caption = ".janno file variables")
 ```
 
-\newpage
-
-## Appendix 3: .ssf file variables
+### .ssf file variables
 
 ```{r}
 #| echo: false
@@ -150,8 +154,9 @@ raw <- readr::read_tsv(
 )
 raw %>%
   escape() %>%
+  split_choice %>%
   dplyr::transmute(
-    Variable = paste0(b(sequencingSourceFile_column_name), ifelse(mandatory, "\\textsuperscript{\\ast}", "")),
+    Variable = paste0(sequencingSourceFile_column_name, ifelse(mandatory, "\\textsuperscript{\\ast}", "")),
     Description = lb(n(
       description,
       ifelse(multi, u("list column"), NA_character_),
