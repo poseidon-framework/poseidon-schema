@@ -2,6 +2,7 @@
 title: Poseidon package specification
 format:
   pdf:
+    #keep-tex: true
     toc: true
     colorlinks: true
 #### section layout ####
@@ -16,12 +17,14 @@ format:
       - heightrounded
 #### code layout ####
     highlight-style: tango
-#### wrap long code lines: ####
-# https://github.com/quarto-dev/quarto-cli/discussions/4121
+#### detailed configuration ####
     include-in-header: 
        text: |
+         % wrap long code lines
          \usepackage{fvextra}
          \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+         % get more control over table cells
+         % \usepackage{makecell}
 include-before-body:
   text: |
     % also necessary to wrap long code lines
@@ -45,17 +48,42 @@ include-before-body:
 ## Appendix 1: POSEIDON.yml file fields
 
 ```{r}
-plot(1,1)
+#| echo: false
+library(magrittr)
+# construct cell with linebreak
+lb <- \(x) kableExtra::linebreak(x)
+# newline
+n <- \(x,y) paste(x, "\n", y)
+# bold
+b <- \(x) paste0("\\textbf{", x, "}")
+```
+
+```{r}
+#| echo: false
+raw <- readr::read_tsv(
+  file = "POSEIDON_yml_fields.tsv",
+  show_col_types = FALSE
+)
+raw %>%
+  dplyr::transmute(
+    firstCol = lb(n(b(field), type)),
+    secondCol = description
+  ) %>%
+  kableExtra::kbl(booktabs = T, escape = FALSE) %>%
+  kableExtra::kable_styling() %>%
+  kableExtra::column_spec(2, width = "30em")
 ```
 
 ## Appendix 2: .janno file variables
 
 ```{r}
+#| echo: false
 plot(1,1)
 ```
 
 ## Appendix 3: .ssf file variables
 
 ```{r}
+#| echo: false
 plot(1,1)
 ```
