@@ -53,9 +53,14 @@ library(magrittr)
 # construct cell with linebreak
 lb <- \(x) kableExtra::linebreak(x)
 # newline
-n <- \(x,y) paste(x, "\n", y)
+n <- \(...) purrr::pmap_chr(list(...), \(...) paste(..., sep = "\n") )
+#n <- \(x, y) paste(x, y, sep = "\n")
 # bold
 b <- \(x) paste0("\\textbf{", x, "}")
+# underscore
+u <- \(x) paste0("\\underline{", x, "}")
+# named argument
+a <- \(name,x) paste0(u(name), ": ", x)
 ```
 
 ```{r}
@@ -66,11 +71,15 @@ raw <- readr::read_tsv(
 )
 raw %>%
   dplyr::transmute(
-    firstCol = lb(n(b(field), type)),
-    secondCol = description
+    Field = paste0(b(field), ifelse(mandatory, "\\textsuperscript{\\ast}", "")),
+    Description = lb(n(
+      description,
+      a("type", type)
+    ))
   ) %>%
-  kableExtra::kbl(booktabs = T, escape = FALSE) %>%
-  kableExtra::kable_styling() %>%
+  kableExtra::kbl(longtable = T, booktabs = T, escape = FALSE) %>%
+  kableExtra::kable_styling(latex_options = c("striped", "HOLD_position", "repeat_header")) %>%
+  kableExtra::column_spec(1, width = "15em") %>%
   kableExtra::column_spec(2, width = "30em")
 ```
 
