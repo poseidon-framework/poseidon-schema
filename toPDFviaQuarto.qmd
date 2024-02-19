@@ -1,0 +1,36 @@
+---
+title: Poseidon package specification
+format:
+  pdf:
+    toc: true
+    colorlinks: true
+#### section layout ####
+    number-sections: true
+    shift-heading-level-by: -1
+#### page layout ####
+    documentclass: article
+    papersize: a4paper
+    geometry:
+      - top=30mm
+      - left=20mm
+      - heightrounded
+#### code layout ####
+    highlight-style: tango
+#### wrap long code lines: ####
+# https://github.com/quarto-dev/quarto-cli/discussions/4121
+    include-in-header: 
+       text: |
+         \usepackage{fvextra}
+         \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+include-before-body:
+  text: |
+    \RecustomVerbatimEnvironment{verbatim}{Verbatim}{
+      showspaces = false,
+      showtabs = false,
+      breaksymbolleft={},
+      breaklines
+      % Note: setting commandchars=\\\{\} here will cause an error 
+    }
+---
+
+{{< include README.md >}}
