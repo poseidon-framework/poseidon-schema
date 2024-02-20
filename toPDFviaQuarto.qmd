@@ -25,9 +25,9 @@ format:
          \usepackage{fvextra}
          \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
          % remove dots in toc
-         \usepackage[titles]{tocloft}
-         \renewcommand{\cftdot}{}
-         %
+         %\usepackage[titles]{tocloft}
+         %\renewcommand{\cftdot}{}
+         % remove table and figure caption numbers
          \usepackage{caption}
          \captionsetup{labelformat=empty}
 include-before-body:
@@ -41,7 +41,7 @@ include-before-body:
       % Note: setting commandchars=\\\{\} here will cause an error 
     }
     % turn off page numbers
-    \pagenumbering{gobble}
+    %\pagenumbering{gobble}
     % roman section headers
     \renewcommand{\thesection}{\Roman{section}}
     \renewcommand{\thesubsection}{\arabic{subsection}}
