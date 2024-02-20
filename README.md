@@ -49,7 +49,7 @@ All text files in the package MUST be UTF-8 encoded.
 The `POSEIDON.yml` file defines Poseidon packages by listing metainformation and relative paths in a standardised, machine-readable format.
 
 - It MUST be a valid [YAML file](https://yaml.org).
-- Its mandatory and optional fields are documented in the [POSEIDON_yml_fields.tsv file](https://github.com/poseidon-framework/poseidon-schema/blob/master/POSEIDON_yml_fields.tsv) in this repository.
+- Its mandatory and optional fields are documented in the [POSEIDON_yml_fields.tsv file](https://github.com/poseidon-framework/poseidon-schema/blob/master/POSEIDON_yml_fields.tsv).
 
 Here is an example for a `POSEIDON.yml` file:
 
@@ -141,8 +141,6 @@ The `.janno` file is a tab-separated text file with a header line. It holds cont
 - The values in the columns **Poseidon_ID**, **Group_Name** and **Genetic_Sex** MUST be equal to the terms used in the genetic data files (`.ind`, `.fam`).
 - Multiple predefined columns of the `.janno` file are list columns that can hold multiple values (either strings or numerics) separated by `;`.
 - The decimal separator for all floating point numbers MUST be `.`.
-
-For a more extensive documentation of the columns and their interaction see [https://poseidon-framework.github.io/#/janno_details](https://poseidon-framework.github.io/#/janno_details).
 
 ### The `.bib` file
 
