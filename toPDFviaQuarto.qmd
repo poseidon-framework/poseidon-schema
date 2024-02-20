@@ -2,11 +2,12 @@
 title: Poseidon package specification \vspace{-1cm}
 format:
   pdf:
+#### general settings ####
     #keep-tex: true
+    colorlinks: true
+#### toc settings ####
     toc: true
     toc-depth: 2
-    colorlinks: true
-#### section layout ####
     number-sections: true
     shift-heading-level-by: -1
 #### page layout ####
@@ -30,23 +31,23 @@ format:
          % remove table and figure caption numbers
          \usepackage{caption}
          \captionsetup{labelformat=empty}
-include-before-body:
-  text: |
-    % also necessary to wrap long code lines
-    \RecustomVerbatimEnvironment{verbatim}{Verbatim}{
-      showspaces = false,
-      showtabs = false,
-      breaksymbolleft={},
-      breaklines
-      % Note: setting commandchars=\\\{\} here will cause an error 
-    }
-    % turn off page numbers
-    %\pagenumbering{gobble}
-    % roman section headers
-    \renewcommand{\thesection}{\Roman{section}}
-    \renewcommand{\thesubsection}{\arabic{subsection}}
-    \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
-    \renewcommand{\arraystretch}{1.5}
+    include-before-body:
+      text: |
+        % also necessary to wrap long code lines
+        \RecustomVerbatimEnvironment{verbatim}{Verbatim}{
+          showspaces = false,
+          showtabs = false,
+          breaksymbolleft={},
+          breaklines
+          % Note: setting commandchars=\\\{\} here will cause an error 
+        }
+        % turn off page numbers
+        %\pagenumbering{gobble}
+        % roman section headers
+        \renewcommand{\thesection}{\Roman{section}}
+        \renewcommand{\thesubsection}{\arabic{subsection}}
+        \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+        \renewcommand{\arraystretch}{1.5}
 ---
 
 <!-- can be rendered with "quarto render toPDFviaQuarto.qmd --to pdf" -->
