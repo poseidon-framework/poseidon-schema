@@ -183,10 +183,11 @@ A markdown file to document changes in the history of a package.
 Example:
 
 ```
-- V 1.2.0: Fixed a spelling mistake in the site name "Hosenacker"->"Rosenacker"
-- V 1.1.1: Added mtDNA contamination estimation to .janno file
-- V 1.1.0: The authors of @Gassenhauer_2021 made some previously restricted samples for their publication available later and we added them
-- V 1.0.0: Creation of the package
+- V 1.1.1: Fixed a spelling mistake in one site name: "Hosenacker" -> "Rosenacker"
+- V 1.1.0: Added mtDNA contamination estimation to the .janno file
+- V 1.0.0: Added spatial coordinates and age information to the .janno file and finalized a first stable version of the package
+- V 0.2.0: Added previously restricted sample L1337
+- V 0.1.0: Creation of the package
 ```
 
 The structure with `- V X.X.X:` at the beginning of each line is not mandatory, but SHOULD be followed for reasons of interoperability.
