@@ -1,23 +1,23 @@
 sequencingSourceFile_column_name	description	data_type	multi	choice	range	choice_options	range_lower	range_upper	mandatory	unique
-poseidon_IDs	The Poseidon_IDs this sequencing entity corresponds to, from the Janno-file, multiple entries separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
-udg	The kind of UDG treatment applied to the library for this sequencing entity	String	FALSE	TRUE	FALSE	minus;half;plus			FALSE	FALSE
-library_built	The library preparation method applied for this sequencing entity (single- or double-stranded)	String	FALSE	TRUE	FALSE	ds;ss			FALSE	FALSE
-sample_accession	The sample accession code as used in INSDC databases, including ENA and SRA (Example: SAMEA7050454)	String	FALSE	FALSE	FALSE				FALSE	FALSE
-study_accession	The study accession code as used in INSDC databases, including ENA and SRA (Example: PRJEB39316)	String	FALSE	FALSE	FALSE				FALSE	FALSE
-run_accession	The run accession code as used in INSDC databases, including ENA and SRA (Example: ERR4331996). This should be a unique identifier in most cases	String	FALSE	FALSE	FALSE				FALSE	FALSE
-sample_alias	The sample alias defined by the submitter	String	FALSE	FALSE	FALSE				FALSE	FALSE
-secondary_sample_accession	A secondary sample accession, as used at the ENA for historical reasons (Example: ERS4811084)	String	FALSE	FALSE	FALSE				FALSE	FALSE
-first_public	The date (YYYY-MM-DD) this sample was first made public	Date	FALSE	FALSE	FALSE				FALSE	FALSE
-last_updated	The date (YYYY-MM-DD) this sample was last updated	Date	FALSE	FALSE	FALSE				FALSE	FALSE
-instrument_model	The name of the instrument used (Example: Illumina HiSeq 2500)	String	FALSE	FALSE	FALSE				FALSE	FALSE
-library_layout	The library layout of the sequencing entity (Example: SINGLE)	String	FALSE	FALSE	FALSE				FALSE	FALSE
-library_source	The source of the DNA library (Example: GENOMIC)	String	FALSE	FALSE	FALSE				FALSE	FALSE
-instrument_platform	The platform brand or type of the sequencer (Example: ILLUMINA)	String	FALSE	FALSE	FALSE				FALSE	FALSE
-library_name	The ID of the library. Defaults to the library name the submitter has entered to the raw sequencing data repository. Data entries across which optical duplicates could exist should have matching library names. Can sometimes be useful to figure out which Poseidon_ID this entity belongs to.	String	FALSE	FALSE	FALSE				FALSE	FALSE
-library_strategy	The strategy used to create the library (Example: WGS)	String	FALSE	FALSE	FALSE				FALSE	FALSE
-fastq_ftp	The FTP-link(s) (URL) to the FASTQ file(s) (Example: ftp.sra.ebi.ac.uk/vol1/fastq/ERR433/009/ERR4332639/ERR4332639.fastq.gz)	URL	TRUE	FALSE	FALSE				FALSE	FALSE
-fastq_aspera	The Aspera-link (URL) to the FASTQ-file(s). (Example: fasp.sra.ebi.ac.uk:/vol1/fastq/ERR433/009/ERR4332639/ERR4332639.fastq.gz)	URL	TRUE	FALSE	FALSE				FALSE	FALSE
-fastq_bytes	The number of bytes of the FASTQ-file(s) in bytes	Integer	TRUE	FALSE	TRUE		0	Inf	FALSE	FALSE
-fastq_md5	The MD5 hash(es) of the FASTQ-file(s)	String	TRUE	FALSE	FALSE				FALSE	FALSE
-read_count	The number of reads	Integer	FALSE	FALSE	TRUE		0	Inf	FALSE	FALSE
-submitted_ftp	The URL(s) to the originally submitted file(s) before it got converted to FASTQ. This can sometimes be helpful for processing	String	TRUE	FALSE	FALSE				FALSE	FALSE
+poseidon_IDs	Poseidon_IDs (in the .janno file) the sequencing entity corresponds to, multiple entries separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
+udg	udg treatment applied to the library for the sequencing entity	String	FALSE	TRUE	FALSE	minus;half;plus			FALSE	FALSE
+library_built	library preparation method applied for the sequencing entity (single- or double-stranded)	String	FALSE	TRUE	FALSE	ds;ss			FALSE	FALSE
+sample_accession	sample accession code as used in the INSDC databases (including ENA and SRA) to identify the sequencing entity (e.g. SAMEA7050454)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+study_accession	study accession code as used in the INSDC databases (e.g. PRJEB39316)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+run_accession	run accession code as used in the INSDC databases (e.g. ERR4331996), this should be a unique identifier in a Poseidon package	String	FALSE	FALSE	FALSE				FALSE	FALSE
+sample_alias	sample alias defined by the submitter in the raw sequencing data repository	String	FALSE	FALSE	FALSE				FALSE	FALSE
+secondary_sample_accession	a secondary sample accession, used in the ENA database for historical reasons (e.g. ERS4811084)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+first_public	date (YYYY-MM-DD) the sequencing entity was first made public in the raw sequencing data repository	Date	FALSE	FALSE	FALSE				FALSE	FALSE
+last_updated	date (YYYY-MM-DD) the sequencing entity was last updated in the raw sequencing data repository	Date	FALSE	FALSE	FALSE				FALSE	FALSE
+instrument_model	name of the instrument used to process the sequencing entity (e.g. Illumina HiSeq 2500)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+library_layout	library layout of the sequencing entity (e.g. SINGLE)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+library_source	source of the DNA library (e.g. GENOMIC)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+instrument_platform	platform, brand or type of the sequencer (e.g. ILLUMINA)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+library_name	library identifier, so library name the submitter has entered to the raw sequencing data repository, data entries across which optical duplicates could exist should have matching library names	String	FALSE	FALSE	FALSE				FALSE	FALSE
+library_strategy	strategy used to create the library for the sequencing entity (e.g. WGS)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+fastq_ftp	ftp links to the FASTQ files for the sequencing entity in the raw sequencing data repository (e.g. ftp.sra.ebi.ac.uk/vol1/fastq/ERR433/009/ ERR4332639/ERR4332639.fastq.gz), multiple entries separated by ;	URL	TRUE	FALSE	FALSE				FALSE	FALSE
+fastq_aspera	aspera links to the FASTQ files for the sequencing entity in the raw sequencing data repository (e.g. fasp.sra.ebi.ac.uk:/vol1/fastq/ERR433/009/ ERR4332639/ERR4332639.fastq.gz), multiple entries separated by ;	URL	TRUE	FALSE	FALSE				FALSE	FALSE
+fastq_bytes	number of bytes in the FASTQ files, multiple entries separated by ;, must be in the same order as the ftp and/or aspera links	Integer	TRUE	FALSE	TRUE		0	Inf	FALSE	FALSE
+fastq_md5	md5 hashes of the FASTQ files, multiple entries separated by ;, must be in the same order as the ftp and/or aspera links	String	TRUE	FALSE	FALSE				FALSE	FALSE
+read_count	number of reads in the sequencing entity	Integer	FALSE	FALSE	TRUE		0	Inf	FALSE	FALSE
+submitted_ftp	urls to the originally submitted files before they got converted to FASTQ in the INSDC databases, multiple entries separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
