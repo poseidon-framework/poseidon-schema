@@ -136,7 +136,7 @@ The `.janno` file is a tab-separated text file with a header line. It holds cont
 - Only three columns MUST be present to make the file valid: **Poseidon_ID**, **Group_Name** and **Genetic_Sex**
 - Arbitrary columns not defined here MAY be added as long as their column names do not clash with the defined ones.
 - The column order is irrelevant.
-- If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) MAY be filled with the NULL value `n/a` or simply an empty string.
+- If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) MAY be filled with `n/a` or simply an empty string.
 - The order of the samples (rows) in the `.janno` file MUST be equal to the order in the genetic data files (`.ind`, `.fam`) in the package.
 - The values in the columns **Poseidon_ID**, **Group_Name** and **Genetic_Sex** MUST be equal to the terms used in the genetic data files (`.ind`, `.fam`).
 - Multiple predefined columns of the `.janno` file are list columns that can hold multiple values (either strings or numerics) separated by `;`.
@@ -201,6 +201,6 @@ The `.ssf` file is another tab-separated text file with a header line. It stores
 - The link to the individuals listed in the `.janno`-file (and therefore to the entire Poseidon package) is made through a many-to-many foreign-key relationship between the .janno column `Poseidon_ID` and the .ssf column `poseidon_IDs`. That means each entry in the .janno file can be linked to many rows in the .ssf file and vice versa.
 - As in the `.janno` file arbitrary columns not defined here MAY be added to the `.ssf` file as long as their column names do not clash with the defined ones.
 - The order of columns and rows is irrelevant.
-- If information is unknown or a variable does not apply, then the respective cell(s) MAY be filled with the NULL value `n/a` or simply an empty string.
+- If information is unknown or a variable does not apply, then the respective cell(s) MAY be filled with `n/a` or simply an empty string.
 - Multiple predefined columns of the `.ssf` file are list columns that can hold multiple values (either strings or numerics) separated by `;`.
 - The decimal separator for all floating point numbers MUST be `.`.
