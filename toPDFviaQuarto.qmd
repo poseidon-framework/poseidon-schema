@@ -1,5 +1,6 @@
 ---
-title: Poseidon package specification \vspace{-1cm}
+title: Poseidon package specification v2.7.1
+subtitle: PDF version of the standard at <https://github.com/poseidon-framework/poseidon-schema> generated on `r Sys.Date() |> format(format = "%Y-%m-%d")` based on the current Git commit `r system("git rev-parse --short HEAD", intern=TRUE)`
 format:
   pdf:
 #### general settings ####
