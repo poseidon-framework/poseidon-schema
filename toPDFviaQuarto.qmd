@@ -59,6 +59,10 @@ format:
 
 ## Appendix
 
+The following tables specify individual fields/variables/columns in the `POSEIDON.yml`, the `.janno` and the `.ssf file`.
+
+An asterisk `*` after the field name indicates a mandatory field that a given file MUST include to be valid.
+
 ### POSEIDON.yml file fields
 
 ```{r}
