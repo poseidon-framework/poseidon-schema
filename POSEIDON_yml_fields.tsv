@@ -1,27 +1,27 @@
 field	level	parent	description	type	format	mandatory
-poseidonVersion	0		Poseidon package format version (e.g. 2.0.1). Should strictly follow the format X.Y.Z	String		TRUE
+poseidonVersion	0		Poseidon package format version (e.g. 2.0.1)	String	X.Y.Z	TRUE
 title	0		title of the package	String		TRUE
-description	0		some descriptive words about the package	String		FALSE
-contributor	0		list of contributors to the package (not publication author, but the Poseidon package creator)	Array		FALSE
+description	0		description of the package (one or multiple sentences)	String		FALSE
+contributor	0		list of contributors to the package (not the publication author, but the Poseidon package creator)	Array		FALSE
 name	1	contributor	name of one contributor	String		TRUE
-email	1	contributor	email of one contributor (must be a valid email address)	String	Email	TRUE
-orcid	1	contributor	orcid of one contributor (must be a valid orcid)	String	ORCID	FALSE
-packageVersion	0		version of the package (should be changed/incremented when the package is changed). Should strictly follow the format X.Y.Z	String		TRUE
-lastModified	0		date of last modification of the Poseidon package (should be updated when the package is changed)	Date	YYYY-MM-DD	FALSE
-genotypeData	0		genotype file name section			TRUE
-format	1	genotypeData	file format definition, allows EIGENSTRAT and PLINK	String		TRUE
-genoFile	1	genotypeData	relative path to genoFile	String	Path	TRUE
-genoFileChkSum	1	genotypeData	md5 checksum of the genoFile	String		FALSE
-snpFile	1	genotypeData	relative path to snpFile	String	Path	TRUE
-snpFileChkSum	1	genotypeData	md5 checksum of the snpFile	String		FALSE
-indFile	1	genotypeData	relative path to indFile	String	Path	TRUE
-indFileChkSum	1	genotypeData	md5 checksum of the indFile	String		FALSE
-snpSet	1	genotypeData	Can be either 1240K, HumanOrigins or Other depending on the list of SNPs used	String	(1240K|HumanOrigins|Other)	FALSE
-jannoFile	0		relative path to jannoFile	String	Path	FALSE
-jannoFileChkSum	0		md5 checksum of the jannoFile	String		FALSE
-sequencingSourceFile	0		relative path to sequencingSourceFile	String	Path	FALSE
-sequencingSourceFileChkSum	0		md5 checksum of the sequencingSourceFile	String		FALSE
-bibFile	0		relative path to bibFile	String	Path	FALSE
-bibFileChkSum	0		md5 checksum of the bibFile	String		FALSE
-readmeFile	0		relative path to readmeFile	String	Path	FALSE
-changelogFile	0		relative path to changelogFile	String	Path	FALSE
+email	1	contributor	email of one contributor	String	Email	TRUE
+orcid	1	contributor	orcid of one contributor	String	ORCID	FALSE
+packageVersion	0		package version (should be changed/incremented when the package is changed)	String	X.Y.Z	TRUE
+lastModified	0		date of last modification of the package (should be updated when the package is changed)	Date	YYYY-MM-DD	FALSE
+genotypeData	0		genotype data section			TRUE
+format	1	genotypeData	genotype data file format	String	EIGENSTRAT;PLINK	TRUE
+genoFile	1	genotypeData	relative path to the geno file	String	Path	TRUE
+genoFileChkSum	1	genotypeData	md5 checksum of the geno file	String	md5 hash	FALSE
+snpFile	1	genotypeData	relative path to the snp file	String	Path	TRUE
+snpFileChkSum	1	genotypeData	md5 checksum of the snp file	String	md5 hash	FALSE
+indFile	1	genotypeData	relative path to the ind file	String	Path	TRUE
+indFileChkSum	1	genotypeData	md5 checksum of the ind file	String	md5 hash	FALSE
+snpSet	1	genotypeData	SNP set in the genotype data	String	1240K;HumanOrigins;Other	FALSE
+jannoFile	0		relative path to the .janno file	String	Path	FALSE
+jannoFileChkSum	0		md5 checksum of the .janno file	String	md5 hash	FALSE
+sequencingSourceFile	0		relative path to the .ssf file	String	Path	FALSE
+sequencingSourceFileChkSum	0		md5 checksum of the .ssf file	String	md5 hash	FALSE
+bibFile	0		relative path to the .bib file	String	Path	FALSE
+bibFileChkSum	0		md5 checksum of the .bib file	String	md5 hash	FALSE
+readmeFile	0		relative path to the README file	String	Path	FALSE
+changelogFile	0		relative path to the CHANGELOG file	String	Path	FALSE
