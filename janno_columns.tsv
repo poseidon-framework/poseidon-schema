@@ -1,47 +1,47 @@
 janno_column_name	description	data_type	multi	choice	range	choice_options	range_lower	range_upper	mandatory	unique
-Poseidon_ID	id as defined by the genetics laboratory, needs to be unique (e.g. I1234, BOT001), needs to fit to the values in the poseidon package .fam file, if multiple datasets exist for the same individual different IDs are required (e.g. loschbour_snpAD)	String	FALSE	FALSE	FALSE				TRUE	TRUE
-Genetic_Sex	“F“, “M“ or “U“ because eigenstrat and plink formats only support these three, edge cases (XXY, XYY, X0) are undefined and should be grouped as F, M or U, with a note added	Char	FALSE	TRUE	FALSE	F;M;U			TRUE	FALSE
-Group_Name	ideally Eisenmann rule + underscore flags, e.g. to annotate relatives or outliers or low coverage, multiple entries separated by ; to accommodate different labels, value must equal the group name in the .fam file (in case of multiple entries the first one)	String	TRUE	FALSE	FALSE				TRUE	FALSE
-Alternative_IDs	other identifiers for the same individual, e.g. IDs in other databases or popular names (e.g. Ötzi/Iceman)	String	TRUE	FALSE	FALSE				FALSE	FALSE
-Relation_To	other individuals (by Poseidon_ID) that are related/identical to this individual, multiple entries separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Poseidon_ID	sample identifier as defined by the genetics laboratory (e.g. I1234, BOT001), must fit to the values in the Poseidon package .fam/.ind file, must be unique within one package, if multiple datasets exist for the same individual different Poseidon_IDs are required	String	FALSE	FALSE	FALSE				TRUE	TRUE
+Genetic_Sex	genetic sex of the individual derived from this sample, only F, M or U because the EIGENSTRAT and PLINK formats only support these three, edge cases (e.g. XXY, XYY, X0) are undefined and should be grouped as F, M or U, with a Note added	Char	FALSE	TRUE	FALSE	F;M;U			TRUE	FALSE
+Group_Name	meaningful population/group identifiers for the sample, should follow the geographic-temporal nomenclature proposed by Eisenmann et al. 2018 (https://doi.org/10.1038/s41598-018-31123-z), multiple entries separated by ;, the first value must be equal the group name in the .fam/.ind file	String	TRUE	FALSE	FALSE				TRUE	FALSE
+Alternative_IDs	alternative identifiers for the same sampled individual, e.g. IDs in other databases or popular names like Ötzi/Iceman	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Relation_To	other samples (by Poseidon_ID) that are related/identical to this sample, multiple entries separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Relation_Degree	relationship degree for relatives mentioned in Related_To, multiple values separated by ; in the same order as Related_To in case of multiple relations	String	TRUE	TRUE	FALSE	identical;first;second;thirdToFifth;sixthToTenth;unrelated;other			FALSE	FALSE
-Relation_Type	relationship type for relatives mentioned in Related_To as an arbitrary string (e.g. sister_of, child_of, nephew_of, ...), multiple values separated by ; in the same order as Related_To in case of multiple relations	String	TRUE	FALSE	FALSE				FALSE	FALSE
-Relation_Note	arbitrary comments about the relations of this individual	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Collection_ID	id as defined by the provider/owner of a sample (e.g. grave 40 skeleton 2)	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Country	present-day political country	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Relation_Type	relationship type for relatives mentioned in Related_To (e.g. sister_of, child_of, nephew_of), multiple values separated by ; in the same order as Related_To in case of multiple relations	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Relation_Note	arbitrary comments about the genetic relationships of the sampled individual	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Collection_ID	alternative sample identifier shared by the provider/owner of the sample (e.g. grave 40 skeleton 2)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Country	present-day political country of origin for the sample	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Country_ISO	present-day political country expressed in ISO 3166-1 alpha-2 country codes	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Location	unspecified location information like administrative or topographic region or mountains/rivers/lakes/cities nearby	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Site	site name	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Latitude	latitude with up to 5 places after the decimal point	Float	FALSE	FALSE	TRUE		-90	90	FALSE	FALSE
+Location	unspecified location information for the sample, e.g. administrative or topographic region or mountains/rivers/lakes/cities nearby	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Site	name of the archaeological site where the sample was found	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Latitude	latitude where the sample was found with up to 5 places after the decimal point	Float	FALSE	FALSE	TRUE		-90	90	FALSE	FALSE
 Longitude	longitude with up to 5 places after the decimal point	Float	FALSE	FALSE	TRUE		-180	180	FALSE	FALSE
-Date_Type	“C14“ if there is a set of radiocarbon dates in the columns Date_C14_Labnr, Date_C14_Uncal_BP and Date_C14_Uncal_BP_Err whose post-calibration probability distribution is a meaningful prior for the individual’s year of death, “contextual“ for any other age information only given in Date_BC_AD_Start, Date_BC_AD_Median and Date_BC_AD_Stop, “modern” for present-day individuals	String	FALSE	TRUE	FALSE	C14;contextual;modern			FALSE	FALSE
-Date_C14_Labnr	labnr of C14 date, multiple values separated by ; in case of multiple dates	String	TRUE	FALSE	FALSE				FALSE	FALSE
-Date_C14_Uncal_BP	uncalibrated years BP (as in before 1950AD), as reported by C14 labs, multiple values separated by ; in the same order as Date_C14_Labnr in case of multiple dates, only relevant if Date_Type is “C14”	Integer	TRUE	FALSE	TRUE		0	Inf	FALSE	FALSE
-Date_C14_Uncal_BP_Err	standard deviation (1 sigma ±), as reported by C14 labs, multiple values separated by ; in the same order as Date_C14_Labnr in case of multiple dates, only relevant if Date_Type is “C14”	Integer	TRUE	FALSE	TRUE		0	Inf	FALSE	FALSE
-Date_BC_AD_Start	lower (older) bound for the age, negative numbers for BC, positive numbers for AD, in case of C14 dates 95% interval post calibration, 2000 for modern samples	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE
-Date_BC_AD_Median	calibrated median age for C14 dates, or simple mid-points for archaeological intervals, 2000 for modern samples	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE
-Date_BC_AD_Stop	upper (more recent) bound for the age, negative numbers for BC, positive numbers for AD, in case of C14 dates 95% interval post calibration, 2000 for modern samples	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE
-Date_Note	a free text field for arbitrary comments about the dating information	String	FALSE	FALSE	FALSE				FALSE	FALSE
-MT_Haplogroup	mitochondrial haplogroup after phylotree.org as reported by Haplofind or Haplogrep	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Y_Haplogroup	Y-chromosome haplogroup reported as published, for internal data, please follow syntax with main branch + most terminal derived Y-SNP (e.g. R1b-P312)	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Source_Tissue	skeletal/tissue/source elements, specific bone name should be reported with an underscore (e.g. bone_phalanx), multiple values separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
-Nr_Libraries	number of libraries	Integer	FALSE	FALSE	FALSE				FALSE	FALSE
-Library_Names	identifiers of the libraries used to generate the genotype data, multiple values separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
-Capture_Type	specifics of data generation method, multiple values separated by ;	String	TRUE	TRUE	FALSE	Shotgun;1240K;ArborComplete;ArborPrimePlus;ArborAncestralPlus;TwistAncientDNA;OtherCapture;ReferenceGenome			FALSE	FALSE
-UDG 	UDG treatment, “mixed” in case multiple libraries with different UDG treatment were merged	String	FALSE	TRUE	FALSE	minus;half;plus;mixed			FALSE	FALSE
-Library_Built	strandedness, “mixed” in case multiple libraries with different protocols were merged	String	FALSE	TRUE	FALSE	ds;ss;mixed			FALSE	FALSE
-Genotype_Ploidy	ploidy of the genotypes	String	FALSE	TRUE	FALSE	diploid;haploid			FALSE	FALSE
-Data_Preparation_Pipeline_URL	URL pointing to a description of the pipeline used to generate the genotype data from the source data	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Endogenous	% endogenous DNA as estimated from SG libraries (before capture), as for example estimated by EAGER, not on target and no quality filter, in case of multiple libraries report only the highest value	Float	FALSE	FALSE	TRUE		0	100	FALSE	FALSE
-Nr_SNPs	number of SNPs covered	Integer	FALSE	FALSE	FALSE				FALSE	FALSE
-Coverage_on_Target_SNPs	average X-fold coverage across targeted SNP sites after quality filtering (internal data)	Float	FALSE	FALSE	FALSE				FALSE	FALSE
-Damage	% damage on 5' end for the main shotgun library used for sequencing and/or capture, in case of multiple libraries report a value from the merged read alignment	Float	FALSE	FALSE	TRUE		0	100	FALSE	FALSE
-Contamination	(modern) contamination as measured by the method in Contamination_Meas, multiple values can be separated by ; (for different methods! In case of multiple libraries report a value from the merged read alignment), Contamination, Contamination_Err and Contamination_Meas must have the same number and order of (non-n/a) entries	String	TRUE	FALSE	FALSE				FALSE	FALSE
-Contamination_Err	(modern) contamination estimate error	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Date_Type	type of dating information available for the sample, C14 if there is a set of radiocarbon dates in the columns Date_C14_Labnr, Date_C14_Uncal_BP and Date_C14_Uncal_BP_Err whose post-calibration probability distribution is a meaningful prior for the individual’s year of death, contextual for any other age information only given in Date_BC_AD_Start, Date_BC_AD_Median and Date_BC_AD_Stop, “modern” for present-day individuals	String	FALSE	TRUE	FALSE	C14;contextual;modern			FALSE	FALSE
+Date_C14_Labnr	lab numbers of C14 ages, multiple values separated by ; in case of multiple dates	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Date_C14_Uncal_BP	uncalibrated years BP (as in before 1950AD) for the C14 ages as reported by C14 labs, multiple values separated by ; in the same order as Date_C14_Labnr in case of multiple dates, only relevant if Date_Type is C14	Integer	TRUE	FALSE	TRUE		0	Inf	FALSE	FALSE
+Date_C14_Uncal_BP_Err	standard deviation (1-sigma ±) for the uncalibrated C14 ages as reported by the C14 labs, multiple values separated by ; in the same order as Date_C14_Labnr in case of multiple dates, only relevant if Date_Type is C14	Integer	TRUE	FALSE	TRUE		0	Inf	FALSE	FALSE
+Date_BC_AD_Start	lower (older) bound for the age of the sample in years BC/AD, negative numbers for BC, positive numbers for AD, in case of C14 dates 2-sigma post calibration interval, 2000 for modern samples	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE
+Date_BC_AD_Median	median age of the sample in years BC/AD, for C14-dated samples median, for contextually dated samples simple mid-point of the archaeological intervals, 2000 for modern samples	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE
+Date_BC_AD_Stop	upper (more recent) bound for the age of the sample in years BC/AD, counter point to Date_BC_AD_Start	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE
+Date_Note	arbitrary comments about the dating information for the sample	String	FALSE	FALSE	FALSE				FALSE	FALSE
+MT_Haplogroup	mitochondrial haplogroup derived for the sample as specified on phylotree.org and as reported by the Haplofind or Haplogrep software tools	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Y_Haplogroup	Y-chromosome haplogroup derived for the sample following a syntax with the main branch + the most terminal derived Y-SNP (e.g. R1b-P312)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Source_Tissue	skeletal element, tissue or other material sampled, the specific bone should be reported after an underscore (e.g. bone_phalanx), multiple values separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Nr_Libraries	number of libraries produced for the sample	Integer	FALSE	FALSE	FALSE				FALSE	FALSE
+Library_Names	identifiers of the libraries used to generate the genotype data for the sample, multiple values separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Capture_Type	specifics of the data generation method (e.g. capture method) for the individual libraries generated for the sample, multiple values separated by ;	String	TRUE	TRUE	FALSE	Shotgun;1240K;ArborComplete;ArborPrimePlus;ArborAncestralPlus;TwistAncientDNA;OtherCapture;ReferenceGenome			FALSE	FALSE
+UDG 	udg treatment for the libraries, mixed in case multiple libraries with different UDG treatment were merged	String	FALSE	TRUE	FALSE	minus;half;plus;mixed			FALSE	FALSE
+Library_Built	strandedness of the libraries, “mixed” in case multiple libraries with different protocols were merged	String	FALSE	TRUE	FALSE	ds;ss;mixed			FALSE	FALSE
+Genotype_Ploidy	ploidy of the genotypes for the sample	String	FALSE	TRUE	FALSE	diploid;haploid			FALSE	FALSE
+Data_Preparation_Pipeline_URL	url pointing to a description of the computational pipeline used to generate the genotype data from the source data	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Endogenous	% endogenous DNA as estimated from SG libraries (before capture) as for example estimated by EAGER, not on target and no quality filter, in case of multiple libraries only the highest values should be reported	Float	FALSE	FALSE	TRUE		0	100	FALSE	FALSE
+Nr_SNPs	number of non-missing SNPs for the sample, counted on the SNP-set stored in the Poseidon package	Integer	FALSE	FALSE	FALSE				FALSE	FALSE
+Coverage_on_Target_SNPs	average X-fold coverage across targeted SNP sites after quality filtering	Float	FALSE	FALSE	FALSE				FALSE	FALSE
+Damage	% damage on the 5' end for the main shotgun library used for sequencing and/or capture, in case of multiple libraries a value from the merged read alignment should be reported	Float	FALSE	FALSE	TRUE		0	100	FALSE	FALSE
+Contamination	(modern) contamination of the sample as measured by the method in Contamination_Meas, multiple values separated by ; (for different methods, in case of multiple libraries report a value from the merged read alignment), the variables Contamination, Contamination_Err and Contamination_Meas must have the same number and order of (non-n/a) entries	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Contamination_Err	(modern) contamination estimate error of the sample	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Contamination_Meas	method to measure contamination, should be a software tool (ANGSD, Schmutzi, …) and the respective software versions, details should go to Contamination_Note	String	TRUE	FALSE	FALSE				FALSE	FALSE
-Contamination_Note	arbitrary comments about the contamination estimate	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Genetic_Source_Accession_IDs	ENA or SRA Accession ID(s) pointing to the source data used to generate the genotyping data, if multiple are given they should be arranged by descending specificity (e.g. project id > sample id > sequencing run id)	String	TRUE	FALSE	FALSE				FALSE	FALSE
-Primary_Contact	Project lead or first author	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Publication	bibtex key (e.g. “AuthorJournalYear“) or “unpublished“	String	TRUE	FALSE	FALSE				FALSE	FALSE
-Note	wildcard comments, e.g. note down aneuploidies here	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Keywords	arbitrary tags separated by ; (e.g. for custom sorting purposes) 	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Contamination_Note	arbitrary comments about the contamination estimation	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Genetic_Source_Accession_IDs	ENA or SRA accession identifiers pointing to the source data used to generate the genotyping data for the sample, multiple values separated by ;, if multiple are given they should be arranged by descending specificity (e.g. project id > sample id > sequencing run id)	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Primary_Contact	project lead or first author who generated and published the data for the sample	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Publication	bibtex keys for the publications where a sample was published (e.g. “AuthorJournalYear“) or “unpublished“, multiple values separated by ;, all must be present with complete BibTeX entries in the Poseidon package’s .bib file	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Note	arbitrary comments about the sample	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Keywords	arbitrary tags, multiple values separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
