@@ -1,12 +1,14 @@
 ## The Poseidon Standard v2.7.1
 
-Poseidon is a solution for archaeogenetic genotype data organisation.
+Poseidon is a solution for archaeogenetic genotype data organisation. This standard defines the core components of the Poseidon package.
 
-This standard defines the core components of the Poseidon package. Further details on [genotype data](https://poseidon-framework.github.io/#/genotype_data), the [.janno file](https://poseidon-framework.github.io/#/janno_details) and the [.ssf file](https://poseidon-framework.github.io/#/ssf_details) are documented on the Poseidon website.
+A .pdf version of the latest instance of this document can be downloaded [here](https://github.com/poseidon-framework/poseidon-schema/blob/master/toPDFviaQuarto.pdf).
 
-A changelog for this standard is available on the website [here](https://poseidon-framework.github.io/#/changelog).
+Further details on [genotype data](https://poseidon-framework.github.io/#/genotype_data), the [.janno file](https://poseidon-framework.github.io/#/janno_details) and the [.ssf file](https://poseidon-framework.github.io/#/ssf_details) are documented on the Poseidon website.
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).
+The website also features a changelog documenting the changes across different schema versions [here](https://poseidon-framework.github.io/#/changelog).
+
+The key words *MUST*, *MUST NOT*, *REQUIRED*, *SHALL*, *SHALL NOT*, *SHOULD*, *SHOULD NOT*, *RECOMMENDED*, *MAY*, and *OPTIONAL* in this document are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).
 
 ### The Poseidon package structure
 
