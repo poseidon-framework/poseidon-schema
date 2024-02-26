@@ -6,6 +6,8 @@ format:
 #### general settings ####
     #keep-tex: true
     colorlinks: true
+    output-file: "poseidon_package_specification"
+    output-ext:  "pdf"
 #### toc settings ####
     toc: true
     toc-depth: 2
