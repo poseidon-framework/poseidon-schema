@@ -1,0 +1,174 @@
+---
+title: Poseidon package specification v2.7.1
+subtitle: PDF version of the standard at <https://github.com/poseidon-framework/poseidon-schema> generated on `r Sys.Date() |> format(format = "%Y-%m-%d")` based on the Git commit `r system("git rev-parse --short HEAD", intern=TRUE)`
+format:
+  pdf:
+#### general settings ####
+    #keep-tex: true
+    colorlinks: true
+#### toc settings ####
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    shift-heading-level-by: -1
+#### page layout ####
+    documentclass: article
+    papersize: a4paper
+    geometry:
+      - top=30mm
+      - left=20mm
+      - heightrounded
+#### code layout ####
+    highlight-style: tango
+#### detailed configuration ####
+    include-in-header: 
+       text: |
+         % wrap long code lines
+         \usepackage{fvextra}
+         \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+         % remove dots in toc
+         %\usepackage[titles]{tocloft}
+         %\renewcommand{\cftdot}{}
+         % remove table and figure caption numbers
+         \usepackage{caption}
+         \captionsetup{labelformat=empty}
+    include-before-body:
+      text: |
+        % also necessary to wrap long code lines
+        \RecustomVerbatimEnvironment{verbatim}{Verbatim}{
+          showspaces = false,
+          showtabs = false,
+          breaksymbolleft={},
+          breaklines
+          % Note: setting commandchars=\\\{\} here will cause an error 
+        }
+        % turn off page numbers
+        %\pagenumbering{gobble}
+        % roman section headers
+        \renewcommand{\thesection}{\Roman{section}}
+        \renewcommand{\thesubsection}{\arabic{subsection}}
+        \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+        \renewcommand{\arraystretch}{1.5}
+---
+
+<!-- can be rendered with "quarto render toPDFviaQuarto.qmd --to pdf" -->
+
+{{< include README.md >}}
+
+\newpage
+
+## Appendix
+
+The following tables specify individual fields/variables/columns in the `POSEIDON.yml`, the `.janno` and the `.ssf file`.
+
+An asterisk `*` after the field name indicates a mandatory field that a given file MUST include to be valid.
+
+### POSEIDON.yml file fields
+
+```{r}
+#| echo: false
+library(magrittr)
+# build table with kableExtra
+make_tab <- function(x, caption) {
+  x %>%
+    kableExtra::kbl(caption = caption, longtable = T, booktabs = T, escape = FALSE) %>%
+    kableExtra::kable_styling(latex_options = c("striped", "HOLD_position", "repeat_header")) %>%
+    kableExtra::column_spec(1, width = "15em") %>%
+    kableExtra::column_spec(2, width = "32em")
+}
+# construct cell with linebreak
+lb <- \(x) kableExtra::linebreak(x)
+# newline
+n <- \(...) {
+    purrr::pmap_chr(list(...), \(...) {
+      # omit NA rows
+      rows <- na.omit(unlist(list(...)))
+      paste(rows, collapse = "\n")
+    })
+  }
+#n <- \(x, y) paste(x, y, sep = "\n")
+# bold
+b <- \(x) paste0("\\textbf{", x, "}")
+# underscore
+u <- \(x) paste0("\\underline{", x, "}")
+# named argument
+a <- \(name,x) ifelse(!is.na(x), paste0(u(name), ": ", x), NA_character_)
+# "" to NA
+toNA <- \(x) ifelse(x == "", NA_character_, x)
+# escape text in table (e.g. underscores)
+escape <- \(df) {
+  df %>%
+    dplyr::mutate(dplyr::across(tidyselect::where(is.character), \(x) {
+      Hmisc::latexTranslate(x) %>%
+      toNA
+    }))
+}
+# for better linebreaks of long enumerations
+split_choice <- \(x) x %>% dplyr::mutate(choice_options = gsub(";", "; ", choice_options))
+```
+
+```{r}
+#| echo: false
+raw <- readr::read_tsv(
+  file = "POSEIDON_yml_fields.tsv",
+  show_col_types = FALSE
+)
+raw %>%
+  escape() %>%
+  dplyr::transmute(
+    Field = paste0(field, ifelse(mandatory, "\\textsuperscript{\\ast}", "")),
+    Description = lb(n(
+      description,
+      a("subfield of", parent),
+      a("type", type),
+      a("format", format)
+    ))
+  ) %>% make_tab(caption = "POSEIDON.yml file fields")
+  
+```
+
+### .janno file variables
+
+```{r}
+#| echo: false
+raw <- readr::read_tsv(
+  file = "janno_columns.tsv",
+  show_col_types = FALSE
+)
+raw %>%
+  escape() %>%
+  split_choice %>%
+  dplyr::transmute(
+    Variable = paste0(janno_column_name, ifelse(mandatory, "\\textsuperscript{\\ast}", "")),
+    Description = lb(n(
+      description,
+      ifelse(multi, u("list column"), NA_character_),
+      a("type", data_type),
+      a("allowed values", choice_options),
+      a("allowed range", ifelse(!is.na(range_lower), paste(range_lower, "to", range_upper), NA_character_))
+    ))
+  ) %>% make_tab(caption = ".janno file variables")
+```
+
+### .ssf file variables
+
+```{r}
+#| echo: false
+raw <- readr::read_tsv(
+  file = "ssf_columns.tsv",
+  show_col_types = FALSE
+)
+raw %>%
+  escape() %>%
+  split_choice %>%
+  dplyr::transmute(
+    Variable = paste0(sequencingSourceFile_column_name, ifelse(mandatory, "\\textsuperscript{\\ast}", "")),
+    Description = lb(n(
+      description,
+      ifelse(multi, u("list column"), NA_character_),
+      a("type", data_type),
+      a("allowed values", choice_options),
+      a("allowed range", ifelse(!is.na(range_lower), paste(range_lower, "to", range_upper), NA_character_))
+    ))
+  ) %>% make_tab(caption = ".ssf file variables")
+```
