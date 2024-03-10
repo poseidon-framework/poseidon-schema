@@ -17,8 +17,9 @@ format:
     documentclass: article
     papersize: a4paper
     geometry:
-      - top=30mm
+      - top=20mm
       - left=20mm
+      - right=20mm
       - heightrounded
 #### code layout ####
     highlight-style: tango
