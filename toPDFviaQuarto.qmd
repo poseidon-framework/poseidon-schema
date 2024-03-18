@@ -35,6 +35,14 @@ format:
          % remove table and figure caption numbers
          \usepackage{caption}
          \captionsetup{labelformat=empty}
+         % for line numbers 
+         \usepackage{lineno}
+         \linenumbers
+         % for spacing
+         \usepackage{setspace}
+         \onehalfspacing
+         % only one space after period
+         \frenchspacing
     include-before-body:
       text: |
         % also necessary to wrap long code lines
