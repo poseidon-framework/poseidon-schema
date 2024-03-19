@@ -32,7 +32,7 @@ It MAY also contain:
 
 Here is an example of a package `Switzerland_LNBA_Roswita` in one directory:
 
-```
+```default
 Switzerland_LNBA_Roswita/POSEIDON.yml
 Switzerland_LNBA_Roswita/Switzerland_LNBA.bed
 Switzerland_LNBA_Roswita/Switzerland_LNBA.bim
@@ -55,7 +55,7 @@ The `POSEIDON.yml` file defines Poseidon packages by listing metainformation and
 
 Here is an example for a `POSEIDON.yml` file:
 
-```
+```yml
 poseidonVersion: 2.7.1
 title: Switzerland_LNBA_Roswita
 description: LNBA Switzerland genetic data not yet published
@@ -150,7 +150,7 @@ A [BibTeX](http://www.bibtex.org/) file with all references listed in the `.jann
 
 Example:
 
-```
+```default
 @article{CassidyPNAS2015,
     doi = {10.1073/pnas.1518445113},
     url = {https://doi.org/10.1073%2Fpnas.1518445113},
@@ -174,7 +174,7 @@ A simple [markdown](https://daringfireball.net/projects/markdown) file with info
 
 Example:
 
-```
+```default
 This package contains a rather interesting set of samples relevant for the peopling of the Territory of Christmas Island in the Indian Ocean. We consider this especially relevant, because ...
 ```
 
@@ -184,7 +184,7 @@ A markdown file to document changes in the history of a package.
 
 Example:
 
-```
+```default
 - V 1.1.1: Fixed a spelling mistake in one site name: "Hosenacker" -> "Rosenacker"
 - V 1.1.0: Added mtDNA contamination estimation to the .janno file
 - V 1.0.0: Added spatial coordinates and age information to the .janno file and finalized a first stable version of the package
