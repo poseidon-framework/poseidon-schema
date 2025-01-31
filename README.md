@@ -129,7 +129,7 @@ Genotype data in Poseidon packages is stored either in (binary) PLINK or EIGENST
 
 In addition to these files (and optionally their checksums), the POSEIDON.yml file SHOULD also provide a `snpSet` entry which determines the shape of the genotype file.
 
-Note that genotype and snp files can be optionally zipped, in which case they must end with `.gz`.
+Note that genotype and snp files can be optionally zipped, in which case they MUST end with `.gz`.
 
 ###  The `.janno` file
 

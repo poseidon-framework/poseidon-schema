@@ -10,9 +10,9 @@ packageVersion	0		package version (should be changed/incremented when the packag
 lastModified	0		date of last modification of the package (should be updated when the package is changed)	Date	YYYY-MM-DD	FALSE
 genotypeData	0		genotype data section			TRUE
 format	1	genotypeData	genotype data file format	String	EIGENSTRAT;PLINK	TRUE
-genoFile	1	genotypeData	relative path to the geno file. If gzipped, must end with *.gz	String	Path	TRUE
+genoFile	1	genotypeData	relative path to the geno file. If gzipped, MUST end with *.gz	String	Path	TRUE
 genoFileChkSum	1	genotypeData	md5 checksum of the geno file	String	md5 hash	FALSE
-snpFile	1	genotypeData	relative path to the snp file. If gzipped, must end with *.gz	String	Path	TRUE
+snpFile	1	genotypeData	relative path to the snp file. If gzipped, MUST end with *.gz	String	Path	TRUE
 snpFileChkSum	1	genotypeData	md5 checksum of the snp file	String	md5 hash	FALSE
 indFile	1	genotypeData	relative path to the ind file	String	Path	TRUE
 indFileChkSum	1	genotypeData	md5 checksum of the ind file	String	md5 hash	FALSE
