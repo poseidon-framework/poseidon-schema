@@ -1,5 +1,11 @@
 # Changelog
 
+### 2.7.1 -> 3.0.0 [breaking]
+
+#### Changes to the `.janno` file
+
+- Made the `Collection_ID` column a list column that allows multiple entries separated by `;`.
+
 ### 2.7.0 -> 2.7.1 [not breaking]
 
 Only changes to the definition of the Sequencing Source File (`.ssf`):
