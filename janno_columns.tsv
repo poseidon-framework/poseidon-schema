@@ -8,6 +8,7 @@ Relation_Degree	relationship degree for relatives mentioned in Related_To, multi
 Relation_Type	relationship type for relatives mentioned in Related_To (e.g. sister_of, child_of, nephew_of), multiple values separated by ; in the same order as Related_To in case of multiple relations	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Relation_Note	arbitrary comments about the genetic relationships of the sampled individual	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Collection_ID	alternative sample identifiers shared by the provider/owner of the sample (e.g. grave 40 skeleton 2), multiple values separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Custodian_Institution	institution that curated the sampled remains at the time of sampling, with name, city and country, multiple entries separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Country	present-day political country of origin for the sample	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Country_ISO	present-day political country expressed in ISO 3166-1 alpha-2 country codes	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Location	unspecified location information for the sample, e.g. administrative or topographic region or mountains/rivers/lakes/cities nearby	String	FALSE	FALSE	FALSE				FALSE	FALSE
