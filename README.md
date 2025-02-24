@@ -121,7 +121,7 @@ Packages SHOULD start at `packageVersion` `0.1.0`.
 
 Genotype data in Poseidon packages is stored either in (binary) PLINK, EIGENSTRAT or Variant Call Format (VCF).
 
-|   | PLINK (binary) | EIGENSTRAT | VCF
+|   | PLINK (binary) | EIGENSTRAT | VCF |
 |---|---|---|---|
 | genotype file | [`.bed` (binary biallelic genotype table) or `.bed.gz`](https://www.cog-genomics.org/plink/1.9/formats#bed) | [`.geno` (genotype file) or `.geno.gz`](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) | [`.vcf` or `.vcf.gz`](https://samtools.github.io/hts-specs/VCFv4.2.pdf) |
 | SNP file  | [`.bim` (extended MAP file) or `.bim.gz`](https://www.cog-genomics.org/plink/1.9/formats#bim) | [`.snp` (snp file) or `.snp.gz`](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |  |
