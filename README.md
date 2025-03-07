@@ -119,15 +119,17 @@ Packages SHOULD start at `packageVersion` `0.1.0`.
 
 ### Genotype data
 
-Genotype data in Poseidon packages is stored either in (binary) PLINK or EIGENSTRAT format.
+Genotype data in Poseidon packages is stored either in (binary) PLINK, EIGENSTRAT or Variant Call Format (VCF).
 
-|   | PLINK (binary) | EIGENSTRAT |
-|---|---|---|
-| genotype file | [`.bed` (binary biallelic genotype table)](https://www.cog-genomics.org/plink/1.9/formats#bed) | [`.geno` (genotype file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67)
-| SNP file  | [`.bim` (extended MAP file)](https://www.cog-genomics.org/plink/1.9/formats#bim) | [`.snp` (snp file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |
-| individual file  | [`.fam` (sample information)](https://www.cog-genomics.org/plink/1.9/formats#fam) | [`.ind` (indiv file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |
+|   | PLINK (binary) | EIGENSTRAT | VCF |
+|---|---|---|---|
+| genotype file | [`.bed` (binary biallelic genotype table) or `.bed.gz`](https://www.cog-genomics.org/plink/1.9/formats#bed) | [`.geno` (genotype file) or `.geno.gz`](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) | [`.vcf` or `.vcf.gz`](https://samtools.github.io/hts-specs/VCFv4.2.pdf) |
+| SNP file  | [`.bim` (extended MAP file) or `.bim.gz`](https://www.cog-genomics.org/plink/1.9/formats#bim) | [`.snp` (snp file) or `.snp.gz`](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |  |
+| individual file  | [`.fam` (sample information)](https://www.cog-genomics.org/plink/1.9/formats#fam) | [`.ind` (indiv file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |  |
 
 In addition to these files (and optionally their checksums), the POSEIDON.yml file SHOULD also provide a `snpSet` entry which determines the shape of the genotype file.
+
+Note that genotype and snp files can be optionally zipped, in which case they MUST end with `.gz`.
 
 ###  The `.janno` file
 
