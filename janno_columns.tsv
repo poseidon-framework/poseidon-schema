@@ -1,13 +1,14 @@
 janno_column_name	description	data_type	multi	choice	range	choice_options	range_lower	range_upper	mandatory	unique
 Poseidon_ID	sample identifier as defined by the genetics laboratory (e.g. I1234, BOT001), must fit to the values in the Poseidon package .fam/.ind file, must be unique within one package, if multiple datasets exist for the same individual different Poseidon_IDs are required	String	FALSE	FALSE	FALSE				TRUE	TRUE
 Genetic_Sex	genetic sex of the individual derived from this sample, only F, M or U because the EIGENSTRAT and PLINK formats only support these three, edge cases (e.g. XXY, XYY, X0) are undefined and should be grouped as F, M or U, with a Note added	Char	FALSE	TRUE	FALSE	F;M;U			TRUE	FALSE
-Group_Name	meaningful population/group identifiers for the sample, should follow the geographic-temporal nomenclature proposed by Eisenmann et al. 2018 (https://doi.org/10.1038/s41598-018-31123-z), multiple entries separated by ;, the first value must be equal the group name in the .fam/.ind file	String	TRUE	FALSE	FALSE				TRUE	FALSE
+Group_Name	meaningful population/group identifiers for the sample. This can follow the geographic-temporal nomenclature proposed by Eisenmann et al. 2018 (https://doi.org/10.1038/s41598-018-31123-z). It can also communicate additional categories that are meaningful for groupings in specific analyses, such as cultural labels, outlier status or relatedness to other samples. Multiple entries separated by ;, the first value must be equal the group name in the .fam/.ind file	String	TRUE	FALSE	FALSE				TRUE	FALSE
 Alternative_IDs	alternative identifiers for the same sampled individual, e.g. IDs in other databases or popular names like Ötzi/Iceman	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Relation_To	other samples (by Poseidon_ID) that are related/identical to this sample, multiple entries separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Relation_Degree	relationship degree for relatives mentioned in Related_To, multiple values separated by ; in the same order as Related_To in case of multiple relations	String	TRUE	TRUE	FALSE	identical;first;second;thirdToFifth;sixthToTenth;unrelated;other			FALSE	FALSE
 Relation_Type	relationship type for relatives mentioned in Related_To (e.g. sister_of, child_of, nephew_of), multiple values separated by ; in the same order as Related_To in case of multiple relations	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Relation_Note	arbitrary comments about the genetic relationships of the sampled individual	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Collection_ID	alternative sample identifier shared by the provider/owner of the sample (e.g. grave 40 skeleton 2)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Collection_ID	alternative sample identifiers shared by the provider/owner of the sample (e.g. grave 40 skeleton 2), multiple values separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Custodian_Institution	institution that curated the sampled remains at the time of sampling, with name, city and country, multiple entries separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Country	present-day political country of origin for the sample	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Country_ISO	present-day political country expressed in ISO 3166-1 alpha-2 country codes	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Location	unspecified location information for the sample, e.g. administrative or topographic region or mountains/rivers/lakes/cities nearby	String	FALSE	FALSE	FALSE				FALSE	FALSE
@@ -22,13 +23,15 @@ Date_BC_AD_Start	lower (older) bound for the age of the sample in years BC/AD, n
 Date_BC_AD_Median	median age of the sample in years BC/AD, for C14-dated samples median, for contextually dated samples simple mid-point of the archaeological intervals, 2000 for modern samples	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE
 Date_BC_AD_Stop	upper (more recent) bound for the age of the sample in years BC/AD, counter point to Date_BC_AD_Start	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE
 Date_Note	arbitrary comments about the dating information for the sample	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Chromosomal_Anomalies	genetic anomalies on the chromosome level detected for the sample, so extra, missing or irregual portions of chromosomal DNA, including gonosomal and autosomal aneuploidies, multiple entries separated by ; Suggestions include XXY, XYY, XXX, X0, Trisomy21, Trisomy18	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Chromosomal_Anomalies_Note	arbitrary comments about the observed chromosomal anomalies	String	TRUE	FALSE	FALSE				FALSE	FALSE
 MT_Haplogroup	mitochondrial haplogroup derived for the sample as specified on phylotree.org and as reported by the Haplofind or Haplogrep software tools	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Y_Haplogroup	Y-chromosome haplogroup derived for the sample following a syntax with the main branch + the most terminal derived Y-SNP (e.g. R1b-P312)	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Source_Tissue	skeletal element, tissue or other material sampled, the specific bone should be reported after an underscore (e.g. bone_phalanx), multiple values separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Nr_Libraries	number of libraries produced for the sample	Integer	FALSE	FALSE	FALSE				FALSE	FALSE
 Library_Names	identifiers of the libraries used to generate the genotype data for the sample, multiple values separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Capture_Type	specifics of the data generation method (e.g. capture method) for the individual libraries generated for the sample, multiple values separated by ;	String	TRUE	TRUE	FALSE	Shotgun;1240K;ArborComplete;ArborPrimePlus;ArborAncestralPlus;TwistAncientDNA;OtherCapture;ReferenceGenome			FALSE	FALSE
-UDG 	udg treatment for the libraries, mixed in case multiple libraries with different UDG treatment were merged	String	FALSE	TRUE	FALSE	minus;half;plus;mixed			FALSE	FALSE
+UDG	udg treatment for the libraries, mixed in case multiple libraries with different UDG treatment were merged	String	FALSE	TRUE	FALSE	minus;half;plus;mixed			FALSE	FALSE
 Library_Built	strandedness of the libraries, “mixed” in case multiple libraries with different protocols were merged	String	FALSE	TRUE	FALSE	ds;ss;mixed			FALSE	FALSE
 Genotype_Ploidy	ploidy of the genotypes for the sample	String	FALSE	TRUE	FALSE	diploid;haploid			FALSE	FALSE
 Data_Preparation_Pipeline_URL	url pointing to a description of the computational pipeline used to generate the genotype data from the source data	String	FALSE	FALSE	FALSE				FALSE	FALSE
