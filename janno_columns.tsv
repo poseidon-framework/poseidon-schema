@@ -23,7 +23,7 @@ Date_BC_AD_Median	median age of the sample in years BC/AD, for C14-dated samples
 Date_BC_AD_Stop	upper (more recent) bound for the age of the sample in years BC/AD, counter point to Date_BC_AD_Start	Integer	FALSE	FALSE	TRUE		-Inf	2050	FALSE	FALSE
 Date_Note	arbitrary comments about the dating information for the sample	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Chromosomal_Anomalies	genetic anomalies on the chromosome level detected for the sample, so extra, missing or irregual portions of chromosomal DNA, including gonosomal and autosomal aneuploidies, multiple entries separated by ; Suggestions include XXY, XYY, XXX, X0, Trisomy21, Trisomy18	String	TRUE	FALSE	FALSE				FALSE	FALSE
-Chromosomal_Anomalies_Note	arbitrary comments about the observed chromosomal anomalies, specifically if Chromosomal_Anomalies is set to “Other”	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Chromosomal_Anomalies_Note	arbitrary comments about the observed chromosomal anomalies	String	TRUE	FALSE	FALSE				FALSE	FALSE
 MT_Haplogroup	mitochondrial haplogroup derived for the sample as specified on phylotree.org and as reported by the Haplofind or Haplogrep software tools	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Y_Haplogroup	Y-chromosome haplogroup derived for the sample following a syntax with the main branch + the most terminal derived Y-SNP (e.g. R1b-P312)	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Source_Tissue	skeletal element, tissue or other material sampled, the specific bone should be reported after an underscore (e.g. bone_phalanx), multiple values separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
