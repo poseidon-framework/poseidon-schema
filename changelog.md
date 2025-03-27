@@ -11,8 +11,9 @@
 
 ##### Changes to columns
 
-- Adjusted the definition of the `Group_Name` column. The role of population labels as general analysis labels was emphasised, and the original recommendation for the geographic-temporal nomenclature proposed by Eisenmann et al. 2018 toned down.
+- Changed the scaling of the columns `Endogenous` and `Damage` from percent (0-100) to fractions (0-1).
 - Made the `Collection_ID` column a list column that allows multiple entries separated by `;`.
+- Adjusted the definition of the `Group_Name` column. The role of population labels as general analysis labels was emphasised, and the original recommendation for the geographic-temporal nomenclature proposed by Eisenmann et al. 2018 toned down.
 
 ### 2.7.0 -> 2.7.1 [not breaking]
 
