@@ -4,6 +4,10 @@
 
 #### Changes to the `.janno` file
 
+##### Replaced columns
+
+- Replaced `Source_Tissue` with `Source_Material` and `Source_Material_Note`.
+
 ##### Added columns
 
 - Added a `Custodian_Institution` column that documents the institution that curated the sampled remains at the time of sampling, with name, city and country.
