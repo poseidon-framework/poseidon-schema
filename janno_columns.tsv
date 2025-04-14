@@ -36,6 +36,8 @@ Capture_Type	capture method for the individual libraries generated for the sampl
 UDG	udg treatment for the libraries, mixed in case multiple libraries with different UDG treatment were merged	String	FALSE	TRUE	FALSE	minus;half;plus;mixed			FALSE	FALSE
 Library_Built	strandedness of the libraries, “mixed” in case multiple libraries with different protocols were merged	String	FALSE	TRUE	FALSE	ds;ss;mixed			FALSE	FALSE
 Genotype_Ploidy	ploidy of the genotypes for the sample	String	FALSE	TRUE	FALSE	diploid;haploid			FALSE	FALSE
+Reference_Genome_Assembly	Reference genome name (free-text) of the reference genome used, e.g. GRCh37	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Reference_Genome_Assembly_Accession_URL	Reference assembly accession URL from a public database, such as NCBI or Ensembl	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Data_Preparation_Pipeline_URL	url pointing to a description of the computational pipeline used to generate the genotype data from the source data	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Endogenous	fraction (ranging between 0 and 1) of endogenous DNA estimated from SG libraries (before capture) as for example estimated by EAGER, not on target and no quality filter, in case of multiple libraries only the highest values should be reported	Float	FALSE	FALSE	TRUE		0	1	FALSE	FALSE
 Nr_SNPs	number of non-missing SNPs for the sample, counted on the SNP-set stored in the Poseidon package	Integer	FALSE	FALSE	FALSE				FALSE	FALSE
