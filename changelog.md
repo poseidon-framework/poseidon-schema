@@ -1,5 +1,26 @@
 # Changelog
 
+### 2.7.1 -> 3.0.0 [breaking]
+
+#### Changes to the `.janno` file
+
+##### Replaced columns
+
+- Replaced `Source_Tissue` with `Source_Material` and `Source_Material_Note`.
+
+##### Added columns
+
+- Added a `Custodian_Institution` column that documents the institution that curated the sampled remains at the time of sampling, with name, city and country.
+- Added the columns `Chromosomal_Anomalies` and `Chromosomal_Anomalies_Note` for genetic anomalies on the chromosome level detected for the sample. This includes extra, missing or irregual portions of chromosomal DNA like in gonosomal and autosomal aneuploidies. `Chromosomal_Anomalies` is not limited to a specific set of options, but a common notation is recommended (e.g. `XXY`, `XYY`, `XXX`, `X0`, `Trisomy21`, `Trisomy18`).
+
+##### Changes to columns
+
+- Removed `ReferenceGenome` as an option for the `Capture_Type` column.
+- Changed the scaling of the columns `Endogenous` and `Damage` from percent (0-100) to fractions (0-1).
+- Allowed multiple values in the `Damage` column  for estimates per library.
+- Made the `Collection_ID` column a list column that allows multiple entries separated by `;`.
+- Adjusted the definition of the `Group_Name` column. The role of population labels as general analysis labels was emphasised, and the original recommendation for the geographic-temporal nomenclature proposed by Eisenmann et al. 2018 toned down.
+
 ### 2.7.0 -> 2.7.1 [not breaking]
 
 Only changes to the definition of the Sequencing Source File (`.ssf`):
