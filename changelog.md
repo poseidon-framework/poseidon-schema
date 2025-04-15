@@ -13,6 +13,8 @@
 - Added a `Custodian_Institution` column that documents the institution that curated the sampled remains at the time of sampling, with name, city and country.
 - Added the columns `Chromosomal_Anomalies` and `Chromosomal_Anomalies_Note` for genetic anomalies on the chromosome level detected for the sample. This includes extra, missing or irregual portions of chromosomal DNA like in gonosomal and autosomal aneuploidies. `Chromosomal_Anomalies` is not limited to a specific set of options, but a common notation is recommended (e.g. `XXY`, `XYY`, `XXX`, `X0`, `Trisomy21`, `Trisomy18`).
 - Added four list columns to describe the cultural eras and archaeological cultures a sample is associated with: `Cultural_Era` + `Cultural_Era_URL` and `Archaeological_Culture` + `Archaeological_Culture_URL`.
+- Added a column for the sampled `Species`, to make the schema more explicitly species-agnostic.
+- Added two columns to document the relevant reference genome used for the DNA read mapping: `Reference_Genome_Assembly` and `Reference_Genome_Assembly_URL`.
 
 ##### Changes to columns
 
@@ -21,6 +23,7 @@
 - Allowed multiple values in the `Damage` column  for estimates per library.
 - Made the `Collection_ID` column a list column that allows multiple entries separated by `;`.
 - Adjusted the definition of the `Group_Name` column. The role of population labels as general analysis labels was emphasised, and the original recommendation for the geographic-temporal nomenclature proposed by Eisenmann et al. 2018 toned down.
+- Slightly adjusted the definitions of `MT_Haplogroup` and `Y_Haplogroup` to better account for non-human data.
 
 ### 2.7.0 -> 2.7.1 [not breaking]
 
