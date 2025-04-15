@@ -31,7 +31,8 @@ Chromosomal_Anomalies	genetic anomalies on the chromosome level detected for the
 Chromosomal_Anomalies_Note	arbitrary comments about the observed chromosomal anomalies	String	TRUE	FALSE	FALSE				FALSE	FALSE
 MT_Haplogroup	mitochondrial haplogroup derived for the sample as specified on phylotree.org and as reported by the Haplofind or Haplogrep software tools	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Y_Haplogroup	Y-chromosome haplogroup derived for the sample following a syntax with the main branch + the most terminal derived Y-SNP (e.g. R1b-P312)	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Source_Tissue	skeletal element, tissue or other material sampled, the specific bone should be reported after an underscore (e.g. bone_phalanx), multiple values separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Source_Material	sampled material, multiple entries separated by ;	String	TRUE	TRUE	FALSE	petrous;bone;tooth;soft;sediment;other			FALSE	FALSE
+Source_Material_Note	free-text complement to Source_Material to add additional details, multiple entries separated by ; in the same order as Source_Material	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Nr_Libraries	number of libraries produced for the sample	Integer	FALSE	FALSE	FALSE				FALSE	FALSE
 Library_Names	identifiers of the libraries used to generate the genotype data for the sample, multiple values separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Capture_Type	capture method for the individual libraries generated for the sample, multiple values separated by ;	String	TRUE	TRUE	FALSE	Shotgun;1240K;ArborComplete;ArborPrimePlus;ArborAncestralPlus;TwistAncientDNA;OtherCapture			FALSE	FALSE
@@ -42,7 +43,7 @@ Data_Preparation_Pipeline_URL	url pointing to a description of the computational
 Endogenous	fraction (ranging between 0 and 1) of endogenous DNA estimated from SG libraries (before capture) as for example estimated by EAGER, not on target and no quality filter, in case of multiple libraries only the highest values should be reported	Float	FALSE	FALSE	TRUE		0	1	FALSE	FALSE
 Nr_SNPs	number of non-missing SNPs for the sample, counted on the SNP-set stored in the Poseidon package	Integer	FALSE	FALSE	FALSE				FALSE	FALSE
 Coverage_on_Target_SNPs	average X-fold coverage across targeted SNP sites after quality filtering	Float	FALSE	FALSE	FALSE				FALSE	FALSE
-Damage	fraction (ranging between 0 and 1) of damage on the 5' end for the main shotgun library used for sequencing and/or capture, in case of multiple libraries a value from the merged read alignment should be reported	Float	FALSE	FALSE	TRUE		0	1	FALSE	FALSE
+Damage	fraction (ranging between 0 and 1) of damage on the 5' end of the libraries used for sequencing, in case of multiple libraries either report multiple values separated by ;, or a single value from the merged read alignment	Float	TRUE	FALSE	TRUE		0	1	FALSE	FALSE
 Contamination	(modern) contamination of the sample as measured by the method in Contamination_Meas, multiple values separated by ; (for different methods, in case of multiple libraries report a value from the merged read alignment), the variables Contamination, Contamination_Err and Contamination_Meas must have the same number and order of (non-n/a) entries	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Contamination_Err	(modern) contamination estimate error of the sample	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Contamination_Meas	method to measure contamination, should be a software tool (ANGSD, Schmutzi, …) and the respective software versions, details should go to Contamination_Note	String	TRUE	FALSE	FALSE				FALSE	FALSE

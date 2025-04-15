@@ -4,6 +4,10 @@
 
 #### Changes to the `.janno` file
 
+##### Replaced columns
+
+- Replaced `Source_Tissue` with `Source_Material` and `Source_Material_Note`.
+
 ##### Added columns
 
 - Added a `Custodian_Institution` column that documents the institution that curated the sampled remains at the time of sampling, with name, city and country.
@@ -13,6 +17,7 @@
 
 - Removed `ReferenceGenome` as an option for the `Capture_Type` column.
 - Changed the scaling of the columns `Endogenous` and `Damage` from percent (0-100) to fractions (0-1).
+- Allowed multiple values in the `Damage` column  for estimates per library.
 - Made the `Collection_ID` column a list column that allows multiple entries separated by `;`.
 - Adjusted the definition of the `Group_Name` column. The role of population labels as general analysis labels was emphasised, and the original recommendation for the geographic-temporal nomenclature proposed by Eisenmann et al. 2018 toned down.
 
