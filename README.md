@@ -127,9 +127,9 @@ Genotype data in Poseidon packages is stored either in (binary) PLINK, EIGENSTRA
 | SNP file  | [`.bim` (extended MAP file) or `.bim.gz`](https://www.cog-genomics.org/plink/1.9/formats#bim) | [`.snp` (snp file) or `.snp.gz`](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |  |
 | individual file  | [`.fam` (sample information)](https://www.cog-genomics.org/plink/1.9/formats#fam) | [`.ind` (indiv file)](https://github.com/DReichLab/EIG/blob/fb4fb59065055d3622e0f97f0149588eae630a3e/CONVERTF/README#L67) |  |
 
-In addition to these files (and optionally their checksums), the POSEIDON.yml file SHOULD also provide a `snpSet` entry which determines the shape of the genotype file.
+Both PLINK and EIGENSTRAT formats require three files to be specified. In PLINK, the genotype file is binary (with 2 bits per genotype), while in Eigenstrat, the genotype file is text-based (with 8 bits per genotype). The SNP and individual files are text-based for both formats (see links behind the file endings in the table above). The EIGENSTRAT format specifically is common within archaeogenetics, compatible with many of the important tools developed by the Reich Lab, e.g. the ones in the [EIGENSOFT](https://github.com/DReichLab/EIG) and [ADMIXTOOLS](https://github.com/DReichLab/AdmixTools). Finally, the VCF format is the most formally specified format, with properly versioned specifications being released regularly. VCF is well established in the wider genetics community and the de-facto standard to store variants in the field of medical genetics.
 
-Note that genotype and snp files can be optionally zipped, in which case they MUST end with `.gz`.
+VCF files, as well as genotype and SNP files in PLINK and EIGENSTRAT can be stored in gzipped form, signifified by an additional file ending (`*.gz`).
 
 ###  The `.janno` file
 
