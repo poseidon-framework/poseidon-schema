@@ -1,7 +1,6 @@
 janno_column_name	description	data_type	multi	choice	range	choice_options	range_lower	range_upper	mandatory	unique
 Poseidon_ID	sample identifier as defined by the genetics laboratory (e.g. I1234, BOT001), must fit to the values in the Poseidon package .fam/.ind file, must be unique within one package, if multiple datasets exist for the same individual different Poseidon_IDs are required	String	FALSE	FALSE	FALSE				TRUE	TRUE
 Genetic_Sex	genetic sex of the individual derived from this sample, only F, M or U because the EIGENSTRAT and PLINK formats only support these three, edge cases (e.g. XXY, XYY, X0) are undefined and should be grouped as F, M or U, with a Note added	Char	FALSE	TRUE	FALSE	F;M;U			TRUE	FALSE
-Species	Species name of the sample. Should follow binomial nomenclature as standard in Biology, e.g. Homo sapiens.	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Group_Name	meaningful population/group identifiers for the sample. This can follow the geographic-temporal nomenclature proposed by Eisenmann et al. 2018 (https://doi.org/10.1038/s41598-018-31123-z). It can also communicate additional categories that are meaningful for groupings in specific analyses, such as cultural labels, outlier status or relatedness to other samples. Multiple entries separated by ;, the first value must be equal the group name in the .fam/.ind file	String	TRUE	FALSE	FALSE				TRUE	FALSE
 Alternative_IDs	alternative identifiers for the same sampled individual, e.g. IDs in other databases or popular names like Ötzi/Iceman	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Relation_To	other samples (by Poseidon_ID) that are related/identical to this sample, multiple entries separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
@@ -40,8 +39,6 @@ Capture_Type	capture method for the individual libraries generated for the sampl
 UDG	udg treatment for the libraries, mixed in case multiple libraries with different UDG treatment were merged	String	FALSE	TRUE	FALSE	minus;half;plus;mixed			FALSE	FALSE
 Library_Built	strandedness of the libraries, “mixed” in case multiple libraries with different protocols were merged	String	FALSE	TRUE	FALSE	ds;ss;mixed			FALSE	FALSE
 Genotype_Ploidy	ploidy of the genotypes for the sample	String	FALSE	TRUE	FALSE	diploid;haploid			FALSE	FALSE
-Reference_Genome_Assembly	Reference genome name (free-text) of the reference genome used, e.g. GRCh37	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Reference_Genome_Assembly_URL	Reference assembly accession URL from a public database, such as NCBI or Ensembl	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Data_Preparation_Pipeline_URL	url pointing to a description of the computational pipeline used to generate the genotype data from the source data	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Endogenous	fraction (ranging between 0 and 1) of endogenous DNA estimated from SG libraries (before capture) as for example estimated by EAGER, not on target and no quality filter, in case of multiple libraries only the highest values should be reported	Float	FALSE	FALSE	TRUE		0	1	FALSE	FALSE
 Nr_SNPs	number of non-missing SNPs for the sample, counted on the SNP-set stored in the Poseidon package	Integer	FALSE	FALSE	FALSE				FALSE	FALSE
