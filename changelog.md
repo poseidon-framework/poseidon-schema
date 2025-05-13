@@ -31,6 +31,12 @@
 - Adjusted the definition of the `Group_Name` column. The role of population labels as general analysis labels was emphasised, and the original recommendation for the geographic-temporal nomenclature proposed by Eisenmann et al. 2018 toned down.
 - Slightly adjusted the definitions of `MT_Haplogroup` and `Y_Haplogroup` to better account for non-human data.
 
+#### Changes to the `.ssf` file
+
+##### Added columns
+
+- Added a `submitted_md5` column, which records the md5sum of the file in the `submitted_ftp` column.
+
 ### 2.7.0 -> 2.7.1 [not breaking]
 
 Only changes to the definition of the Sequencing Source File (`.ssf`):
