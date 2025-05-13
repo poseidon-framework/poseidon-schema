@@ -1,6 +1,7 @@
 janno_column_name	description	data_type	multi	choice	range	choice_options	range_lower	range_upper	mandatory	unique
 Poseidon_ID	sample identifier as defined by the genetics laboratory (e.g. I1234, BOT001), must fit to the values in the Poseidon package .fam/.ind file, must be unique within one package, if multiple datasets exist for the same individual different Poseidon_IDs are required	String	FALSE	FALSE	FALSE				TRUE	TRUE
 Genetic_Sex	genetic sex of the individual derived from this sample, only F, M or U because the EIGENSTRAT and PLINK formats only support these three, edge cases (e.g. XXY, XYY, X0) are undefined and should be grouped as F, M or U, with a Note added	Char	FALSE	TRUE	FALSE	F;M;U			TRUE	FALSE
+Species	Species name of the sample. Should follow binomial nomenclature as standard in Biology, e.g. Homo sapiens.	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Group_Name	meaningful population/group identifiers for the sample. This can follow the geographic-temporal nomenclature proposed by Eisenmann et al. 2018 (https://doi.org/10.1038/s41598-018-31123-z). It can also communicate additional categories that are meaningful for groupings in specific analyses, such as cultural labels, outlier status or relatedness to other samples. Multiple entries separated by ;, the first value must be equal the group name in the .fam/.ind file	String	TRUE	FALSE	FALSE				TRUE	FALSE
 Alternative_IDs	alternative identifiers for the same sampled individual, e.g. IDs in other databases or popular names like Ötzi/Iceman	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Relation_To	other samples (by Poseidon_ID) that are related/identical to this sample, multiple entries separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
@@ -29,8 +30,8 @@ Date_BC_AD_Stop	upper (more recent) bound for the age of the sample in years BC/
 Date_Note	arbitrary comments about the dating information for the sample	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Chromosomal_Anomalies	genetic anomalies on the chromosome level detected for the sample, so extra, missing or irregual portions of chromosomal DNA, including gonosomal and autosomal aneuploidies, multiple entries separated by ; Suggestions include XXY, XYY, XXX, X0, Trisomy21, Trisomy18	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Chromosomal_Anomalies_Note	arbitrary comments about the observed chromosomal anomalies	String	TRUE	FALSE	FALSE				FALSE	FALSE
-MT_Haplogroup	mitochondrial haplogroup derived for the sample as specified on phylotree.org and as reported by the Haplofind or Haplogrep software tools	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Y_Haplogroup	Y-chromosome haplogroup derived for the sample following a syntax with the main branch + the most terminal derived Y-SNP (e.g. R1b-P312)	String	FALSE	FALSE	FALSE				FALSE	FALSE
+MT_Haplogroup	mitochondrial haplogroup derived for the sample. For human data, this should follow the specification on phylotree.org and as reported by the Haplofind or Haplogrep software tools	String	FALSE	FALSE	FALSE				FALSE	FALSE
+Y_Haplogroup	Y-chromosome haplogroup derived for the sample. For human data this should follow a syntax with the main branch + the most terminal derived Y-SNP (e.g. R1b-P312)	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Source_Material	sampled material, multiple entries separated by ;	String	TRUE	TRUE	FALSE	petrous;bone;tooth;soft;sediment;other			FALSE	FALSE
 Source_Material_Note	free-text complement to Source_Material to add additional details, multiple entries separated by ; in the same order as Source_Material	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Nr_Libraries	number of libraries produced for the sample	Integer	FALSE	FALSE	FALSE				FALSE	FALSE

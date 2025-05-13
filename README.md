@@ -1,6 +1,8 @@
 ## The Poseidon Standard v2.7.1
 
-Poseidon is a solution for archaeogenetic genotype data organisation. This standard defines the core components of the Poseidon package.
+Poseidon is a solution for archaeogenetic genotype data organisation. It is geared towards human data, but is to a large extent species-agnostic and can be used to track archaeogenetic data also of non-human species.
+
+This standard defines the core components of the Poseidon package.
 
 A .pdf version of the latest instance of this document can be downloaded [here](https://github.com/poseidon-framework/poseidon-schema/blob/master/poseidon_package_specification.pdf).
 
