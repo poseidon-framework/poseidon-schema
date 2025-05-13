@@ -2,6 +2,13 @@
 
 ### 2.7.1 -> 3.0.0 [breaking]
 
+#### Changes to the `POSEIDON.yml` file
+
+- Added three optional fields within the `genotypeData` structure:
+  - `Species`, the species name of the sample. Should follow binomial nomenclature as standard in Biology, e.g. Homo sapiens.
+  - `Reference_Genome_Assembly`, the reference genome name (free-text) of the reference genome used, e.g. GRCh37
+  - `Reference_Genome_Assembly_URL`, the reference assembly accession URL from a public database, such as NCBI or Ensembl	String
+
 #### Changes to the `.janno` file
 
 ##### Replaced columns
