@@ -2,11 +2,18 @@
 
 ### 2.7.1 -> 3.0.0 [breaking]
 
+#### General changes
+
+- Allowed another genotype data format next to (binary) PLINK and EIGENSTRAT: the Variant Call Format (VCF).
+- Specified a mechanism to store genotype data in a more space-efficient gzipped form.
+- Clarified the suitability of the Poseidon standard for non-human data: `[Poseidon] is geared towards human data, but is to a large extent species-agnostic and can be used to track archaeogenetic data also of non-human species.`
+
 #### Changes to the `POSEIDON.yml` file
 
 - Added two optional fields within the `genotypeData` structure:
   - `Reference_Genome_Assembly`, the reference genome name (free-text) of the reference genome used, e.g. GRCh37
   - `Reference_Genome_Assembly_URL`, the reference assembly accession URL from a public database, such as NCBI or Ensembl	String
+- Modified the definition of the `genoFile` and `snpFile` fields to cover the case of gzipped data, for which the respective file names must end with `*.gz`.
 
 #### Changes to the `.janno` file
 
@@ -16,19 +23,18 @@
 
 ##### Added columns
 
-- Added a `Custodian_Institution` column that documents the institution that curated the sampled remains at the time of sampling, with name, city and country.
-- Added the columns `Chromosomal_Anomalies` and `Chromosomal_Anomalies_Note` for genetic anomalies on the chromosome level detected for the sample. This includes extra, missing or irregual portions of chromosomal DNA like in gonosomal and autosomal aneuploidies. `Chromosomal_Anomalies` is not limited to a specific set of options, but a common notation is recommended (e.g. `XXY`, `XYY`, `XXX`, `X0`, `Trisomy21`, `Trisomy18`).
-- Added four list columns to describe the cultural eras and archaeological cultures a sample is associated with: `Cultural_Era` + `Cultural_Era_URL` and `Archaeological_Culture` + `Archaeological_Culture_URL`.
 - Added a column for the sampled `Species`, to make the schema more explicitly species-agnostic.
-- Added two columns to document the relevant reference genome used for the DNA read mapping: `Reference_Genome_Assembly` and `Reference_Genome_Assembly_URL`.
+- Added a `Custodian_Institution` column that documents the institution that curated the sampled remains at the time of sampling, with name, city and country.
+- Added four list columns to describe the cultural eras and archaeological cultures a sample is associated with: `Cultural_Era` + `Cultural_Era_URL` and `Archaeological_Culture` + `Archaeological_Culture_URL`.
+- Added the columns `Chromosomal_Anomalies` and `Chromosomal_Anomalies_Note` for genetic anomalies on the chromosome level detected for the sample. This includes extra, missing or irregual portions of chromosomal DNA like in gonosomal and autosomal aneuploidies. `Chromosomal_Anomalies` is not limited to a specific set of options, but a common notation is recommended (e.g. `XXY`, `XYY`, `XXX`, `X0`, `Trisomy21`, `Trisomy18`).
 
 ##### Changes to columns
 
-- Removed `ReferenceGenome` as an option for the `Capture_Type` column.
-- Changed the scaling of the columns `Endogenous` and `Damage` from percent (0-100) to fractions (0-1).
-- Allowed multiple values in the `Damage` column  for estimates per library.
-- Made the `Collection_ID` column a list column that allows multiple entries separated by `;`.
 - Adjusted the definition of the `Group_Name` column. The role of population labels as general analysis labels was emphasised, and the original recommendation for the geographic-temporal nomenclature proposed by Eisenmann et al. 2018 toned down.
+- Made the `Collection_ID` column a list column that allows multiple entries separated by `;`.
+- Removed `ReferenceGenome` as an option for the `Capture_Type` column and further clarified its definition.
+- Changed the scaling of the columns `Endogenous` and `Damage` from percent (0-100) to fractions (0-1).
+- Allowed multiple values in the `Damage` column for estimates per library.
 - Slightly adjusted the definitions of `MT_Haplogroup` and `Y_Haplogroup` to better account for non-human data.
 
 #### Changes to the `.ssf` file
