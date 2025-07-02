@@ -19,7 +19,7 @@ A Poseidon package stores genotype data with context information for DNA samples
 A package therefore MUST contain:
 
 - A `POSEIDON.yml` file to formally define the package
-- Genotype data in PLINK or EIGENSTRAT format
+- Genotype data in PLINK, EIGENSTRAT or VCF format
 
 It SHOULD additionally contain:
 
@@ -46,7 +46,11 @@ Switzerland_LNBA_Roswita/README.md
 Switzerland_LNBA_Roswita/CHANGELOG.md
 ```
 
+### Text encoding
+
 All text files in the package MUST be UTF-8 encoded.
+
+`Poseidon_ID`s and `Group_Name`s, so the primary sample and group identifiers across `.janno`, `.ssf`, and genotype data files, MUST contain only [8-bit ASCII characters](https://www.ascii-code.com) following the extended ASCII table based on the Windows-1252 character set. They MUST NOT contain any symbols, except `_` (underscore), `-` (hyphen-minus), and `.` (period, dot or full stop). The allowed ASCII character codes (decimal) are 45, 46, 48-57, 65-90, 95, and 97-122.
 
 ### The `POSEIDON.yml` file
 
