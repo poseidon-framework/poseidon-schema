@@ -32,7 +32,7 @@ Chromosomal_Anomalies	genetic anomalies on the chromosome level detected for the
 Chromosomal_Anomalies_Note	arbitrary comments about the observed chromosomal anomalies	String	TRUE	FALSE	FALSE				FALSE	FALSE
 MT_Haplogroup	mitochondrial haplogroup derived for the sample. For human data, this should follow the specification on phylotree.org and as reported by the Haplofind or Haplogrep software tools	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Y_Haplogroup	Y-chromosome haplogroup derived for the sample. For human data this should follow a syntax with the main branch + the most terminal derived Y-SNP (e.g. R1b-P312)	String	FALSE	FALSE	FALSE				FALSE	FALSE
-Source_Material	sampled material, multiple entries separated by ;	String	TRUE	TRUE	FALSE	petrous;bone;tooth;soft;sediment;other			FALSE	FALSE
+Source_Material	sampled material, multiple entries separated by ;	String	TRUE	TRUE	FALSE	petrous;bone;tooth;hair;soft;sediment;other			FALSE	FALSE
 Source_Material_Note	free-text complement to Source_Material to add additional details, multiple entries separated by ; in the same order as Source_Material	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Nr_Libraries	number of libraries produced for the sample	Integer	FALSE	FALSE	FALSE				FALSE	FALSE
 Library_Names	identifiers of the libraries used to generate the genotype data for the sample, multiple values separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
