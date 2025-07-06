@@ -50,7 +50,7 @@ Switzerland_LNBA_Roswita/CHANGELOG.md
 
 All text files in the package MUST be UTF-8 encoded.
 
-`Poseidon_ID`s and `Group_Name`s, so the primary sample and group identifiers across `.janno`, `.ssf`, and genotype data files, MUST contain only [8-bit ASCII characters](https://www.ascii-code.com) following the extended ASCII table based on the Windows-1252 character set. They MUST NOT contain any symbols, except `_` (underscore), `-` (hyphen-minus), and `.` (period, dot or full stop). The allowed ASCII character codes (decimal) are 45, 46, 48-57, 65-90, 95, and 97-122.
+`Poseidon_ID`s and `Group_Name`s, so the primary sample and group identifiers across `.janno`, `.ssf`, and genotype data files, MUST contain only characters of a subset of the 7-bit ASCII code set. Specifically the alphanumeric characters `A-Z`, `a-z`, `0-9`, and the symbols `_` (underscore), `-` (hyphen-minus), and `.` (period, dot or full stop).
 
 ### The `POSEIDON.yml` file
 
