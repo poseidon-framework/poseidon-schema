@@ -48,6 +48,8 @@ Switzerland_LNBA_Roswita/CHANGELOG.md
 
 All text files in the package MUST be UTF-8 encoded.
 
+They SHOULD use Unix-style line endings, so a single Line Feed (LF, `\n`) character, NOT a Carriage Return and Line Feed (CRLF) pair (`\r\n`) as in MS DOS and Windows.
+
 ### The `POSEIDON.yml` file
 
 The `POSEIDON.yml` file defines Poseidon packages by listing metainformation and relative paths in a standardised, machine-readable format.
