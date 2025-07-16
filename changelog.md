@@ -4,9 +4,11 @@
 
 #### General changes
 
+- Introcuded a specific, limited character set for `Poseidon_ID`s and `Group_Name`s (in the .janno file, the .ssf file, and the genotype data): The ASCII characters `A-Za-z0-9_-.`.
 - Allowed another genotype data format next to (binary) PLINK and EIGENSTRAT: the Variant Call Format (VCF).
 - Specified a mechanism to store genotype data in a more space-efficient gzipped form.
 - Clarified the suitability of the Poseidon standard for non-human data: `[Poseidon] is geared towards human data, but is to a large extent species-agnostic and can be used to track archaeogenetic data also of non-human species.`
+- Clarified that text files in Poseidon packages should use Unix-style line endings.
 
 #### Changes to the `POSEIDON.yml` file
 
@@ -30,6 +32,7 @@
 
 ##### Changes to columns
 
+- Introcuded a specific, limited character set for the `Poseidon_ID` and `Group_Name` column: The ASCII characters `A-Za-z0-9_-.`.
 - Adjusted the definition of the `Group_Name` column. The role of population labels as general analysis labels was emphasised, and the original recommendation for the geographic-temporal nomenclature proposed by Eisenmann et al. 2018 toned down.
 - Made the `Collection_ID` column a list column that allows multiple entries separated by `;`.
 - Removed `ReferenceGenome` as an option for the `Capture_Type` column and further clarified its definition.
