@@ -5,7 +5,7 @@ Group_Name	meaningful population/group identifiers for the sample, must contain 
 Individual_ID	identifier for the sampled individual	String	FALSE	FALSE	FALSE				FALSE	TRUE
 Species	Species name of the sample. Should follow binomial nomenclature as standard in Biology, e.g. Homo sapiens.	String	FALSE	FALSE	FALSE				FALSE	FALSE
 Alternative_IDs	alternative identifiers for the same sample, e.g. IDs in other databases or popular names like Ötzi/Iceman	String	TRUE	FALSE	FALSE				FALSE	FALSE
-Relation_To	other individuals (by Individual_ID) that are related to this sample, multiple entries separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
+Relation_To	other individuals (by Individual_ID) that are related to the individual this sample derived from, multiple entries separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Relation_Degree	relationship degree for relatives mentioned in Related_To, multiple values separated by ; in the same order as Related_To in case of multiple relations. Here, "identical" refers to identical twins. Identical individuals should be encoded through a common Individual_ID.	String	TRUE	TRUE	FALSE	identical;first;second;thirdToFifth;sixthToTenth;unrelated;other			FALSE	FALSE
 Relation_Type	relationship type for relatives mentioned in Related_To (e.g. sister_of, child_of, nephew_of), multiple values separated by ; in the same order as Related_To in case of multiple relations	String	TRUE	FALSE	FALSE				FALSE	FALSE
 Relation_Note	arbitrary comments about the genetic relationships of the sampled individual	String	FALSE	FALSE	FALSE				FALSE	FALSE
