@@ -137,7 +137,7 @@ Both PLINK and EIGENSTRAT formats require three files to be specified. In PLINK,
 
 VCF files, as well as genotype and SNP files in PLINK and EIGENSTRAT can be stored in gzipped form, signifified by an additional file ending (`*.gz`).
 
-To make VCF files fully convertible to PLINK and EIGENSTRAT, they MUST be biallelic and contain only genotypes coded as `0/0`, `0/1`, `1/1`, `./.`. Furthermore, they CAN encode group names and genetic sex for all samples through special header fields `##group_names=name1,name2,...` and `##genetic_sex=F,U,M,...`, respectively. If these fields are not present, then group names are assumed to be "unknown" and genetic sex "U" (unknown) for all samples. Note that conversion to VCF through trident will automatically add these fields to the VCF header.
+To make VCF files fully convertible to PLINK and EIGENSTRAT, they MUST be biallelic and contain only genotypes coded as `0/0`, `0/1`, `1/1`, `./.`. Furthermore, they CAN encode group names and genetic sex for all samples through special header fields `##group_names=name1,name2,...` and `##genetic_sex=F,U,M,...`, respectively. If these fields are not present, then group names are assumed to be "unknown" and genetic sex "U" (unknown) for all samples.
 
 ###  The `.janno` file
 
