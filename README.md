@@ -147,7 +147,8 @@ The `.janno` file is a tab-separated text file with a header line. It holds cont
 - A `.janno` file MAY have all of these core variables, or only a subset of them.
 - Only three columns MUST be present to make the file valid: **Poseidon_ID**, **Group_Name** and **Genetic_Sex**
 - Arbitrary columns not defined here MAY be added as long as their column names do not clash with the defined ones.
-- The column order is irrelevant.
+- Arbitrary, additional free-text information directly related to a column **<Column_Name>** from the set of specified core variables in [janno_columns.tsv](https://github.com/poseidon-framework/poseidon-schema/blob/master/janno_columns.tsv) SHOULD be added in a column whose name has the form **<Column_Name>_Note**. Example: `Contamination_Note`.
+- The column order is not fixed, but MAY follow the order in [janno_columns.tsv](https://github.com/poseidon-framework/poseidon-schema/blob/master/janno_columns.tsv). **<Column_Name>_Note** columns SHOULD be placed directly after the respective column they are refering to.
 - If information is unknown or a variable does not apply for a certain sample, then the respective cell(s) MAY be filled with `n/a` or simply an empty string.
 - The order of the samples (rows) in the `.janno` file MUST be equal to the order in the genetic data files (`.ind`, `.fam`) in the package.
 - The values in the columns **Poseidon_ID**, **Group_Name** and **Genetic_Sex** MUST be equal to the terms used in the genetic data files (`.ind`, `.fam`).

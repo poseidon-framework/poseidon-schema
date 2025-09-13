@@ -30,7 +30,7 @@
 - Added four list columns to describe the cultural eras and archaeological cultures a sample is associated with: `Cultural_Era` + `Cultural_Era_URL` and `Archaeological_Culture` + `Archaeological_Culture_URL`.
 - Added the columns `Chromosomal_Anomalies` and `Chromosomal_Anomalies_Note` for genetic anomalies on the chromosome level detected for the sample. This includes extra, missing or irregual portions of chromosomal DNA like in gonosomal and autosomal aneuploidies. `Chromosomal_Anomalies` is not limited to a specific set of options, but a common notation is recommended (e.g. `XXY`, `XYY`, `XXX`, `X0`, `Trisomy21`, `Trisomy18`).
 
-##### Changes to columns
+##### Changed columns
 
 - Introcuded a specific, limited character set for the `Poseidon_ID` and `Group_Name` column: The ASCII characters `A-Za-z0-9_-.`.
 - Adjusted the definition of the `Group_Name` column. The role of population labels as general analysis labels was emphasised, and the original recommendation for the geographic-temporal nomenclature proposed by Eisenmann et al. 2018 toned down.
@@ -39,6 +39,10 @@
 - Changed the scaling of the columns `Endogenous` and `Damage` from percent (0-100) to fractions (0-1).
 - Allowed multiple values in the `Damage` column for estimates per library.
 - Slightly adjusted the definitions of `MT_Haplogroup` and `Y_Haplogroup` to better account for non-human data.
+
+##### Removed columns
+
+- Removed all explicitly defined `_Note` columns. The schema allows arbitrary additional columns since v2.2.0; a specification of free-text fields is not necessary.
 
 #### Changes to the `.ssf` file
 
