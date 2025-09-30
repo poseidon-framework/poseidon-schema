@@ -2,7 +2,7 @@
 
 Poseidon is a solution for archaeogenetic genotype data organisation. It is geared towards human data, but is to a large extent species-agnostic and can be used to track archaeogenetic data also of non-human species.
 
-This standard defines the core components of the Poseidon package.
+This standard defines a data structure: the **Poseidon package**. A Poseidon package stores genotype data with meta- and context information.
 
 A .pdf version of the latest instance of this document can be downloaded [here](https://github.com/poseidon-framework/poseidon-schema/blob/master/poseidon_package_specification.pdf).
 
@@ -12,9 +12,21 @@ A changelog documents the changes across different schema versions [here](https:
 
 The key words *MUST*, *MUST NOT*, *REQUIRED*, *SHALL*, *SHALL NOT*, *SHOULD*, *SHOULD NOT*, *RECOMMENDED*, *MAY*, and *OPTIONAL* in this document are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).
 
+### Primary entities of a Poseidon package
+
+The main operational entities in a Poseidon package are discrete sets of genotype data attributed to a single human or non-human individual, scientifically generated for archaeogenetic research questions. Within a Poseidon package each of these sets gets attributed a unique identifier: the `Poseidon_ID`.
+
+Generally, archaeogenetics operates on depositional contexts, e.g. graves, with one or multiple (ancient) human or non-human individuals. Usually, it is possible to attribute the (skeletal) remains within these contexts to individuals based on archaeological evidence and physical-anthropological analysis. Each individual can get sampled one or multiple times, either by directly probing their preserved tissue, or by sampling any reagent that contains their DNA (through whatever pathway or taphonomic process). From one such sample one or multiple extracts can be derived, which can be transformed into one or multiple libraries, which may or may not be subjected to a DNA capture protocol and then sequenced one or multiple times. The raw sequencing data can undergo various different forms of computational processing and eventually genotyping to produce the data relevant for most derived analyses and thus stored in a Poseidon package.
+
+While the wetlab-processes yield a relatively predictable tree of separate physical and digital products for any given sample, the computational data-processing breaks the conceptual tree-ness by allowing for arbitrary conflation of sequencing data obtained through potentially separate means: Data from different libraries, for example, may be merged if they are from the same individual, even if they are not from the same sample.
+
+`Poseidon_ID`s therefore represent one consciously selected end-point in the complex data preparation graph laid out above. Typically this end-point corresponds to an optimal result for a given individual, research question and publication.
+
+For the sake of convenience and despite the lack of conceptual clarity, below we sometimes use the term *sample* to denote `Poseidon_ID` entities. Data aggregation on the level of physical samples is often sensible, and the term is conventionally used for analysis endpoints in the community of practice.
+
 ### The Poseidon package structure
 
-A Poseidon package stores genotype data with context information for DNA samples from (ancient) (human) individuals. Packages are defined by the POSEIDON.yml file, which holds relative paths to all other files in a package.
+A Poseidon package is defined by the POSEIDON.yml file, which holds relative paths to all other files in the package.
 
 A package therefore MUST contain:
 
