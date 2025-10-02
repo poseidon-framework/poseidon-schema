@@ -7,6 +7,10 @@
 - Introcuded a specific, limited character set for `Poseidon_ID`s and `Group_Name`s (in the .janno file, the .ssf file, and the genotype data): The ASCII characters `A-Za-z0-9_-.`.
 - Allowed another genotype data format next to (binary) PLINK and EIGENSTRAT: the Variant Call Format (VCF).
 - Specified a mechanism to store genotype data in a more space-efficient gzipped form.
+
+#### Clarifications
+
+- Clarified the exact meaning of a `Poseidon_ID` and the entity in genotype and context data it represents.
 - Clarified the suitability of the Poseidon standard for non-human data: `[Poseidon] is geared towards human data, but is to a large extent species-agnostic and can be used to track archaeogenetic data also of non-human species.`
 - Clarified that text files in Poseidon packages should use Unix-style line endings.
 
