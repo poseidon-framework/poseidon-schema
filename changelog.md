@@ -17,8 +17,8 @@
 #### Changes to the `POSEIDON.yml` file
 
 - Added two optional fields within the `genotypeData` structure:
-  - `Reference_Genome_Assembly`, the reference genome name (free-text) of the reference genome used, e.g. GRCh37
-  - `Reference_Genome_Assembly_URL`, the reference assembly accession URL from a public database, such as NCBI or Ensembl	String
+  - `referenceGenomeAssembly`, the reference genome name of the reference genome used, e.g. GRCh37
+  - `referenceGenomeAssemblyURL`, the reference assembly accession URL from a public database, such as NCBI or Ensembl
 - Modified the definition of the `genoFile` and `snpFile` fields to cover the case of gzipped data, for which the respective file names must end with `*.gz`.
 
 #### Changes to the `.janno` file
