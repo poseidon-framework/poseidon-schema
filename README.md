@@ -85,6 +85,8 @@ contributor:
     email: paul.panther@example.edu
 packageVersion: 1.1.2
 lastModified: 2021-01-28
+licence: CC BY-SA 4.0
+licenceFile: LICENCE.md
 genotypeData:
   format: PLINK
   genoFile: Switzerland_LNBA_Roswita.bed
@@ -134,6 +136,18 @@ Each version number is comprised of three numbers, separated by a `.`. For examp
 When the `packageVersion` is changed, then the `lastModified` date MUST be updated and an entry to the `CHANGELOG.md` file SHOULD be added summarising the changes made.
 
 Packages SHOULD start at `packageVersion` `0.1.0`.
+
+### Data licensing and the LICENSE.md file
+
+Data licences are a common way to grant the public permission to use a dataset under copyright law.
+
+Poseidon packages MAY specify a licence, and if so, SHOULD use [Creative Commons licences](https://creativecommons.org/share-your-work/cclicenses).
+
+Licences are documented in the `POSEIDON.yml` file in the `licence` field, or with a `licenceFile`, or with both the `licence` field and a `licenceFile`. `licence` SHOULD include a short string with name and version of the licence, e.g. `CC BY-SA 4.0` The `licenceFile`, typically named `LICENSE.md`, SHOULD include the full text of a licence, or a short notifier further contextualizing the entry in the `licence` field. For example:
+
+```default
+The Poseidon package Switzerland_LNBA_Roswita © 2021 by Roswita Malone is licensed under Creative Commons Attribution-ShareAlike 4.0 International. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/
+```
 
 ### Genotype data
 
