@@ -16,11 +16,11 @@
 
 #### Changes to the `POSEIDON.yml` file
 
+- Added the optional section `licence` with the fields `name` and `file` to specify a data licence for a package.
 - Added two optional fields within the `genotypeData` structure:
   - `referenceGenomeAssembly`, the reference genome name of the reference genome used, e.g. GRCh37
   - `referenceGenomeAssemblyURL`, the reference assembly accession URL from a public database, such as NCBI or Ensembl
 - Modified the definition of the `genoFile` and `snpFile` fields to cover the case of gzipped data, for which the respective file names must end with `*.gz`.
-- Added the optional fields `licence` and `licenceFile` to encode a data licence for a package.
 
 #### Changes to the `.janno` file
 
