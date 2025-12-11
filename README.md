@@ -244,3 +244,16 @@ The `.ssf` file is another tab-separated text file with a header line. It stores
 - If information is unknown or a variable does not apply, then the respective cell(s) MAY be filled with `n/a` or simply an empty string.
 - Multiple predefined columns of the `.ssf` file are list columns that can hold multiple values (either strings or numerics) separated by `;`.
 - The decimal separator for all floating point numbers MUST be `.`.
+
+### Details
+
+#### The `Capture_Type` .janno column
+
+The following protocols are specified:
+
+- `Shotgun`: Sequencing without any enrichment (whole genome sequencing, screening etc.).
+- `1240K`: Target enrichment with hybridization capture optimised for sequences covering the 1240k SNP array, see [@Fu2015](https://doi.org/10.1038/nature14558), [@Haak2015](https://doi.org/10.1038/nature14317), [@Mathieson2015](https://doi.org/10.1038/nature16152).
+- `ArborComplete`, `ArborPrimePlus`, `ArborAncestralPlus`: Target enrichment with hybridization capture as provided by Arbor Biosciences in three different kits branded [myBaits Expert Human Affinities](https://arborbiosci.com/genomics/targeted-sequencing/mybaits/mybaits-expert/mybaits-expert-human-affinities).
+- `TwistAncientDNA`: Target enrichment with hybridization capture as provided by Twist Bioscience [@Rohland2022](https://doi.org/10.1101/gr.276728.122).
+- `WISC2013`: Whole genome capture as described by [@Carpenter2013](10.1016/j.ajhg.2013.10.002).
+- `OtherCapture`: Target enrichment with hybridization capture for any other set of sequences.

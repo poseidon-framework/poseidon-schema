@@ -34,7 +34,7 @@ Y_Haplogroup	Y-chromosome haplogroup derived for the sample. For human data this
 Source_Material	sampled material, multiple entries separated by ;	String	TRUE	TRUE	FALSE	petrous;bone;tooth;hair;soft;sediment;other			FALSE	FALSE
 Nr_Libraries	number of libraries produced for the sample	Integer	FALSE	FALSE	FALSE				FALSE	FALSE
 Library_Names	identifiers of the libraries used to generate the genotype data for the sample, multiple values separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
-Capture_Type	capture method for the individual libraries generated for the sample, multiple values separated by ;	String	TRUE	TRUE	FALSE	Shotgun;1240K;ArborComplete;ArborPrimePlus;ArborAncestralPlus;TwistAncientDNA;OtherCapture			FALSE	FALSE
+Capture_Type	capture method for the individual libraries generated for the sample, multiple values separated by ;	String	TRUE	TRUE	FALSE	Shotgun;1240K;ArborComplete;ArborPrimePlus;ArborAncestralPlus;TwistAncientDNA;WISC2013;OtherCapture			FALSE	FALSE
 UDG	udg treatment for the libraries, mixed in case multiple libraries with different UDG treatment were merged	String	FALSE	TRUE	FALSE	minus;half;plus;mixed			FALSE	FALSE
 Library_Built	strandedness of the libraries, “mixed” in case multiple libraries with different protocols were merged	String	FALSE	TRUE	FALSE	ds;ss;mixed			FALSE	FALSE
 Genotype_Ploidy	ploidy of the genotypes for the sample	String	FALSE	TRUE	FALSE	diploid;haploid			FALSE	FALSE
