@@ -240,5 +240,5 @@ The following protocols are specified:
 - `1240K`: Target enrichment with hybridization capture optimised for sequences covering the 1240k SNP array, see [@Fu2015](https://doi.org/10.1038/nature14558), [@Haak2015](https://doi.org/10.1038/nature14317), [@Mathieson2015](https://doi.org/10.1038/nature16152).
 - `ArborComplete`, `ArborPrimePlus`, `ArborAncestralPlus`: Target enrichment with hybridization capture as provided by Arbor Biosciences in three different kits branded [myBaits Expert Human Affinities](https://arborbiosci.com/genomics/targeted-sequencing/mybaits/mybaits-expert/mybaits-expert-human-affinities).
 - `TwistAncientDNA`: Target enrichment with hybridization capture as provided by Twist Bioscience [@Rohland2022](https://doi.org/10.1101/gr.276728.122).
-- `Carpenter2013`: Whole genome capture as described by [@Carpenter2013](10.1016/j.ajhg.2013.10.002).
+- `WISC2013`: Whole genome capture as described by [@Carpenter2013](10.1016/j.ajhg.2013.10.002).
 - `OtherCapture`: Target enrichment with hybridization capture for any other set of sequences.

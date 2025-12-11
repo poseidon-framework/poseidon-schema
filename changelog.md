@@ -43,7 +43,7 @@
 - Changed the scaling of the columns `Endogenous` and `Damage` from percent (0-100) to fractions (0-1).
 - Allowed multiple values in the `Damage` column for estimates per library.
 - Slightly adjusted the definitions of `MT_Haplogroup` and `Y_Haplogroup` to better account for non-human data.
-- Added the option `Carpenter2013` to `Capture_Type`.
+- Added the option `WISC2013` to `Capture_Type`.
 
 ##### Removed columns
 
