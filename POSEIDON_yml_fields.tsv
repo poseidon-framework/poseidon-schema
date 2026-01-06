@@ -8,9 +8,9 @@ email	1	contributor	email of one contributor	String	Email	TRUE
 orcid	1	contributor	orcid of one contributor	String	ORCID	FALSE
 packageVersion	0		package version (should be changed/incremented when the package is changed)	String	X.Y.Z	TRUE
 lastModified	0		date of last modification of the package (should be updated when the package is changed)	Date	YYYY-MM-DD	FALSE
-licence	0		data licence section			FALSE
-name	1	licence	short name of data licence that applies for this package, usually a Creative Commons licence	String		TRUE
-file	1	licence	relative path to a licence file (usually not necessary, the name is sufficient for standard licences)	String	Path	FALSE
+license	0		data license section			FALSE
+name	1	license	short name of data license that applies for this package, usually a Creative Commons licence	String		TRUE
+file	1	license	relative path to a license file (usually not necessary, the name is sufficient for standard licenses)	String	Path	FALSE
 genotypeData	0		genotype data section			TRUE
 referenceGenomeAssembly	1	genotypeData	reference genome name of the reference genome used, e.g. GRCh37	String		FALSE
 referenceGenomeAssemblyURL	1	genotypeData	reference assembly accession URL from a public database, such as NCBI or Ensembl	String	URL	FALSE
