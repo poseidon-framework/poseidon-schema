@@ -10,6 +10,7 @@ packageVersion	0		package version (should be changed/incremented when the packag
 lastModified	0		date of last modification of the package (should be updated when the package is changed)	Date	YYYY-MM-DD	FALSE
 license	0		data license section			FALSE
 name	1	license	short name of data license that applies for this package, usually a Creative Commons licence	String		TRUE
+url	1	license	URL to the license 	String	Path	TRUE
 file	1	license	relative path to a license file (usually not necessary, the name is sufficient for standard licenses)	String	Path	FALSE
 genotypeData	0		genotype data section			TRUE
 referenceGenomeAssembly	1	genotypeData	reference genome name of the reference genome used, e.g. GRCh37	String		FALSE
