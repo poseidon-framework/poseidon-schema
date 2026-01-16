@@ -16,7 +16,7 @@
 
 #### Changes to the `POSEIDON.yml` file
 
-- Added the optional section `licence` with the fields `name` and `file` to specify a data licence for a package.
+- Added the optional section `license` with the fields `name` and `file` to specify a data license for a package.
 - Added two optional fields within the `genotypeData` structure:
   - `referenceGenomeAssembly`, the reference genome name of the reference genome used, e.g. GRCh37
   - `referenceGenomeAssemblyURL`, the reference assembly accession URL from a public database, such as NCBI or Ensembl
