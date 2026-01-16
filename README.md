@@ -87,6 +87,7 @@ packageVersion: 1.1.2
 lastModified: 2021-01-28
 license:
   name: CC BY 4.0
+  url: https://creativecommons.org/licenses/by/4.0/
   file: license.md
 genotypeData:
   format: PLINK
