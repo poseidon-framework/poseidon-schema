@@ -4,7 +4,7 @@
 
 #### General changes
 
-- Introcuded a specific, limited character set for `Poseidon_ID`s and `Group_Name`s (in the .janno file, the .ssf file, and the genotype data): The ASCII characters `A-Za-z0-9_-.`.
+- Introcuded a non-strict recommendation to use a limited character set for `Poseidon_ID`s, `Group_Name`s and `Individual_ID`s (in the .janno file, the .ssf file, and the genotype data): The ASCII characters `A-Za-z0-9_-.`. This is to avoid problems with creating URLs based on these identifiers, and to ensure non-escaped usage in the forge language.
 - Allowed another genotype data format next to (binary) PLINK and EIGENSTRAT: the Variant Call Format (VCF).
 - Specified a mechanism to store genotype data in a more space-efficient gzipped form.
 
@@ -39,7 +39,6 @@
 
 ##### Changed columns
 
-- Introcuded a specific, limited character set for the `Poseidon_ID` and `Group_Name` column: The ASCII characters `A-Za-z0-9_-.`.
 - Adjusted the definition of the `Group_Name` column. The role of population labels as general analysis labels was emphasised, and the original recommendation for the geographic-temporal nomenclature proposed by Eisenmann et al. 2018 toned down.
 - Changed the definition of the `Relation_` columns (`Relation_To`, `Relation_Degree`, `Relation_Type`) to operate on the level of individuals, not samples (`Individual_ID`, instead of `Poseidon_ID`).
 - Made the `Collection_ID` column a list column that allows multiple entries separated by `;`.
