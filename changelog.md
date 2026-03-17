@@ -4,7 +4,7 @@
 
 #### General changes
 
-- Introcuded a non-strict recommendation to use a limited character set for `Poseidon_ID`s, `Group_Name`s and `Individual_ID`s (in the .janno file, the .ssf file, and the genotype data): The ASCII characters `A-Za-z0-9_-.`. This is to avoid problems with creating URLs based on these identifiers, and to ensure non-escaped usage in the forge language.
+- Introduced a non-strict recommendation to use a limited character set for `Poseidon_ID`s, `Group_Name`s and `Individual_ID`s (in the .janno file, the .ssf file, and the genotype data): The ASCII characters `A-Za-z0-9_-.`. This is to avoid problems with creating URLs based on these identifiers, and to ensure non-escaped usage in the forge language.
 - Allowed another genotype data format next to (binary) PLINK and EIGENSTRAT: the Variant Call Format (VCF).
 - Specified a mechanism to store genotype data in a more space-efficient gzipped form.
 
