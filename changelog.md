@@ -26,7 +26,7 @@
 
 ##### Replaced columns
 
-- Replaced `Source_Tissue` with `Source_Material` and `Source_Material_Note`.
+- Replaced `Source_Tissue` with `Source_Material`.
 
 ##### Added columns
 
