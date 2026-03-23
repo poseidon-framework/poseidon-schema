@@ -21,3 +21,4 @@ fastq_bytes	number of bytes in the FASTQ files, multiple entries separated by ;,
 fastq_md5	md5 hashes of the FASTQ files, multiple entries separated by ;, must be in the same order as the ftp and/or aspera links	String	TRUE	FALSE	FALSE				FALSE	FALSE
 read_count	number of reads in the sequencing entity	Integer	FALSE	FALSE	TRUE		0	Inf	FALSE	FALSE
 submitted_ftp	urls to the originally submitted files before they got converted to FASTQ in the INSDC databases, multiple entries separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
+submitted_md5	md5 hashes of the originally submitted files before they got converted to FASTQ in the INSDC databases, multiple entries separated by ;	String	TRUE	FALSE	FALSE				FALSE	FALSE
