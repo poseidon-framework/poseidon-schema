@@ -139,7 +139,7 @@ When the `packageVersion` is changed, then the `lastModified` date MUST be updat
 
 Packages SHOULD start at `packageVersion` `0.1.0`.
 
-### Data licensing and the license.md file
+### Data licensing and the `license.md` file
 
 Data licences are a common way to grant the public permission to use a dataset under copyright law.
 
